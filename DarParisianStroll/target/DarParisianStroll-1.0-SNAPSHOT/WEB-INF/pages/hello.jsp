@@ -8,7 +8,7 @@
     <!-- Ajout pour javascript ne fonctionne pas pour l"instant -->
     <script src="<c:url value="/resources/js/functions.js" />"></script>
     <style type="text/css">
-      html { height: 100% }
+      html { height: 80% }
       body { height: 100%; margin: 0px; padding: 0px }
       #map_canvas { height: 100% ; width:100%;}
     </style>

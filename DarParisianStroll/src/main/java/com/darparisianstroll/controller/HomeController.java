@@ -10,12 +10,12 @@ public class HomeController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView getHome() {
-	return new ModelAndView("hello");
+	return new ModelAndView("welcomePage");
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public ModelAndView postHome() {
-	return new ModelAndView("hello");
+	return new ModelAndView("welcomePage");
     }
 
 }

@@ -1,0 +1,63 @@
+html {height: 80%}
+body {
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	background: #fff url("../images/ParisRomance.jpg") left top;
+	background-size:65%;
+}
+banner {
+  width:100%;
+  height:30%;
+  display: block;
+  color: #000;
+  font: 3em "Trebuchet MS",Arial,sans-serif;
+  line-height: 2em ;
+  padding: 0 0;
+  text-align: left;
+}
+leftMenu {float: left; height: 100%; width: 20%;}
+section {margin-left: 20%}
+menuHeader {
+  height: 12.5%;
+  width: 100%;
+  display: block ;
+  background: #fff url("../images/buttonGreyDark.png") left top no-repeat ;
+  background-size: 100% 100%;
+  color: #f86519 ;
+  font: 1.5em "Trebuchet MS",Arial,sans-serif ;
+  line-height: 3em ;
+  padding: 0 0 ;
+  text-align: center ;
+}
+choice {
+  height: 12.5%;
+  width: 100%;
+  display: block ;
+  background: #fff url("../images/buttonGrey.png") left top no-repeat ;
+  background-size: 100% 100%;
+  color: #64060f ;
+  font: 1.1em "Trebuchet MS",Arial,sans-serif ;
+  line-height: 3em ;
+  padding: 0 0 ;
+  text-align: center ;
+}
+choice:hover, choice:focus, choice:active {
+  height: 12.5%;
+  display: block ;
+  background: #fff url("../images/buttonGreyDark.png") left top no-repeat ;
+  background-size: 100% 100%;
+  color: #c01208 ;
+  font: 1.1em "Trebuchet MS",Arial,sans-serif ;
+  line-height: 3em ;
+  padding: 0 0 ;
+  text-align: center ;
+}
+#main_window{
+  background-color: #f5f5f5;
+  border: 1px solid #e5e5e5;
+}
+#map_canvas{
+  height: 100%;
+  width: 80%;
+}

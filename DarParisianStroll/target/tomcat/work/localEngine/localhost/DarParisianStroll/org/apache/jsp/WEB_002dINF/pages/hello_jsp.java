@@ -67,7 +67,7 @@ public final class hello_jsp extends org.apache.jasper.runtime.HttpJspBase
         return;
       out.write("\"></script>\r\n");
       out.write("    <style type=\"text/css\">\r\n");
-      out.write("      html { height: 100% }\r\n");
+      out.write("      html { height: 80% }\r\n");
       out.write("      body { height: 100%; margin: 0px; padding: 0px }\r\n");
       out.write("      #map_canvas { height: 100% ; width:100%;}\r\n");
       out.write("    </style>\r\n");
