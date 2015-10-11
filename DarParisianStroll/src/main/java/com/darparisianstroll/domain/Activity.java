@@ -11,7 +11,7 @@ public class Activity {
 
     @Id
     @Column(name = "id_activity", nullable = false)
-    private int id_activities;
+    private int id_activity;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -23,10 +23,10 @@ public class Activity {
     private int zip_code;
 
     @Column(name = "lat", nullable = true)
-    private double lat;
+    private Double lat;
 
     @Column(name = "lon", nullable = true)
-    private double lon;
+    private Double lon;
 
     @Column(name = "description", nullable = true)
     private String description;
@@ -34,12 +34,12 @@ public class Activity {
     @Column(name = "category", nullable = false)
     private int category;
 
-    public int getId_activities() {
-	return id_activities;
+    public int getId_activity() {
+	return id_activity;
     }
 
-    public void setId_activities(int id_activities) {
-	this.id_activities = id_activities;
+    public void setId_activity(int id_activity) {
+	this.id_activity = id_activity;
     }
 
     public String getName() {
@@ -66,7 +66,7 @@ public class Activity {
 	this.zip_code = zip_code;
     }
 
-    public double getLat() {
+    public Double getLat() {
 	return lat;
     }
 
@@ -74,7 +74,7 @@ public class Activity {
 	this.lat = lat;
     }
 
-    public double getLon() {
+    public Double getLon() {
 	return lon;
     }
 
