@@ -32,7 +32,7 @@ function verifMdp(motDePasse_id){
 /**
  * Verifie que tous les champs du formulaire sont bien renseignes
  */
-function verifForm(email_id, motDePasse_id, leg_name, form_name){
+function verifForm(motDePasse_id, leg_name, form_name){
 	var formulaire = document.forms[form_name];
 	var text, bloc;
 	var a=false;
@@ -45,10 +45,10 @@ function verifForm(email_id, motDePasse_id, leg_name, form_name){
 	}
 	
 	
-	if(document.getElementById(email_id).style.color == "red"){
+	if(document.getElementById('email').style.color == "red"){
 		text = document.createTextNode("Merci de saisir une adresse mail valide");
 	}
-	else if(document.getElementById('motDePasse1').value.length < 6){
+	else if(document.getElementById(motDePasse_id).value.length < 6){
 		text = document.createTextNode("Le mot de passe doit contenir au moins 6 caract\350res");
 	}
 	else if(!a){

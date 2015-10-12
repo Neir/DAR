@@ -24,21 +24,21 @@
     <div style="display:table">
 
       <div id="divInscription">
-		<form name="Myform1" class="contact-us form-horizontal" action="confirmation_inscription" method="post" onsubmit="return verifForm('email1','motDePasse1','legInscription', 'Myform1');">
+		<form name="Myform1" class="contact-us form-horizontal" action="inscription" method="post" onsubmit="return verifForm('motDePasse1','legInscription', 'Myform1');">
 		  
 		  <fieldset>
 		    <legend id="legInscription"><span style="color:white;">Inscription</span></legend>
 		    
-		    <label for="identifiant"><span class="requis">*</span></label>
+		    <label for="identifiant1"><span class="requis">*</span></label>
 		    <div class="form-group input-group">
 	              <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-		      <input type="text" class="form-control" id="identifiant" name="identifiant" placeholder="identifiant">
+		      <input type="text" class="form-control" id="identifiant1" name="identifiant1" placeholder="identifiant1">
 		    </div>
 		    
 		    <label for="email"><span class="requis">*</span></label>
 		    <div class="form-group input-group">
 	              <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
-		      <input type="email" class="form-control"  id="email1" name="email1" placeholder="email" onkeyup="verifEmail('email1')">
+		      <input type="email" class="form-control"  id="email" name="email" placeholder="email" onkeyup="verifEmail('email')">
 		    </div>
 		    
 		    <label for="password"><span class="requis">*</span></label>
@@ -61,14 +61,14 @@
       </div>
       
       <div id="divConnexion">
-		<form name="Myform2" class="contact-us form-horizontal" action="connexion_inscription" method="post" onsubmit="return verifForm('email1','motDePasse1','legConnexion', 'Myform2');">
+		<form name="Myform2" class="contact-us form-horizontal" action="connexion" method="post" onsubmit="return verifForm('motDePasse2','legConnexion', 'Myform2');">
 		  <fieldset>
 		    <legend id='legConnexion'><span style="color:white;">Connexion</span></legend>
 		    
-		    <label for="email"><span class="requis">*</span></label>
+		    <label for="identifiant2"><span class="requis">*</span></label>
 		    <div class="form-group input-group">
-		      <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
-		      <input type="email" class="form-control"  id="email2" name="email2" placeholder="email" onkeyup="verifEmail('email2')">
+	              <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+		      <input type="text" class="form-control" id="identifiant2" name="identifiant2" placeholder="identifiant">
 		    </div>
 		    
 		    <label for="password"><span class="requis">*</span></label>
