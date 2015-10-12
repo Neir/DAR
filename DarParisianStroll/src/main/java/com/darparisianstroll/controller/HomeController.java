@@ -18,4 +18,14 @@ public class HomeController {
 	return new ModelAndView("hello");
     }
 
+    @RequestMapping(value = "hello", method = RequestMethod.GET)
+    public ModelAndView getHome2() {
+	return new ModelAndView("hello");
+    }
+
+    @RequestMapping(value = "hello", method = RequestMethod.POST)
+    public ModelAndView postHome2() {
+	return new ModelAndView("hello");
+    }
+
 }
