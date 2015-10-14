@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
+  <jsp:include page="import.jsp"></jsp:include>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <title>Maps Test</title>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&language=fr"></script>
@@ -13,6 +14,8 @@
     </style>
   </head>
   <body style="background-image:url(<c:url value="/resources/images/fond.jpg" />)" onload="initialize()">
+    <jsp:include page="header.jsp"></jsp:include>
+    
     <div style="background:color=blue;">
       <h1>Test MAPS API</h1>
       <form action="" method="get" name="direction" id="direction">
