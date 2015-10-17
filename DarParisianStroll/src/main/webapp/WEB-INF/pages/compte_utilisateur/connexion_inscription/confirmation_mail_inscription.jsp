@@ -17,7 +17,7 @@
 			{
 			    background-repeat:no-repeat;
 			    background-size:cover;
-				width: 500px;
+				width: 800px;
     			margin: auto;
     			margin-top : 20%;
 			    font-family: 'PT Sans', Helvetica, Arial, sans-serif;
@@ -27,7 +27,7 @@
 	</head>
 	<body style="background-image:url(<c:url value="/resources/images/paris.jpg" />)">
 		<div class="container" id="message">
-	      <h3><span style="color:white;">Votre inscription est prise en compte.</span></h3>
+	      <h3><span style="color:white;">Un mail vient de vous être envoyé, veuillez le consulter afin de valider votre inscription.</span></h3>
 	      <div id="lien">
 			<div><a href="hello">retourner à la page d'acceuil</a></div>
 	      </div>

@@ -3,20 +3,14 @@ package com.darparisianstroll.forms;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-
 public class NewMDPOForm {
 
-    public static Map<String, String> verifForm(HttpServletRequest req) {
+    public static Map<String, String> verifForm(String motDePasse,
+	    String confMDP) {
 	String CHAMP_MDP = "motDePasse";
-	String CHAMP_CONFMDP = "confMotDePasse";
 	String ERR_CHAMPS = "Tous les champs doivent être renseignés";
 	String ERR = "erreur";
 	Map<String, String> erreurs = new HashMap<String, String>();
-
-	// Recuperation des donnees du formulaire
-	String motDePasse = req.getParameter(CHAMP_MDP);
-	String confMDP = req.getParameter(CHAMP_CONFMDP);
 
 	try {
 	    validationMotsDePasse(motDePasse, confMDP);
@@ -37,8 +31,10 @@ public class NewMDPOForm {
 	    if (motDePasse.length() < 6) {
 		throw new Exception(
 			"Le mot de passe doit contenir au moins 6 caractères");
-	    }
-	    if (!motDePasse.equals(confMotDePasse)) {
+	    } else if (motDePasse.length() > 200) {
+		throw new Exception(
+			"Merci de saisir un mot de passe de taille maximale de 200 caractères");
+	    } else if (!motDePasse.equals(confMotDePasse)) {
 		throw new Exception(
 			"Les deux mots de passe fournis sont différents");
 	    }

@@ -7,7 +7,7 @@ public final class ConnexionForm {
 
     public static Map<String, String> verifForm(String username,
 	    String motDePasse) {
-	String CHAMP_USERNAME = "identifiant";
+	String CHAMP_USERNAME = "identifiant2";
 	String CHAMP_PASS = "motDePasse2";
 	String ERR_CHAMPS = "Tous les champs doivent être renseignés";
 	String ERR = "erreur";
@@ -40,6 +40,10 @@ public final class ConnexionForm {
     private static void validationUsername(String username) throws Exception {
 	if (username == null && username.equals(""))
 	    throw new Exception("Tous les champs doivent être renseignés");
+	else if (username.length() > 40) {
+	    throw new Exception(
+		    "Merci de saisir un identifiant de taille maximale de 40 caractères");
+	}
     }
 
     private static void validationMotsDePasse(String motDePasse)
@@ -48,6 +52,9 @@ public final class ConnexionForm {
 	    if (motDePasse.length() < 6) {
 		throw new Exception(
 			"Le mot de passe doit contenir au moins 6 caractères");
+	    } else if (motDePasse.length() > 200) {
+		throw new Exception(
+			"Merci de saisir un mot de passe de taille maximale de 200 caractères");
 	    }
 	} else {
 	    throw new Exception("Tous les champs doivent être renseignés");

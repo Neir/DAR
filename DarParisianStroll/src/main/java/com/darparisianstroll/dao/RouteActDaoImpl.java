@@ -12,48 +12,57 @@ import com.darparisianstroll.domain.Route;
 import com.darparisianstroll.domain.RouteAct;
 
 @Repository("routeActDao")
-public class RouteActDaoImpl extends AbstractDao<Integer, RouteAct> implements RouteActDao {
+public class RouteActDaoImpl extends AbstractDao<Integer, RouteAct> implements
+	RouteActDao {
 
-	@Override
-	public RouteAct findById(int ra_id) {
-		return getByKey(ra_id);
+    @Override
+    public RouteAct findById(int ra_id) {
+	return getByKey(ra_id);
+    }
+
+    @Override
+    public void saveRouteAct(RouteAct ra) {
+	persist(ra);
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Activity> findAllActivitiesByRoute(Route r) {
+	Criteria c = createEntityCriteria();
+	c.add(Restrictions.eq("route", r.getRoute_id()));
+
+	Disjunction d = Restrictions.disjunction();
+	for (RouteAct ra : (List<RouteAct>) c.list()) {
+	    d.add(Restrictions.eq("id_activity", ra.getActivity()));
 	}
+	Criteria c2 = getSession().createCriteria(Activity.class);
+	c2.add(d);
 
-	@Override
-	public void saveRouteAct(RouteAct ra) {
-		persist(ra);
+	return c2.list();
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Route> findAllRoutesByActivities(Activity a) {
+	Criteria c = createEntityCriteria();
+	c.add(Restrictions.eq("activity", a.getId_activity()));
+
+	Disjunction d = Restrictions.disjunction();
+	for (RouteAct ra : (List<RouteAct>) c.list()) {
+	    d.add(Restrictions.eq("route_id", ra.getRoute()));
 	}
+	Criteria c2 = getSession().createCriteria(Route.class);
+	c2.add(d);
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Activity> findAllActivitiesByRoute(Route r) {
-		Criteria c = createEntityCriteria();
-		c.add(Restrictions.eq("route", r.getRoute_id()));
+	return c2.list();
+    }
 
-		Disjunction d = Restrictions.disjunction();
-		for (RouteAct ra : (List<RouteAct>) c.list()) {
-			d.add(Restrictions.eq("id_activity", ra.getActivity()));
-		}
-		Criteria c2 = getSession().createCriteria(Activity.class);
-		c2.add(d);
-
-		return (List<Activity>) c2.list();
-	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Route> findAllRoutesByActivities(Activity a) {
-		Criteria c = createEntityCriteria();
-		c.add(Restrictions.eq("activity", a.getId_activity()));
-
-		Disjunction d = Restrictions.disjunction();
-		for (RouteAct ra : (List<RouteAct>) c.list()) {
-			d.add(Restrictions.eq("route_id", ra.getRoute()));
-		}
-		Criteria c2 = getSession().createCriteria(Route.class);
-		c2.add(d);
-
-		return (List<Route>) c2.list();
-	}
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<RouteAct> getByRoute(Route route) {
+	Criteria c = createEntityCriteria();
+	c.add(Restrictions.eq("route", route.getRoute_id()));
+	return c.list();
+    }
 
 }

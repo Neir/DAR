@@ -27,14 +27,19 @@ function verifForm(motDePasse_id, leg_name, form_name){
 	}
 	
 	
-	if(document.getElementById(motDePasse_id).value.length < 6){
+	if(!a && document.getElementById(motDePasse_id).value.length < 6){
 		text = document.createTextNode("Le mot de passe doit contenir au moins 6 caract\350res");
 	}
 	else if(!a){
-		if(verifMdp(motDePasse_id))
-			return true;
-		else
+		if(document.getElementById(motDePasse_id).value.length > 200){
+			text = document.createTextNode("Merci de saisir un mot de passe de taille maximale de 200 caract\350res");
+		}
+		else if(verifMdp(motDePasse_id)){
+			return true;		
+		}
+		else{
 			text = document.createTextNode("Les deux mots de passe fournis sont diff\351rents");
+		}
 	}
 	
 	//Afficher le message d'erreur

@@ -8,12 +8,14 @@ import com.darparisianstroll.domain.RouteAct;
 
 public interface RouteActService {
 
-	RouteAct findById(int ra_id);
-	
-	void saveRouteAct(RouteAct ra);
+    RouteAct findById(int ra_id);
 
-	List<Activity> findAllActivitiesByRoute(Route r);
+    void saveRouteAct(RouteAct ra);
 
-	List<Route> findAllRoutesByActivities(Activity a);
+    List<Activity> findAllActivitiesByRoute(Route r);
+
+    List<Route> findAllRoutesByActivities(Activity a);
+
+    List<RouteAct> getByUser(Route route);
 
 }

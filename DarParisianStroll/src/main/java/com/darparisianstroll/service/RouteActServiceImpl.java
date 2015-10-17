@@ -15,28 +15,33 @@ import com.darparisianstroll.domain.RouteAct;
 @Transactional
 public class RouteActServiceImpl implements RouteActService {
 
-	@Autowired
-	private RouteActDao dao;
-	
-	@Override
-	public RouteAct findById(int ra_id) {
-		return dao.findById(ra_id);
-	}
+    @Autowired
+    private RouteActDao dao;
 
-	@Override
-	public List<Activity> findAllActivitiesByRoute(Route r) {
-		return dao.findAllActivitiesByRoute(r);
-	}
+    @Override
+    public RouteAct findById(int ra_id) {
+	return dao.findById(ra_id);
+    }
 
-	@Override
-	public List<Route> findAllRoutesByActivities(Activity a) {
-		return dao.findAllRoutesByActivities(a);
-	}
+    @Override
+    public List<Activity> findAllActivitiesByRoute(Route r) {
+	return dao.findAllActivitiesByRoute(r);
+    }
 
-	@Override
-	public void saveRouteAct(RouteAct ra) {
-		dao.saveRouteAct(ra);
-		
-	}
+    @Override
+    public List<Route> findAllRoutesByActivities(Activity a) {
+	return dao.findAllRoutesByActivities(a);
+    }
+
+    @Override
+    public void saveRouteAct(RouteAct ra) {
+	dao.saveRouteAct(ra);
+
+    }
+
+    @Override
+    public List<RouteAct> getByUser(Route route) {
+	return dao.getByRoute(route);
+    }
 
 }

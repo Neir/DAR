@@ -28,9 +28,19 @@
 	</head>
 	<body style="background-image:url(<c:url value="/resources/images/paris.jpg" />)">
 		<div class="container">
-      		<form name="Myform" action="mdpo" method="post" onsubmit="return verifForm('motDePasse', 'leg', 'Myform');">
+      		<form name="Myform" action="new_mdpo" method="post" onsubmit="return verifForm('motDePasse', 'leg', 'Myform');">
 				<fieldset>
 		  			<legend id="leg"><span style="color:white;">Réinitialiser mot de passe</span></legend>
+		  			
+		  			<c:if test="${erreur == true}">
+		   				<div class="form-group input-group">
+				  			<span id="divErreur" style="color: red;" class="input-group-addon">
+				  		  		<c:forEach items="${erreursMap}" var="err">
+				  		  			<c:out value="${err.value}"/> </br>
+				  		  		</c:forEach>
+				  			</span>
+				  	  	</div>
+					</c:if>
 		  			
 		  			<label for="password"><span class="requis">*</span></label>
 				    <div class="form-group input-group">

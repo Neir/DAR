@@ -69,5 +69,9 @@
 
 	<bean id="persistenceExceptionTranslationPostProcessor"
 		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+		
+	<!-- Production implementation of the JavaMailSender interface, supporting
+		 both JavaMail MimeMessages and Spring SimpleMailMessages -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl"/>
 	
 </beans>

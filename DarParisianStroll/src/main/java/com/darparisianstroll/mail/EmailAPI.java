@@ -5,7 +5,7 @@ import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Service;
 
-@Service("Email")
+@Service("emailService")
 public class EmailAPI {
 
     @Autowired
@@ -13,8 +13,8 @@ public class EmailAPI {
 
     // for sending simple mails
 
-    public void crunchifyReadyToSendEmail(String toAddress, String fromAddress,
-	    String subject, String msgBody) {
+    public void SendEmail(String toAddress, String fromAddress, String subject,
+	    String msgBody) {
 
 	SimpleMailMessage cMsg = new SimpleMailMessage();
 	cMsg.setFrom(fromAddress);

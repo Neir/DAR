@@ -31,8 +31,12 @@ function verifForm(email_id, leg_name, form_name){
 		}
 	}
 	
-	if(document.getElementById(email_id).style.color == "red"){
+	if(!a && document.getElementById(email_id).style.color == "red"){
 		text = document.createTextNode("Merci de saisir une adresse mail valide");
+	}
+	else if(!a && document.getElementById('email').value.length > 40) {
+		text = document
+				.createTextNode("Merci de saisir une adresse mail de taille maximale de 40 caract\350res");
 	}
 	
 	//Afficher le message d'erreur

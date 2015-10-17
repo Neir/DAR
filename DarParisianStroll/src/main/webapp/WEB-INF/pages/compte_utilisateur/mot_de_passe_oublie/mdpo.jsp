@@ -32,6 +32,16 @@
 				<fieldset>
 		  			<legend id="leg"><span style="color:white;">Réinitialiser mot de passe</span></legend>
 		  			
+		  			<c:if test="${erreur == true}">
+		   				<div class="form-group input-group">
+				  			<span id="divErreur" style="color: red;" class="input-group-addon">
+				  		  		<c:forEach items="${erreursMap}" var="err">
+				  		  			<c:out value="${err.value}"/> </br>
+				  		  		</c:forEach>
+				  			</span>
+				  	  	</div>
+					</c:if>
+		  			
 		  			<label for="email"><span class="requis">*</span></label>
 		    		<div class="form-group input-group">
 	              		<span class="input-group-addon">

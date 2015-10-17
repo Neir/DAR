@@ -8,27 +8,33 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.darparisianstroll.dao.RouteDao;
 import com.darparisianstroll.domain.Route;
+import com.darparisianstroll.domain.User;
 
 @Service("routeService")
 @Transactional
 public class RouteServiceImpl implements RouteService {
 
-	@Autowired
-	private RouteDao dao;
+    @Autowired
+    private RouteDao dao;
 
-	@Override
-	public Route findById(int route_id) {
-		return dao.findById(route_id);
-	}
+    @Override
+    public Route findById(int route_id) {
+	return dao.findById(route_id);
+    }
 
-	@Override
-	public void saveRoute(Route route) {
-		dao.saveRoute(route);
-	}
+    @Override
+    public void saveRoute(Route route) {
+	dao.saveRoute(route);
+    }
 
-	@Override
-	public List<Route> findAllRoutes() {
-		return dao.findAllRoutes();
-	}
+    @Override
+    public List<Route> findAllRoutes() {
+	return dao.findAllRoutes();
+    }
+
+    @Override
+    public List<Route> getByUser(User user) {
+	return dao.getByUser(user);
+    }
 
 }

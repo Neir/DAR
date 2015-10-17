@@ -32,7 +32,7 @@ function verifMdp(motDePasse_id){
 /**
  * Verifie que tous les champs du formulaire sont bien renseignes
  */
-function verifForm(motDePasse_id, leg_name, form_name){
+function verifForm1(motDePasse_id, leg_name, form_name){
 	var formulaire = document.forms[form_name];
 	var text, bloc;
 	var a=false;
@@ -44,18 +44,76 @@ function verifForm(motDePasse_id, leg_name, form_name){
 		}
 	}
 	
-	
-	if(document.getElementById('email').style.color == "red"){
+	if(!a && document.getElementById('email').style.color == "red"){
 		text = document.createTextNode("Merci de saisir une adresse mail valide");
 	}
-	else if(document.getElementById(motDePasse_id).value.length < 6){
+	else if (!a && document.getElementById('email').value.length > 40) {
+		text = document
+				.createTextNode("Merci de saisir une adresse mail de taille maximale de 40 caract\350res");
+	}
+	else if (!a && document.getElementById('identifiant1').value.length > 40) {
+		text = document
+				.createTextNode("Merci de saisir un identifiant de taille maximale de 40 caract\350res");
+	}
+	else if(!a && document.getElementById(motDePasse_id).value.length < 6){
 		text = document.createTextNode("Le mot de passe doit contenir au moins 6 caract\350res");
 	}
 	else if(!a){
-		if(verifMdp(motDePasse_id))
+		if(document.getElementById(motDePasse_id).value.length > 200){
+			alert(motDePasse_id);
+			alert(document.getElementById(motDePasse_id).value.length);
+			text = document.createTextNode("Merci de saisir un mot de passe de taille maximale de 200 caract\350res");
+		}
+		else if(verifMdp(motDePasse_id)){
 			return true;
-		else
+		}
+		else{
 			text = document.createTextNode("Les deux mots de passe fournis sont diff\351rents");
+		}
+	}
+	
+	//Afficher le message d'erreur
+	var leg = document.getElementById(leg_name);
+	var sp = document.createElement('span');
+	
+	if(document.getElementById('divErreur')){
+		//pour supprimer un eventuel avertissement precedement affiche
+		bloc = document.getElementById('divErreur');
+		bloc.removeChild(bloc.firstChild);
+	}
+	else{
+		bloc = document.createElement('div');
+		bloc.setAttribute("id", "divErreur");
+	}
+	
+	sp.appendChild(text);
+	sp.style.color = "red";
+	bloc.appendChild(sp);
+	leg.parentNode.insertBefore(bloc, leg.nextSibling);
+	return false;
+}
+
+function verifForm2(motDePasse_id, leg_name, form_name){
+	var formulaire = document.forms[form_name];
+	var text, bloc;
+	var a=false;
+	
+	for(var i=1; i<(formulaire.length-1); i++){
+		if(formulaire[i].value=="" || formulaire[i].value==null){
+			text = document.createTextNode("Tous les champs doivent \352tre renseign\351s");
+			a=true;
+		}
+	}
+	
+	if (!a && document.getElementById('identifiant2').value.length > 40) {
+		text = document
+				.createTextNode("Merci de saisir un identifiant de taille maximale de 40 caract\350res");
+	}
+	else if(!a && document.getElementById(motDePasse_id).value.length < 6){
+		text = document.createTextNode("Le mot de passe doit contenir au moins 6 caract\350res");
+	}
+	else if(!a && document.getElementById(motDePasse_id).value.length > 200){
+		text = document.createTextNode("Merci de saisir un mot de passe de taille maximale de 200 caract\350res");
 	}
 	
 	//Afficher le message d'erreur
