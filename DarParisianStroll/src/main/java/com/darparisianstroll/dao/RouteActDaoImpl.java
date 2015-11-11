@@ -25,6 +25,16 @@ public class RouteActDaoImpl extends AbstractDao<Integer, RouteAct> implements
 	persist(ra);
     }
 
+    @Override
+    public void updateRouteAct(RouteAct ra) {
+	update(ra);
+    }
+
+    @Override
+    public void deleteRouteAct(RouteAct ra) {
+	delete(ra);
+    }
+
     @SuppressWarnings("unchecked")
     @Override
     public List<Activity> findAllActivitiesByRoute(Route r) {

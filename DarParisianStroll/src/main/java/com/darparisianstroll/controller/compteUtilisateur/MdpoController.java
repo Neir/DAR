@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.servlet.ServletContext;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,9 +34,12 @@ public class MdpoController {
 
     @RequestMapping(value = "mdpo", method = RequestMethod.POST)
     public ModelAndView postMdpo(
-	    @RequestParam(value = CHAMP_EMAIL) final String email) {
+	    @RequestParam(value = CHAMP_EMAIL) final String Email) {
 	Map<String, String> erreursMap = new HashMap<String, String>();
 	boolean erreur = true;
+
+	// Echapper code HTML s'il existe
+	final String email = StringEscapeUtils.escapeHtml4(Email);
 
 	// Verification des saisies
 	erreursMap = MDPOForm.verifForm(email);

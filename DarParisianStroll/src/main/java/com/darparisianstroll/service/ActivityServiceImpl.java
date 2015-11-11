@@ -14,32 +14,37 @@ import com.darparisianstroll.domain.Category;
 @Transactional
 public class ActivityServiceImpl implements ActivityService {
 
-	@Autowired
-	private ActivityDao dao;
+    @Autowired
+    private ActivityDao dao;
 
-	@Override
-	public Activity findById(int activity_id) {
-		return dao.findById(activity_id);
-	}
+    @Override
+    public Activity findById(int activity_id) {
+	return dao.findById(activity_id);
+    }
 
-	@Override
-	public List<Activity> findAllActivities() {
-		return dao.findAllActivities();
-	}
+    @Override
+    public List<Activity> findAllActivities() {
+	return dao.findAllActivities();
+    }
 
-	@Override
-	public List<Activity> findActivitiesByCategoryId(int category_id) {
-		return dao.findActivitiesByCategoryId(category_id);
-	}
+    @Override
+    public List<Activity> findActivitiesByCategoryId(int category_id) {
+	return dao.findActivitiesByCategoryId(category_id);
+    }
 
-	@Override
-	public List<Activity> findAllVisibleActivities() {
-		return dao.findAllVisibleActivities();
-	}
+    @Override
+    public List<Activity> findAllVisibleActivities() {
+	return dao.findAllVisibleActivities();
+    }
 
-	@Override
-	public List<Activity> findActivitiesByCategory(Category cat) {
-		return dao.findActivitiesByCategory(cat);
-	}
+    @Override
+    public List<Activity> findActivitiesByCategory(Category cat) {
+	return dao.findActivitiesByCategory(cat);
+    }
+
+    @Override
+    public Activity findByName(String name) {
+	return dao.getByName(name).get(0);
+    }
 
 }

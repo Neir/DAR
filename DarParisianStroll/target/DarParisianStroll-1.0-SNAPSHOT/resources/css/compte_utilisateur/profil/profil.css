@@ -1,0 +1,21 @@
+#identifiant, #email
+{
+	width: 250px;
+}
+
+#lien
+{
+    margin-top: 5%; 
+}
+
+#modifier, #valider
+{
+    margin-top: 10px;
+    margin-left: 40%;
+}
+
+form
+{
+    display: table;
+    margin-top: 10px;
+}

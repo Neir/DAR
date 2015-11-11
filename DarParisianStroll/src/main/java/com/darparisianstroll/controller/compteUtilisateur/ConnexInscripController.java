@@ -1,12 +1,15 @@
 package com.darparisianstroll.controller.compteUtilisateur;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,15 +52,36 @@ public class ConnexInscripController {
 		"compte_utilisateur/connexion_inscription/connexion_inscription");
     }
 
+    @RequestMapping(value = "deconnexion", method = RequestMethod.GET)
+    public ModelAndView getDeconnexInscr(HttpServletRequest request,
+	    HttpServletResponse response) {
+
+	String user_id = Util.getCookieValue(request, "user");
+
+	if (user_id != null) {
+	    System.out.println("supprimer cookie");
+	    Util.deleteCookie(request, response, "user");
+	}
+
+	return new ModelAndView(
+		"compte_utilisateur/connexion_inscription/connexion_inscription");
+    }
+
     @RequestMapping(value = "inscription", method = RequestMethod.POST)
     public ModelAndView postInscrip(
-	    @RequestParam(value = CHAMP_USERNAME_INSCR) final String username,
-	    @RequestParam(value = CHAMP_EMAIL) final String email,
-	    @RequestParam(value = CHAMP_MDP_INSCR) final String motDePasse,
-	    @RequestParam(value = CHAMP_CONFIRMATION_MDP) final String confMDP) {
+	    @RequestParam(value = CHAMP_USERNAME_INSCR) final String Username,
+	    @RequestParam(value = CHAMP_EMAIL) final String Email,
+	    @RequestParam(value = CHAMP_MDP_INSCR) final String MotDePasse,
+	    @RequestParam(value = CHAMP_CONFIRMATION_MDP) final String ConfMDP) {
 	Map<String, String> erreursMap = new HashMap<String, String>();
 	boolean erreur = true;
 	User user = null;
+
+	// Echapper code HTML s'il existe
+	final String username = StringEscapeUtils.escapeHtml4(Username);
+	final String email = StringEscapeUtils.escapeHtml4(Email);
+	final String motDePasse = StringEscapeUtils.escapeHtml4(MotDePasse);
+	final String confMDP = StringEscapeUtils.escapeHtml4(ConfMDP);
 
 	// Verification des saisies
 	erreursMap = InscriptionForm.verifForm(username, email, motDePasse,
@@ -123,11 +147,15 @@ public class ConnexInscripController {
 
     @RequestMapping(value = "connexion", method = RequestMethod.POST)
     public ModelAndView postConnex(HttpServletResponse response,
-	    @RequestParam(value = CHAMP_USERNAME_CONNEX) final String username,
-	    @RequestParam(value = CHAMP_MDP_CONNEX) final String motDePasse) {
+	    @RequestParam(value = CHAMP_USERNAME_CONNEX) final String Username,
+	    @RequestParam(value = CHAMP_MDP_CONNEX) final String MotDePasse) {
 	Map<String, String> erreursMap = new HashMap<String, String>();
 	boolean erreur = true;
 	User user = null;
+
+	// Echapper code HTML s'il existe
+	final String username = StringEscapeUtils.escapeHtml4(Username);
+	final String motDePasse = StringEscapeUtils.escapeHtml4(MotDePasse);
 
 	// Verification des saisies
 	erreursMap = ConnexionForm.verifForm(username, motDePasse);
@@ -162,11 +190,35 @@ public class ConnexInscripController {
 	return model;
     }
 
+    @RequestMapping(value = "verif_inscription", method = RequestMethod.GET)
+    public ModelAndView getVerifInscr(HttpServletResponse response,
+	    @RequestParam(value = CHAMP_EMAIL) final String Email) {
+
+	final String email = StringEscapeUtils.escapeHtml4(Email);
+
+	try {
+	    // verifier si le mail fourni existe dans la base
+	    if (userService.isRegistred(email)) {
+		response.getWriter().write("true");
+	    } else {
+		response.getWriter().write("false");
+	    }
+
+	} catch (IOException e) {
+	    e.printStackTrace();
+	}
+
+	return null;
+    }
+
     @RequestMapping(value = "validation_inscription", method = RequestMethod.GET)
     public ModelAndView getValidInscrip(
-	    @RequestParam(value = "a") final String codeUser) {
+	    @RequestParam(value = "a") final String CodeUser) {
 	User user = null;
 	boolean erreur = false;
+
+	// Echapper code HTML s'il existe
+	final String codeUser = StringEscapeUtils.escapeHtml4(CodeUser);
 
 	if (codeUser != null) {
 	    // recuperation de l'utilisateur concerne

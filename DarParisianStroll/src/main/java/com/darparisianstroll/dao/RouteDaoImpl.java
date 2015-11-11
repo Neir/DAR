@@ -23,6 +23,16 @@ public class RouteDaoImpl extends AbstractDao<Integer, Route> implements
 	persist(route);
     }
 
+    @Override
+    public void updateRoute(Route route) {
+	update(route);
+    }
+
+    @Override
+    public void deleteRoute(Route route) {
+	delete(route);
+    }
+
     @SuppressWarnings("unchecked")
     @Override
     public List<Route> findAllRoutes() {

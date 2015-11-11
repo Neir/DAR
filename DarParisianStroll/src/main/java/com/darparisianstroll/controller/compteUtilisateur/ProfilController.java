@@ -10,6 +10,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
@@ -71,9 +72,6 @@ public class ProfilController {
 		    "compte_utilisateur/connexion_inscription/connexion_inscription");
 	}
 
-	// recuperation de l'utilsateur concerne
-	// User user = userService.findByEmail(email);
-
 	if (user == null) {
 	    erreur = true;
 	    erreursMap
@@ -131,11 +129,15 @@ public class ProfilController {
     @RequestMapping(value = "profil", method = RequestMethod.POST)
     public ModelAndView postProfil(HttpServletRequest request,
 	    HttpServletResponse response,
-	    @RequestParam(value = CHAMP_USERNAME) final String username,
-	    @RequestParam(value = CHAMP_EMAIL) final String email,
+	    @RequestParam(value = CHAMP_USERNAME) final String Username,
+	    @RequestParam(value = CHAMP_EMAIL) final String Email,
 	    @CookieValue("email") String emailCookie) {
 	Map<String, String> erreursMap = new HashMap<String, String>();
 	boolean erreur = true;
+
+	// Echapper code HTML s'il existe
+	final String username = StringEscapeUtils.escapeHtml4(Username);
+	final String email = StringEscapeUtils.escapeHtml4(Email);
 
 	// verification du formulaire
 	erreursMap = ProfilForm.verifForm(username, email);

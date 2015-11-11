@@ -28,6 +28,16 @@ public class RouteServiceImpl implements RouteService {
     }
 
     @Override
+    public void updateRoute(Route route) {
+	dao.updateRoute(route);
+    }
+
+    @Override
+    public void deleteRoute(Route route) {
+	dao.deleteRoute(route);
+    }
+
+    @Override
     public List<Route> findAllRoutes() {
 	return dao.findAllRoutes();
     }

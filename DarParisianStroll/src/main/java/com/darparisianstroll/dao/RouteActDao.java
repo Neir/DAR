@@ -18,4 +18,8 @@ public interface RouteActDao {
 
     List<RouteAct> getByRoute(Route route);
 
+    void updateRouteAct(RouteAct ra);
+
+    void deleteRouteAct(RouteAct ra);
+
 }

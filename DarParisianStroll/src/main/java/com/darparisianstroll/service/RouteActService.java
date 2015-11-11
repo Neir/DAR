@@ -16,6 +16,10 @@ public interface RouteActService {
 
     List<Route> findAllRoutesByActivities(Activity a);
 
-    List<RouteAct> getByUser(Route route);
+    List<RouteAct> getByRoute(Route route);
+
+    void updateRouteAct(RouteAct ra);
+
+    void deleteRouteAct(RouteAct ra);
 
 }

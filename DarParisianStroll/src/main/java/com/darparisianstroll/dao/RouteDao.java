@@ -15,4 +15,8 @@ public interface RouteDao {
 
     List<Route> getByUser(User user);
 
+    void updateRoute(Route route);
+
+    void deleteRoute(Route route);
+
 }

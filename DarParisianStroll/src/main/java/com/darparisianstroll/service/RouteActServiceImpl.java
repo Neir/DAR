@@ -36,11 +36,20 @@ public class RouteActServiceImpl implements RouteActService {
     @Override
     public void saveRouteAct(RouteAct ra) {
 	dao.saveRouteAct(ra);
-
     }
 
     @Override
-    public List<RouteAct> getByUser(Route route) {
+    public void updateRouteAct(RouteAct ra) {
+	dao.updateRouteAct(ra);
+    }
+
+    @Override
+    public void deleteRouteAct(RouteAct ra) {
+	dao.deleteRouteAct(ra);
+    }
+
+    @Override
+    public List<RouteAct> getByRoute(Route route) {
 	return dao.getByRoute(route);
     }
 

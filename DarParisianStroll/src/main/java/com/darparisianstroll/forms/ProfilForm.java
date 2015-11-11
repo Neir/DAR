@@ -37,7 +37,7 @@ public class ProfilForm {
 
     @SuppressWarnings("null")
     private static void validationUsername(String username) throws Exception {
-	if (username == null && username.equals(""))
+	if (username == null || username.equals(""))
 	    throw new Exception("Tous les champs doivent être renseignés");
 	else if (username.length() > 40) {
 	    throw new Exception(

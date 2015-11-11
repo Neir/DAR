@@ -2,6 +2,7 @@ package com.darparisianstroll.util;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 public class Util {
 
@@ -42,5 +43,20 @@ public class Util {
 	    }
 	}
 	return null;
+    }
+
+    public static void deleteCookie(HttpServletRequest request,
+	    HttpServletResponse response, String nom) {
+	Cookie[] cookies = request.getCookies();
+
+	if (cookies != null) {
+	    for (Cookie cookie : cookies) {
+		if (cookie != null && nom.equals(cookie.getName())) {
+		    cookie.setValue(null);
+		    cookie.setMaxAge(0);
+		    response.addCookie(cookie);
+		}
+	    }
+	}
     }
 }
