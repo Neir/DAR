@@ -59,17 +59,17 @@ function hideMsg() {
 	element.style.visibility = "hidden";
 }
 
-function func() {
-	event.preventDefault(x);
+function func(x) {
+	event.preventDefault();
 	console.log(x);
 	var id = x;
-	var select1 = $('#select1').val();
-	var textarea = $('#textarea').val();
+	var e = document.getElementById("select1");
+	var select1 = e.options[e.selectedIndex].value;
+	var textarea = document.getElementById("textarea").value;
 	var xhr = new XMLHttpRequest();
-	var url = 'http://localhost:8080/DarParisianStroll/activite?id='
-			+ id + '&select1=' + select1 + '&textarea=' + textarea;
+	var url = 'activite_form';
 
-	xhr.open('post', url, false);
+	xhr.open("GET", url, false);
 
 	xhr.onreadystatechange = function() {
 		// Ready state 4 means the request is done
@@ -84,6 +84,6 @@ function func() {
 		}
 	}
 
-	xhr.send(null);
-	return true;;
+	xhr.send("?id=" + id + "&select1=" + select1 + "&textarea=" + textarea);
+	return true;
 }
