@@ -6,12 +6,13 @@
 		<!-- Bootstrap -->
     	<link rel="stylesheet" href="<c:url value="/resources/bootstrap/css/bootstrap.css"/>" media="screen"/>
 		<link rel="stylesheet" href="<c:url value="/resources/css/activites/activite.css"/>" media="screen"/>
-		<script src="<c:url value="/resources/js/activites/activite.js" />"></script>
+		<script src="<c:url value="/resources/js/activites/activite.js"/>"></script>
+
 		<!-- Faire fonctionner les balises structurantes de HTML5 -->
     	<!--[if lt IE 9]>
       		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     	<![endif]-->
-		<title>Insert title here</title>
+		<title>Activité</title>
 		
 		<style type="text/css">
       		body

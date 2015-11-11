@@ -1,3 +1,12 @@
+$(document).ready(function() {
+	$("#act1").select2({})
+	$("#act2").select2({})
+	$("#act3").select2({})
+	$("#act4").select2({})
+	$("#act5").select2({})
+	$("#act6").select2({})
+});
+
 /**
  * Verifie que tous les champs du formulaire sont bien renseignes
  */
@@ -16,8 +25,7 @@ function verifForm(leg_name, form_name) {
 					.createTextNode("Tous les champs doivent \352tre renseign\351s");
 	}
 	else if(document.getElementById('name').length > 40 
-			|| document.getElementById('description').length > 40
-			|| document.getElementById('act1').length > 40 ){
+			|| document.getElementById('description').length > 40){
 		text = document.createTextNode("Tous les champs mis \341 part le champs description, supportent une taille maximale de 40 caract\350res");
 	}
 

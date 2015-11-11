@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.darparisianstroll.domain.Activity;
 import com.darparisianstroll.domain.Route;
 import com.darparisianstroll.domain.RouteAct;
 import com.darparisianstroll.domain.User;
@@ -77,16 +78,27 @@ public class ItineraireController {
     @RequestMapping(value = "create_itineraire", method = RequestMethod.GET)
     public ModelAndView getCreateItineraire(HttpServletRequest request) {
 	String user_id = Util.getCookieValue(request, "user");
+	ModelAndView model = new ModelAndView("routes/create_itineraire");
 
 	if (user_id != null) {
 	    user = userService.findById(Integer.parseInt(user_id));
+
+	    ArrayList<String> listeActivites = new ArrayList<String>();
+
+	    List<Activity> actList = activityService.findAllActivities();
+
+	    for (int i = 0; i < actList.size(); i++) {
+		listeActivites.add(actList.get(i).getName());
+	    }
+
+	    if (!listeActivites.isEmpty())
+		model.addObject("listeActivites", listeActivites);
 	} else {
-	    // redirection vers la page de connexion
-	    return new ModelAndView(
+	    model = new ModelAndView(
 		    "compte_utilisateur/connexion_inscription/connexion_inscription");
 	}
 
-	return new ModelAndView("routes/create_itineraire");
+	return model;
     }
 
     @RequestMapping(value = "create_itineraire", method = RequestMethod.POST)

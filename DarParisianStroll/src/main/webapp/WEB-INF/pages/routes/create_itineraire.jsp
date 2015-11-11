@@ -5,7 +5,10 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 		<!-- Bootstrap -->
     	<link rel="stylesheet" href="<c:url value="/resources/bootstrap/css/bootstrap.css"/>" media="screen"/>
+    	<link rel="stylesheet" href="<c:url value="/resources/select2-3.5.4/select2.css"/>" media="screen"/>
 		<link rel="stylesheet" href="<c:url value="/resources/css/routes/create_itineraire.css"/>" media="screen"/>
+		<script src="<c:url value="/resources/js/jquery-1.11.3.js" />"></script>
+		<script src="<c:url value="/resources/select2-3.5.4/select2.min.js" />"></script>
 		<script src="<c:url value="/resources/js/routes/create_itineraire.js" />"></script>
 		<!-- Faire fonctionner les balises structurantes de HTML5 -->
     	<!--[if lt IE 9]>
@@ -61,7 +64,12 @@
 		    			<span class="input-group-addon">
 	              			<span class="glyphicon glyphicon-asterisk"></span>
 	              		</span>
-		      			<input type="text" class="form-control"  id="act1" name="act1" placeholder="Nom activité">
+						<select id="act1" name="act1" class="form-control select2-allow-clear select2-offscreen" tabindex="-1">
+							<option> </option>
+							<c:forEach items="${listeActivites}" var="act">
+				  		 		<option value="${act}">${act}</option>
+				  			</c:forEach>
+    					</select>
 		    		</div>
 		    		<div class="form-group input-group">
 		    			<span class="input-group-addon">
@@ -82,7 +90,12 @@
 		    			<span class="input-group-addon">
 	              			<span class="glyphicon glyphicon-asterisk"></span>
 	              		</span>
-		      			<input type="text" class="form-control"  id="act2" name="act2" placeholder="Nom activité">
+						<select id="act2" name="act2" class="form-control select2-allow-clear select2-offscreen" tabindex="-1">
+							<option> </option>
+							<c:forEach items="${listeActivites}" var="act">
+				  		 		<option value="${act}">${act}</option>
+				  			</c:forEach>
+    					</select>
 		    		</div>
 		    		<div class="form-group input-group">
 		    			<span class="input-group-addon">
@@ -103,7 +116,12 @@
 		    			<span class="input-group-addon">
 	              			<span class="glyphicon glyphicon-asterisk"></span>
 	              		</span>
-		      			<input type="text" class="form-control"  id="act3" name="act3" placeholder="Nom activité">
+						<select id="act3" name="act3" class="form-control select2-allow-clear select2-offscreen" tabindex="-1">
+							<option> </option>
+							<c:forEach items="${listeActivites}" var="act">
+				  		 		<option value="${act}">${act}</option>
+				  			</c:forEach>
+    					</select>
 		    		</div>
 		    		<div class="form-group input-group">
 		    			<span class="input-group-addon">
@@ -124,7 +142,12 @@
 		    			<span class="input-group-addon">
 	              			<span class="glyphicon glyphicon-asterisk"></span>
 	              		</span>
-		      			<input type="text" class="form-control"  id="act4" name="act4" placeholder="Nom activité">
+						<select id="act4" name="act4" class="form-control select2-allow-clear select2-offscreen" tabindex="-1">
+							<option> </option>
+							<c:forEach items="${listeActivites}" var="act">
+				  		 		<option value="${act}">${act}</option>
+				  			</c:forEach>
+    					</select>
 		    		</div>
 		    		<div class="form-group input-group">
 		    			<span class="input-group-addon">
@@ -145,7 +168,12 @@
 		    			<span class="input-group-addon">
 	              			<span class="glyphicon glyphicon-asterisk"></span>
 	              		</span>
-		      			<input type="text" class="form-control"  id="act5" name="act5" placeholder="Nom activité">
+						<select id="act5" name="act5" class="form-control select2-allow-clear select2-offscreen" tabindex="-1">
+							<option> </option>
+							<c:forEach items="${listeActivites}" var="act">
+				  		 		<option value="${act}">${act}</option>
+				  			</c:forEach>
+    					</select>
 		    		</div>
 		    		<div class="form-group input-group">
 		    			<span class="input-group-addon">
@@ -166,7 +194,12 @@
 		    			<span class="input-group-addon">
 	              			<span class="glyphicon glyphicon-asterisk"></span>
 	              		</span>
-		      			<input type="text" class="form-control"  id="act6" name="act6" placeholder="Nom activité">
+						<select id="act6" name="act6" class="form-control select2-allow-clear select2-offscreen" tabindex="-1">
+							<option> </option>
+							<c:forEach items="${listeActivites}" var="act">
+				  		 		<option value="${act}">${act}</option>
+				  			</c:forEach>
+    					</select>
 		    		</div>
 		    		<div class="form-group input-group">
 		    			<span class="input-group-addon">
