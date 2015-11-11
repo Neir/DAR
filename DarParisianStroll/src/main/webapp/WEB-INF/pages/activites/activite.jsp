@@ -143,28 +143,36 @@
 											</p>
 										</c:otherwise>
 									</c:choose>
-									<c:if test="${not empty user}">
-										<a href="#" id="addComment" onClick="showMsg();">Ajouter
-											un commentaire</a>
-
-										<form>
-											<fieldset class="form-group">
-												<label for="exampleSelect1">Note</label> <select
-													class="form-control" id="exampleSelect1">
-													<option>1</option>
-													<option>2</option>
-													<option>3</option>
-													<option>4</option>
-													<option>5</option>
-												</select>
-											</fieldset>
-											<fieldset class="form-group">
-												<label for="exampleTextarea"></label>
-												<textarea class="form-control" id="exampleTextarea" rows="3">Entrez votre commentaire ...</textarea>
-											</fieldset>
-											<button type="submit" class="btn btn-primary">Envoyer</button>
-										</form>
-									</c:if>
+									<c:choose>
+										<c:when test="${empty user}">
+											<a id="addComment" onClick="showMsg();">Ajouter un
+												commentaire</a>
+											<div id="theForm" style="visibility: hidden;">
+												<form>
+													<fieldset class="form-group">
+														<label for="exampleSelect1">Note</label> <select
+															class="form-control" id="select1">
+															<option>1</option>
+															<option>2</option>
+															<option>3</option>
+															<option>4</option>
+															<option>5</option>
+														</select>
+													</fieldset>
+													<fieldset class="form-group">
+														<label for="exampleTextarea"></label>
+														<textarea class="form-control" id="textarea" rows="3">Entrez votre commentaire ...</textarea>
+													</fieldset>
+													<button type="submit" formmethod="post"
+														class="btn btn-primary">Envoyer</button>
+												</form>
+											</div>
+										</c:when>
+										<c:otherwise>Pour ajouter un
+												commentaire,
+											<a href="./connexion_inscription"> connectez vous</a>
+										</c:otherwise>
+									</c:choose>
 								</div>
 
 							</fieldset>
@@ -184,11 +192,6 @@
 				</form>
 			</div>
 		</div>
-
-
-
 	</div>
-
-
 </body>
 </html>

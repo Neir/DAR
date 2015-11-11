@@ -6,6 +6,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringEscapeUtils;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,10 +51,15 @@ public class ActiviteController {
 	@Autowired
 	UserService userService;
 
+	private final static String CHAMP_NOTE = "select1";
+	private final static String CHAMP_TEXT = "textarea";
+	private Activity a;
+
 	@RequestMapping(value = "activite", method = RequestMethod.GET)
 	public ModelAndView getActivite(HttpServletRequest request, HttpServletResponse response,
 			@RequestParam("id") Integer id) {
 		Activity act = actService.findById(id);
+		a = act;
 		Category cat = categoryService.findById(act.getCategory());
 		List<ActivityReview> actReviews = actReviewService.findActivityReviewsFromActivity(act);
 		List<Route> routeList = routeActService.findAllRoutesByActivities(act);
@@ -77,7 +84,21 @@ public class ActiviteController {
 	}
 
 	@RequestMapping(value = "activite", method = RequestMethod.POST)
-	public ModelAndView postActivite() {
+	public ModelAndView postActivite(HttpServletRequest request, @RequestParam(value = CHAMP_NOTE) final Integer note,
+			@RequestParam(value = CHAMP_TEXT) final String text) {
+
+		final String ftext = StringEscapeUtils.escapeHtml4(text);
+
+		String user_id = Util.getCookieValue(request, "user");
+
+		ActivityReview aw = new ActivityReview();
+		aw.setActivity(a.getId_activity());
+		aw.setDescription(ftext);
+		aw.setNote(note);
+		aw.setUser(Integer.parseInt(user_id));
+		aw.setUser(1);
+		actReviewService.saveReview(aw);
+
 		return new ModelAndView("activites/activite");
 	}
 

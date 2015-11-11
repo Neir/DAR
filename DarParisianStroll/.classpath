@@ -140,5 +140,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="var" path="M2_REPO/commons-lang3-3.4/commons-lang3-3.4.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

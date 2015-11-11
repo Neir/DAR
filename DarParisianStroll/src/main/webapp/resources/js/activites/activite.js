@@ -2,7 +2,7 @@
 google.maps.event.addDomListener(window, 'load', initialize);
 var geocoder = geocoder = new google.maps.Geocoder();
 var map;
-var element = document.getElementById("theForm");
+
 function initialize() {
 	firstPoint = new google.maps.LatLng(48.858565, 2.347198);
 
@@ -49,9 +49,12 @@ function codeAddress() {
 }
 
 function showMsg() {
+	var element = document.getElementById("theForm");
+	console.log("visible");
 	element.style.visibility = "visible";
 }
 
 function hideMsg() {
+	var element = document.getElementById("theForm");
 	element.style.visibility = "hidden";
 }
