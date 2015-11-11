@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
+    <jsp:include page="../../import.jsp"></jsp:include>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 		<!-- Bootstrap -->
     	<link rel="stylesheet" href="<c:url value="/resources/bootstrap/css/bootstrap.css"/>" media="screen"/>
@@ -25,7 +26,9 @@
 			}
     	</style>
 	</head>
-	<body style="background-image:url(<c:url value="/resources/images/paris.jpg" />)">
+	<body style="background-image:url(<c:url value="/resources/images/paris.jpg" />)"><jsp:include page="../../header.jsp">
+		<jsp:param name="page_active" value="connexion" />
+	</jsp:include>
 		<div class="container" id="message">
 	      <h3><span style="color:white;">Votre candidature est prise en compte.</span></h3>
 	      <div id="lien">

@@ -3,18 +3,13 @@ package com.darparisianstroll.forms;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-
 public class MDPOForm {
 
-    public static Map<String, String> verifForm(HttpServletRequest req) {
+    public static Map<String, String> verifForm(String email) {
 	String CHAMP_EMAIL = "email";
 	String ERR_CHAMPS = "Le champs email doit être renseigné";
 	String ERR = "erreur";
 	Map<String, String> erreurs = new HashMap<String, String>();
-
-	// Recuperation des donnees du formulaire
-	String email = req.getParameter(CHAMP_EMAIL);
 
 	try {
 	    validationEmail(email);
@@ -34,6 +29,9 @@ public class MDPOForm {
 	if (email != null && !email.equals("")) {
 	    if (!email.matches(mailRegex)) {
 		throw new Exception("Merci de saisir une adresse mail valide");
+	    } else if (email.length() > 40) {
+		throw new Exception(
+			"Merci de saisir une adresse mail de taille maximale de 40 caractères");
 	    }
 	} else {
 	    throw new Exception("Le champs email doit être renseigné");

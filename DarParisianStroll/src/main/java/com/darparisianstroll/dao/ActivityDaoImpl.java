@@ -11,51 +11,60 @@ import com.darparisianstroll.domain.Activity;
 import com.darparisianstroll.domain.Category;
 
 @Repository("activityDao")
-public class ActivityDaoImpl extends AbstractDao<Integer, Activity> implements ActivityDao {
+public class ActivityDaoImpl extends AbstractDao<Integer, Activity> implements
+	ActivityDao {
 
-	@Override
-	public Activity findById(int activity_id) {
-		return getByKey(activity_id);
+    @Override
+    public Activity findById(int activity_id) {
+	return getByKey(activity_id);
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Activity> findAllActivities() {
+	Criteria criteria = createEntityCriteria();
+	return criteria.list();
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Activity> findActivitiesByCategoryId(int category_id) {
+	Criteria criteria = createEntityCriteria();
+	criteria.add(Restrictions.eq("category", category_id));
+	return criteria.list();
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Activity> findActivitiesByCategory(Category cat) {
+	Criteria criteria = createEntityCriteria();
+	criteria.add(Restrictions.eq("category", cat.getId_category()));
+	return criteria.list();
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Activity> findAllVisibleActivities() {
+	Criteria criteria = getSession().createCriteria(Category.class);
+	criteria.add(Restrictions.ne("visibility", 0));
+
+	Disjunction d = Restrictions.disjunction();
+	for (Category cat : (List<Category>) criteria.list()) {
+	    d.add(Restrictions.eq("category", cat.getId_category()));
 	}
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Activity> findAllActivities() {
-		Criteria criteria = createEntityCriteria();
-		return (List<Activity>) criteria.list();
-	}
+	Criteria c = createEntityCriteria();
+	c.add(d);
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Activity> findActivitiesByCategoryId(int category_id) {
-		Criteria criteria = createEntityCriteria();
-		criteria.add(Restrictions.eq("category", category_id));
-		return (List<Activity>) criteria.list();
-	}
+	return c.list();
+    }
 
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Activity> findActivitiesByCategory(Category cat) {
-		Criteria criteria = createEntityCriteria();
-		criteria.add(Restrictions.eq("category", cat.getId_category()));
-		return (List<Activity>) criteria.list();
-	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Activity> findAllVisibleActivities() {
-		Criteria criteria = getSession().createCriteria(Category.class);
-		criteria.add(Restrictions.ne("visibility", 0));
-
-		Disjunction d = Restrictions.disjunction();
-		for (Category cat : (List<Category>) criteria.list()) {
-			d.add(Restrictions.eq("category", cat.getId_category()));
-		}
-
-		Criteria c = createEntityCriteria();
-		c.add(d);
-
-		return (List<Activity>) c.list();
-	}
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Activity> getByName(String name) {
+	Criteria c = createEntityCriteria();
+	c.add(Restrictions.eq("name", name));
+	return c.list();
+    }
 
 }

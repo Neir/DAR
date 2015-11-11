@@ -7,12 +7,12 @@ public class InscriptionForm {
 
     public static Map<String, String> verifForm(String username, String email,
 	    String motDePasse, String confMDP) {
-	String CHAMP_USERNAME = "identifiant";
+	String CHAMP_USERNAME = "identifiant1";
 	String CHAMP_EMAIL = "email";
 	String CHAMP_MDP = "motDePasse1";
-	String CHAMP_CONFMDP = "confMotDePasse";
 	String ERR_CHAMPS = "Tous les champs doivent être renseignés";
 	String ERR = "erreur";
+
 	Map<String, String> erreurs = new HashMap<String, String>();
 
 	try {
@@ -52,6 +52,10 @@ public class InscriptionForm {
     private static void validationUsername(String username) throws Exception {
 	if (username == null && username.equals(""))
 	    throw new Exception("Tous les champs doivent être renseignés");
+	else if (username.length() > 40) {
+	    throw new Exception(
+		    "Merci de saisir un identifiant de taille maximale de 40 caractères");
+	}
     }
 
     private static void validationEmail(String email) throws Exception {
@@ -60,6 +64,9 @@ public class InscriptionForm {
 	if (email != null && !email.equals("")) {
 	    if (!email.matches(mailRegex)) {
 		throw new Exception("Merci de saisir une adresse mail valide");
+	    } else if (email.length() > 40) {
+		throw new Exception(
+			"Merci de saisir une adresse mail de taille maximale de 40 caractères");
 	    }
 	} else {
 	    throw new Exception("Tous les champs doivent être renseignés");
@@ -73,8 +80,10 @@ public class InscriptionForm {
 	    if (motDePasse.length() < 6) {
 		throw new Exception(
 			"Le mot de passe doit contenir au moins 6 caractères");
-	    }
-	    if (!motDePasse.equals(confMotDePasse)) {
+	    } else if (motDePasse.length() > 200) {
+		throw new Exception(
+			"Merci de saisir un mot de passe de taille maximale de 200 caractères");
+	    } else if (!motDePasse.equals(confMotDePasse)) {
 		throw new Exception(
 			"Les deux mots de passe fournis sont différents");
 	    }

@@ -6,14 +6,16 @@ import com.darparisianstroll.domain.Activity;
 import com.darparisianstroll.domain.Category;
 
 public interface ActivityDao {
-	
-	Activity findById(int activity_id);
 
-	List<Activity> findAllActivities();
+    Activity findById(int activity_id);
 
-	List<Activity> findActivitiesByCategoryId(int category_id);
-	
-	List<Activity> findActivitiesByCategory(Category cat);
+    List<Activity> findAllActivities();
 
-	List<Activity> findAllVisibleActivities();
+    List<Activity> findActivitiesByCategoryId(int category_id);
+
+    List<Activity> findActivitiesByCategory(Category cat);
+
+    List<Activity> findAllVisibleActivities();
+
+    List<Activity> getByName(String name);
 }

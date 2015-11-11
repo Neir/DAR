@@ -14,7 +14,9 @@
     </style>
   </head>
   <body style="background-image:url(<c:url value="/resources/images/fond.jpg" />)" onload="initialize()">
-    <jsp:include page="header.jsp"></jsp:include>
+    <jsp:include page="header.jsp">
+    	<jsp:param name="page_active" value="hello" />
+	</jsp:include>
     
     <div style="background:color=blue;">
       <h1>Test MAPS API</h1>

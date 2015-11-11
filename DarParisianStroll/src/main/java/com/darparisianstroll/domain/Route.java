@@ -7,13 +7,16 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "activities")
+@Table(name = "routes")
 public class Route {
 
     @Id
     @GeneratedValue
     @Column(name = "route_id")
     private int route_id;
+
+    @Column(name = "name", nullable = false)
+    private String name;
 
     @Column(name = "user", nullable = false)
     private int user;
@@ -27,6 +30,14 @@ public class Route {
 
     public void setRoute_id(int route_id) {
 	this.route_id = route_id;
+    }
+
+    public String getName() {
+	return name;
+    }
+
+    public void setName(String name) {
+	this.name = name;
     }
 
     public int getUser() {

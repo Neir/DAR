@@ -4,26 +4,21 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class EmailTest {
+    /*
+     * public static void main(String args[]) {
+     * EmailTest.sendEmail("mohamed.af@hotmail.fr",
+     * "Parisian Stroll: Validation inscription",
+     * "Bonjour,\n\nPour valider votre inscription"); }
+     */
+
     @SuppressWarnings("resource")
-    public static void main(String args[]) {
-
-	// Spring Bean file you specified in /src/main/resources folder
-	String crunchifyConfFile = "mail-bean.xml";
+    public static void sendEmail(String toAddr, String subject, String body) {
 	ConfigurableApplicationContext context = new ClassPathXmlApplicationContext(
-		crunchifyConfFile);
+		"mail-bean.xml");
 
-	// @Service("Email") <-- same annotation you specified in
-	// EmailAPI.java
-	EmailAPI crunchifyEmailAPI = (EmailAPI) context.getBean("Email");
-	String toAddr = "mohamed.af@hotmail.fr";
-	String fromAddr = "dar.parisianstroll@gmail.com";
+	EmailAPI crunchifyEmailAPI = (EmailAPI) context.getBean("emailService");
 
-	// email subject
-	String subject = "Hey.. This email sent by Crunchify's Spring MVC Tutorial";
-
-	// email body
-	String body = "There you go.. You got an email.. Let's understand details on how Spring MVC works -- By Crunchify Admin";
-	crunchifyEmailAPI.crunchifyReadyToSendEmail(toAddr, fromAddr, subject,
-		body);
+	crunchifyEmailAPI.SendEmail(toAddr, "dar.parisianstroll@gmail.com",
+		subject, body);
     }
 }
