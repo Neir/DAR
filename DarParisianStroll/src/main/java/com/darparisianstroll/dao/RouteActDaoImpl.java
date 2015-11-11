@@ -1,5 +1,6 @@
 package com.darparisianstroll.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -29,15 +30,19 @@ public class RouteActDaoImpl extends AbstractDao<Integer, RouteAct> implements R
 	public List<Activity> findAllActivitiesByRoute(Route r) {
 		Criteria c = createEntityCriteria();
 		c.add(Restrictions.eq("route", r.getRoute_id()));
-
+		List<RouteAct> routeAct = (List<RouteAct>) c.list();
 		Disjunction d = Restrictions.disjunction();
-		for (RouteAct ra : (List<RouteAct>) c.list()) {
+		for (RouteAct ra : routeAct) {
 			d.add(Restrictions.eq("id_activity", ra.getActivity()));
 		}
-		Criteria c2 = getSession().createCriteria(Activity.class);
-		c2.add(d);
+		List<Activity> la = new ArrayList<>(0);
+		if (routeAct.size() > 0) {
+			Criteria c2 = getSession().createCriteria(Activity.class);
+			c2.add(d);
+			la.addAll((List<Activity>) c2.list());
+		}
 
-		return (List<Activity>) c2.list();
+		return la;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -45,15 +50,19 @@ public class RouteActDaoImpl extends AbstractDao<Integer, RouteAct> implements R
 	public List<Route> findAllRoutesByActivities(Activity a) {
 		Criteria c = createEntityCriteria();
 		c.add(Restrictions.eq("activity", a.getId_activity()));
-
+		List<RouteAct> routeAct = (List<RouteAct>) c.list();
+		
 		Disjunction d = Restrictions.disjunction();
-		for (RouteAct ra : (List<RouteAct>) c.list()) {
+		for (RouteAct ra : routeAct) {
 			d.add(Restrictions.eq("route_id", ra.getRoute()));
 		}
-		Criteria c2 = getSession().createCriteria(Route.class);
-		c2.add(d);
-
-		return (List<Route>) c2.list();
+		List<Route> lr = new ArrayList<Route>(0);
+		if (routeAct.size() > 0) {
+			Criteria c2 = getSession().createCriteria(Route.class);
+			c2.add(d);
+			lr.addAll((List<Route>) c2.list());
+		}
+		return lr;
 	}
 
 }

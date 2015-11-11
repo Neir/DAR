@@ -17,9 +17,9 @@ public class ListeActivitesController {
 	@Autowired
 	ActivityService service;
 
-	@RequestMapping( method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView getListeActivites() {
-		List<Activity> activities = service.findAllActivities();
+		List<Activity> activities = service.findAllVisibleActivities();
 		ModelAndView mod = new ModelAndView("activites/liste_activites");
 		mod.addObject("activities", activities);
 		return mod;

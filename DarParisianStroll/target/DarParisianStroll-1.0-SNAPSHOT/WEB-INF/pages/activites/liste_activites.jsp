@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Liste des activités</title>
 </head>
 <body>
 	<h2>Liste des activités</h2>
@@ -32,7 +32,7 @@
    					 ${activity.lat}
 					</c:if></td>
 				<td><c:if test="${empty activity.lon}">
-    					var1 is empty or null.
+    					null
 					</c:if> <c:if test="${not empty activity.lon}">
    					 ${activity.lon}
 					</c:if></td>

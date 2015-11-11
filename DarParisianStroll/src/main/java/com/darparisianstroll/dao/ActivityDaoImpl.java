@@ -1,5 +1,6 @@
 package com.darparisianstroll.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -47,8 +48,13 @@ public class ActivityDaoImpl extends AbstractDao<Integer, Activity> implements A
 		Criteria criteria = getSession().createCriteria(Category.class);
 		criteria.add(Restrictions.ne("visibility", 0));
 
+		List<Category> crList = (List<Category>) criteria.list();
+		if(crList.isEmpty()){
+			return new ArrayList<Activity>();
+		}
+		
 		Disjunction d = Restrictions.disjunction();
-		for (Category cat : (List<Category>) criteria.list()) {
+		for (Category cat : crList) {
 			d.add(Restrictions.eq("category", cat.getId_category()));
 		}
 

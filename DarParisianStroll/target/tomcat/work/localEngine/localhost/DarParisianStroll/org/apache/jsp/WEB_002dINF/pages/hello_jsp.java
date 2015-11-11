@@ -77,14 +77,14 @@ public final class hello_jsp extends org.apache.jasper.runtime.HttpJspBase
         return;
       out.write(")\" onload=\"initialize()\">\r\n");
       out.write("    <div style=\"background:color=blue;\">\r\n");
-      out.write("      <h1>Test MAPS API</h1>\r\n");
+      out.write("      <!--<h1>Test MAPS API</h1>\r\n");
       out.write("      <form action=\"\" method=\"get\" name=\"direction\" id=\"direction\">\r\n");
       out.write("         <label>Point de départ :</label>\r\n");
       out.write("         <input type=\"text\" name=\"origin\" id=\"origin\">\r\n");
       out.write("         <label>Destination :</label>\r\n");
       out.write("         <input type=\"text\" name=\"destination\" id=\"destination\">\r\n");
       out.write("         <input type=\"button\" value=\"Calculer l'itinéraire\" onclick=\"javascript:calculate()\">\r\n");
-      out.write("     </form>\r\n");
+      out.write("     </form>  -->\r\n");
       out.write("    </div>\r\n");
       out.write("    <div id=\"panel\"></div>\r\n");
       out.write("    <div id=\"map_canvas\">\r\n");

@@ -2,6 +2,8 @@ package com.darparisianstroll.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -27,6 +29,7 @@ public class ActivityReview {
     private String description;
 
     @Column(name = "note", nullable = false)
+    @Enumerated(EnumType.STRING)
     private Note note;
 
     public int getId_review() {
