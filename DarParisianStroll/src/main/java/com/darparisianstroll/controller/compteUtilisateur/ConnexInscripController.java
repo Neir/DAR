@@ -63,8 +63,12 @@ public class ConnexInscripController {
 	    Util.deleteCookie(request, response, "user");
 	}
 
-	return new ModelAndView(
+	ModelAndView model = new ModelAndView(
 		"compte_utilisateur/connexion_inscription/connexion_inscription");
+
+	model.addObject("connected", false);
+
+	return model;
     }
 
     @RequestMapping(value = "inscription", method = RequestMethod.POST)
@@ -142,6 +146,8 @@ public class ConnexInscripController {
 		    "compte_utilisateur/connexion_inscription/confirmation_mail_inscription");
 	}
 
+	model.addObject("connected", false);
+
 	return model;
     }
 
@@ -180,11 +186,13 @@ public class ConnexInscripController {
 	    model.addObject(CHAMP_USERNAME_CONNEX, username);
 	    model.addObject("erreurConnex", erreur);
 	    model.addObject("erreursMap", erreursMap);
+	    model.addObject("connected", false);
 	} else {
 	    user = userService.findByUsername(username);
 	    response.addCookie(new Cookie("user", "" + user.getUser_id()));
 	    // redirection vers la page d'acceuil
 	    model = new ModelAndView("hello");
+	    model.addObject("connected", true);
 	}
 
 	return model;
@@ -212,7 +220,7 @@ public class ConnexInscripController {
     }
 
     @RequestMapping(value = "validation_inscription", method = RequestMethod.GET)
-    public ModelAndView getValidInscrip(
+    public ModelAndView getValidInscrip(HttpServletRequest request,
 	    @RequestParam(value = "a") final String CodeUser) {
 	User user = null;
 	boolean erreur = false;
@@ -238,6 +246,14 @@ public class ConnexInscripController {
 	model = new ModelAndView(
 		"compte_utilisateur/connexion_inscription/confirmation_inscription");
 	model.addObject("erreur", erreur);
+
+	String user_id = Util.getCookieValue(request, "user");
+
+	if (user_id != null) {
+	    model.addObject("connected", true);
+	} else {
+	    model.addObject("connected", false);
+	}
 
 	return model;
     }

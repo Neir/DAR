@@ -49,6 +49,11 @@ public class RouteActServiceImpl implements RouteActService {
     }
 
     @Override
+    public List<RouteAct> findRouteAct(Activity a) {
+	return dao.findRouteAct(a);
+    }
+
+    @Override
     public List<RouteAct> getByRoute(Route route) {
 	return dao.getByRoute(route);
     }

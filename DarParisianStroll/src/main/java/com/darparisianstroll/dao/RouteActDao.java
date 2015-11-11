@@ -22,4 +22,6 @@ public interface RouteActDao {
 
     void deleteRouteAct(RouteAct ra);
 
+    List<RouteAct> findRouteAct(Activity a);
+
 }

@@ -68,29 +68,31 @@ public final class create_005fitineraire_jsp extends org.apache.jasper.runtime.H
       out.write("<html lang=\"fr\">\n");
       out.write("\t<head>\n");
       out.write("\t\t<meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\">\n");
-      out.write("\t\t<!-- Bootstrap -->\n");
+      out.write("\t\t");
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "../import.jsp", out, false);
+      out.write("\n");
+      out.write("    \t<meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\">\n");
+      out.write("    \t<meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\">\n");
+      out.write("\t\t<meta name=\"generator\" content=\"Bootply\" />\n");
+      out.write("\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\">\n");
       out.write("    \t<link rel=\"stylesheet\" href=\"");
       if (_jspx_meth_c_005furl_005f0(_jspx_page_context))
         return;
       out.write("\" media=\"screen\"/>\n");
-      out.write("    \t<link rel=\"stylesheet\" href=\"");
+      out.write("\t\t<link rel=\"stylesheet\" href=\"");
       if (_jspx_meth_c_005furl_005f1(_jspx_page_context))
         return;
       out.write("\" media=\"screen\"/>\n");
-      out.write("\t\t<link rel=\"stylesheet\" href=\"");
+      out.write("\t\t<script src=\"");
       if (_jspx_meth_c_005furl_005f2(_jspx_page_context))
         return;
-      out.write("\" media=\"screen\"/>\n");
+      out.write("\"></script>\n");
       out.write("\t\t<script src=\"");
       if (_jspx_meth_c_005furl_005f3(_jspx_page_context))
         return;
       out.write("\"></script>\n");
       out.write("\t\t<script src=\"");
       if (_jspx_meth_c_005furl_005f4(_jspx_page_context))
-        return;
-      out.write("\"></script>\n");
-      out.write("\t\t<script src=\"");
-      if (_jspx_meth_c_005furl_005f5(_jspx_page_context))
         return;
       out.write("\"></script>\n");
       out.write("\t\t<!-- Faire fonctionner les balises structurantes de HTML5 -->\n");
@@ -112,9 +114,13 @@ public final class create_005fitineraire_jsp extends org.apache.jasper.runtime.H
       out.write("    \t</style>\n");
       out.write("\t</head>\n");
       out.write("\t<body style=\"background-image:url(");
-      if (_jspx_meth_c_005furl_005f6(_jspx_page_context))
+      if (_jspx_meth_c_005furl_005f5(_jspx_page_context))
         return;
       out.write(")\">\n");
+      out.write("\t\t");
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "../header.jsp" + (("../header.jsp").indexOf('?')>0? '&': '?') + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode("page_active", request.getCharacterEncoding())+ "=" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode("create_itineraire", request.getCharacterEncoding()) + "&" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode("connected", request.getCharacterEncoding())+ "=" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${connected}", java.lang.String.class, (PageContext)_jspx_page_context, null, false), request.getCharacterEncoding()), out, false);
+      out.write("\n");
+      out.write("\t\n");
       out.write("\t\t<div class=\"container\">\n");
       out.write("      \t\t<form name=\"Myform\" action=\"create_itineraire\" method=\"post\" onsubmit=\"return verifForm('leg','Myform');\" style=\"margin:0 auto\">\n");
       out.write("\t\t\t\t<fieldset>\n");
@@ -331,8 +337,8 @@ public final class create_005fitineraire_jsp extends org.apache.jasper.runtime.H
     org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_005furl_005f0 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
     _jspx_th_c_005furl_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005furl_005f0.setParent(null);
-    // /WEB-INF/pages/routes/create_itineraire.jsp(7,34) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005furl_005f0.setValue("/resources/bootstrap/css/bootstrap.css");
+    // /WEB-INF/pages/routes/create_itineraire.jsp(11,34) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_c_005furl_005f0.setValue("/resources/select2-3.5.4/select2.css");
     int _jspx_eval_c_005furl_005f0 = _jspx_th_c_005furl_005f0.doStartTag();
     if (_jspx_th_c_005furl_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f0);
@@ -350,8 +356,8 @@ public final class create_005fitineraire_jsp extends org.apache.jasper.runtime.H
     org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_005furl_005f1 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
     _jspx_th_c_005furl_005f1.setPageContext(_jspx_page_context);
     _jspx_th_c_005furl_005f1.setParent(null);
-    // /WEB-INF/pages/routes/create_itineraire.jsp(8,34) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005furl_005f1.setValue("/resources/select2-3.5.4/select2.css");
+    // /WEB-INF/pages/routes/create_itineraire.jsp(12,31) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_c_005furl_005f1.setValue("/resources/css/routes/create_itineraire.css");
     int _jspx_eval_c_005furl_005f1 = _jspx_th_c_005furl_005f1.doStartTag();
     if (_jspx_th_c_005furl_005f1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f1);
@@ -369,8 +375,8 @@ public final class create_005fitineraire_jsp extends org.apache.jasper.runtime.H
     org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_005furl_005f2 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
     _jspx_th_c_005furl_005f2.setPageContext(_jspx_page_context);
     _jspx_th_c_005furl_005f2.setParent(null);
-    // /WEB-INF/pages/routes/create_itineraire.jsp(9,31) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005furl_005f2.setValue("/resources/css/routes/create_itineraire.css");
+    // /WEB-INF/pages/routes/create_itineraire.jsp(13,15) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_c_005furl_005f2.setValue("/resources/js/jquery-1.11.3.js");
     int _jspx_eval_c_005furl_005f2 = _jspx_th_c_005furl_005f2.doStartTag();
     if (_jspx_th_c_005furl_005f2.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f2);
@@ -388,8 +394,8 @@ public final class create_005fitineraire_jsp extends org.apache.jasper.runtime.H
     org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_005furl_005f3 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
     _jspx_th_c_005furl_005f3.setPageContext(_jspx_page_context);
     _jspx_th_c_005furl_005f3.setParent(null);
-    // /WEB-INF/pages/routes/create_itineraire.jsp(10,15) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005furl_005f3.setValue("/resources/js/jquery-1.11.3.js");
+    // /WEB-INF/pages/routes/create_itineraire.jsp(14,15) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_c_005furl_005f3.setValue("/resources/select2-3.5.4/select2.min.js");
     int _jspx_eval_c_005furl_005f3 = _jspx_th_c_005furl_005f3.doStartTag();
     if (_jspx_th_c_005furl_005f3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f3);
@@ -407,8 +413,8 @@ public final class create_005fitineraire_jsp extends org.apache.jasper.runtime.H
     org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_005furl_005f4 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
     _jspx_th_c_005furl_005f4.setPageContext(_jspx_page_context);
     _jspx_th_c_005furl_005f4.setParent(null);
-    // /WEB-INF/pages/routes/create_itineraire.jsp(11,15) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005furl_005f4.setValue("/resources/select2-3.5.4/select2.min.js");
+    // /WEB-INF/pages/routes/create_itineraire.jsp(15,15) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_c_005furl_005f4.setValue("/resources/js/routes/create_itineraire.js");
     int _jspx_eval_c_005furl_005f4 = _jspx_th_c_005furl_005f4.doStartTag();
     if (_jspx_th_c_005furl_005f4.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f4);
@@ -426,33 +432,14 @@ public final class create_005fitineraire_jsp extends org.apache.jasper.runtime.H
     org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_005furl_005f5 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
     _jspx_th_c_005furl_005f5.setPageContext(_jspx_page_context);
     _jspx_th_c_005furl_005f5.setParent(null);
-    // /WEB-INF/pages/routes/create_itineraire.jsp(12,15) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005furl_005f5.setValue("/resources/js/routes/create_itineraire.js");
+    // /WEB-INF/pages/routes/create_itineraire.jsp(34,35) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_c_005furl_005f5.setValue("/resources/images/paris.jpg");
     int _jspx_eval_c_005furl_005f5 = _jspx_th_c_005furl_005f5.doStartTag();
     if (_jspx_th_c_005furl_005f5.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f5);
       return true;
     }
     _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f5);
-    return false;
-  }
-
-  private boolean _jspx_meth_c_005furl_005f6(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:url
-    org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_005furl_005f6 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
-    _jspx_th_c_005furl_005f6.setPageContext(_jspx_page_context);
-    _jspx_th_c_005furl_005f6.setParent(null);
-    // /WEB-INF/pages/routes/create_itineraire.jsp(31,35) name = value type = null reqTime = true required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005furl_005f6.setValue("/resources/images/paris.jpg");
-    int _jspx_eval_c_005furl_005f6 = _jspx_th_c_005furl_005f6.doStartTag();
-    if (_jspx_th_c_005furl_005f6.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f6);
-      return true;
-    }
-    _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.reuse(_jspx_th_c_005furl_005f6);
     return false;
   }
 
@@ -464,7 +451,7 @@ public final class create_005fitineraire_jsp extends org.apache.jasper.runtime.H
     org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_005fif_005f0 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _005fjspx_005ftagPool_005fc_005fif_0026_005ftest.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
     _jspx_th_c_005fif_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005fif_005f0.setParent(null);
-    // /WEB-INF/pages/routes/create_itineraire.jsp(37,7) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/pages/routes/create_itineraire.jsp(45,7) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fif_005f0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${erreur == true}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null, false)).booleanValue());
     int _jspx_eval_c_005fif_005f0 = _jspx_th_c_005fif_005f0.doStartTag();
     if (_jspx_eval_c_005fif_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
@@ -500,9 +487,9 @@ public final class create_005fitineraire_jsp extends org.apache.jasper.runtime.H
     org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_005fforEach_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005fforEach_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_005fif_005f0);
-    // /WEB-INF/pages/routes/create_itineraire.jsp(40,12) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
-    _jspx_th_c_005fforEach_005f0.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/pages/routes/create_itineraire.jsp(40,12) '${erreursMap}'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${erreursMap}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
-    // /WEB-INF/pages/routes/create_itineraire.jsp(40,12) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/pages/routes/create_itineraire.jsp(48,12) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
+    _jspx_th_c_005fforEach_005f0.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/pages/routes/create_itineraire.jsp(48,12) '${erreursMap}'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${erreursMap}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
+    // /WEB-INF/pages/routes/create_itineraire.jsp(48,12) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f0.setVar("err");
     int[] _jspx_push_body_count_c_005fforEach_005f0 = new int[] { 0 };
     try {
@@ -542,7 +529,7 @@ public final class create_005fitineraire_jsp extends org.apache.jasper.runtime.H
     org.apache.taglibs.standard.tag.rt.core.OutTag _jspx_th_c_005fout_005f0 = (org.apache.taglibs.standard.tag.rt.core.OutTag) _005fjspx_005ftagPool_005fc_005fout_0026_005fvalue_005fnobody.get(org.apache.taglibs.standard.tag.rt.core.OutTag.class);
     _jspx_th_c_005fout_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005fout_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_005fforEach_005f0);
-    // /WEB-INF/pages/routes/create_itineraire.jsp(41,13) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/pages/routes/create_itineraire.jsp(49,13) name = value type = null reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fout_005f0.setValue((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${err.value}", java.lang.Object.class, (PageContext)_jspx_page_context, null, false));
     int _jspx_eval_c_005fout_005f0 = _jspx_th_c_005fout_005f0.doStartTag();
     if (_jspx_th_c_005fout_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -561,9 +548,9 @@ public final class create_005fitineraire_jsp extends org.apache.jasper.runtime.H
     org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f1 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_005fforEach_005f1.setPageContext(_jspx_page_context);
     _jspx_th_c_005fforEach_005f1.setParent(null);
-    // /WEB-INF/pages/routes/create_itineraire.jsp(69,7) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
-    _jspx_th_c_005fforEach_005f1.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/pages/routes/create_itineraire.jsp(69,7) '${listeActivites}'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${listeActivites}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
-    // /WEB-INF/pages/routes/create_itineraire.jsp(69,7) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/pages/routes/create_itineraire.jsp(77,7) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
+    _jspx_th_c_005fforEach_005f1.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/pages/routes/create_itineraire.jsp(77,7) '${listeActivites}'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${listeActivites}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
+    // /WEB-INF/pages/routes/create_itineraire.jsp(77,7) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f1.setVar("act");
     int[] _jspx_push_body_count_c_005fforEach_005f1 = new int[] { 0 };
     try {
@@ -605,9 +592,9 @@ public final class create_005fitineraire_jsp extends org.apache.jasper.runtime.H
     org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f2 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_005fforEach_005f2.setPageContext(_jspx_page_context);
     _jspx_th_c_005fforEach_005f2.setParent(null);
-    // /WEB-INF/pages/routes/create_itineraire.jsp(95,7) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
-    _jspx_th_c_005fforEach_005f2.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/pages/routes/create_itineraire.jsp(95,7) '${listeActivites}'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${listeActivites}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
-    // /WEB-INF/pages/routes/create_itineraire.jsp(95,7) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/pages/routes/create_itineraire.jsp(103,7) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
+    _jspx_th_c_005fforEach_005f2.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/pages/routes/create_itineraire.jsp(103,7) '${listeActivites}'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${listeActivites}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
+    // /WEB-INF/pages/routes/create_itineraire.jsp(103,7) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f2.setVar("act");
     int[] _jspx_push_body_count_c_005fforEach_005f2 = new int[] { 0 };
     try {
@@ -649,9 +636,9 @@ public final class create_005fitineraire_jsp extends org.apache.jasper.runtime.H
     org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f3 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_005fforEach_005f3.setPageContext(_jspx_page_context);
     _jspx_th_c_005fforEach_005f3.setParent(null);
-    // /WEB-INF/pages/routes/create_itineraire.jsp(121,7) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
-    _jspx_th_c_005fforEach_005f3.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/pages/routes/create_itineraire.jsp(121,7) '${listeActivites}'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${listeActivites}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
-    // /WEB-INF/pages/routes/create_itineraire.jsp(121,7) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/pages/routes/create_itineraire.jsp(129,7) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
+    _jspx_th_c_005fforEach_005f3.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/pages/routes/create_itineraire.jsp(129,7) '${listeActivites}'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${listeActivites}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
+    // /WEB-INF/pages/routes/create_itineraire.jsp(129,7) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f3.setVar("act");
     int[] _jspx_push_body_count_c_005fforEach_005f3 = new int[] { 0 };
     try {
@@ -693,9 +680,9 @@ public final class create_005fitineraire_jsp extends org.apache.jasper.runtime.H
     org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f4 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_005fforEach_005f4.setPageContext(_jspx_page_context);
     _jspx_th_c_005fforEach_005f4.setParent(null);
-    // /WEB-INF/pages/routes/create_itineraire.jsp(147,7) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
-    _jspx_th_c_005fforEach_005f4.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/pages/routes/create_itineraire.jsp(147,7) '${listeActivites}'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${listeActivites}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
-    // /WEB-INF/pages/routes/create_itineraire.jsp(147,7) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/pages/routes/create_itineraire.jsp(155,7) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
+    _jspx_th_c_005fforEach_005f4.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/pages/routes/create_itineraire.jsp(155,7) '${listeActivites}'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${listeActivites}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
+    // /WEB-INF/pages/routes/create_itineraire.jsp(155,7) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f4.setVar("act");
     int[] _jspx_push_body_count_c_005fforEach_005f4 = new int[] { 0 };
     try {
@@ -737,9 +724,9 @@ public final class create_005fitineraire_jsp extends org.apache.jasper.runtime.H
     org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f5 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_005fforEach_005f5.setPageContext(_jspx_page_context);
     _jspx_th_c_005fforEach_005f5.setParent(null);
-    // /WEB-INF/pages/routes/create_itineraire.jsp(173,7) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
-    _jspx_th_c_005fforEach_005f5.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/pages/routes/create_itineraire.jsp(173,7) '${listeActivites}'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${listeActivites}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
-    // /WEB-INF/pages/routes/create_itineraire.jsp(173,7) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/pages/routes/create_itineraire.jsp(181,7) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
+    _jspx_th_c_005fforEach_005f5.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/pages/routes/create_itineraire.jsp(181,7) '${listeActivites}'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${listeActivites}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
+    // /WEB-INF/pages/routes/create_itineraire.jsp(181,7) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f5.setVar("act");
     int[] _jspx_push_body_count_c_005fforEach_005f5 = new int[] { 0 };
     try {
@@ -781,9 +768,9 @@ public final class create_005fitineraire_jsp extends org.apache.jasper.runtime.H
     org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f6 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_005fforEach_005f6.setPageContext(_jspx_page_context);
     _jspx_th_c_005fforEach_005f6.setParent(null);
-    // /WEB-INF/pages/routes/create_itineraire.jsp(199,7) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
-    _jspx_th_c_005fforEach_005f6.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/pages/routes/create_itineraire.jsp(199,7) '${listeActivites}'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${listeActivites}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
-    // /WEB-INF/pages/routes/create_itineraire.jsp(199,7) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/pages/routes/create_itineraire.jsp(207,7) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
+    _jspx_th_c_005fforEach_005f6.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/pages/routes/create_itineraire.jsp(207,7) '${listeActivites}'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${listeActivites}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
+    // /WEB-INF/pages/routes/create_itineraire.jsp(207,7) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f6.setVar("act");
     int[] _jspx_push_body_count_c_005fforEach_005f6 = new int[] { 0 };
     try {

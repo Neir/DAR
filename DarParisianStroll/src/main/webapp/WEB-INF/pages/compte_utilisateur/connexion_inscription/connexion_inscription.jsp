@@ -2,9 +2,11 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
+  	<jsp:include page="../../import.jsp"></jsp:include>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="<c:url value="/resources/bootstrap/css/bootstrap.css"/>" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="generator" content="Bootply" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="<c:url value="/resources/css/compte_utilisateur/connexion_inscription/connexion_inscription.css"/>" media="screen"/>
     <script src="<c:url value="/resources/js/compte_utilisateur/connexion_inscription/connexion_inscription.js" />"></script>
     <title>Connexion/Inscription</title>
@@ -21,6 +23,11 @@
     </style>
   </head>
   <body style="background-image:url(<c:url value="/resources/images/paris.jpg" />)">
+  	<jsp:include page="../../header.jsp">
+		<jsp:param name="page_active" value="connexion" />
+		<jsp:param name="connected" value="${connected}" />
+	</jsp:include>
+		
     <div style="display:table">
 
       <div id="divInscription">

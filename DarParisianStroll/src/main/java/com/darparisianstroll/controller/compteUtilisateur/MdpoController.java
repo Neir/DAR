@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.darparisianstroll.forms.MDPOForm;
 import com.darparisianstroll.mail.EmailTest;
 import com.darparisianstroll.service.UserService;
+import com.darparisianstroll.util.Util;
 
 @Controller
 public class MdpoController {
@@ -28,12 +30,23 @@ public class MdpoController {
     UserService userService;
 
     @RequestMapping(value = "mdpo", method = RequestMethod.GET)
-    public ModelAndView getMdpo() {
-	return new ModelAndView("compte_utilisateur/mot_de_passe_oublie/mdpo");
+    public ModelAndView getMdpo(HttpServletRequest request) {
+	String user_id = Util.getCookieValue(request, "user");
+
+	ModelAndView model = new ModelAndView(
+		"compte_utilisateur/mot_de_passe_oublie/mdpo");
+
+	if (user_id != null) {
+	    model.addObject("connected", true);
+	} else {
+	    model.addObject("connected", false);
+	}
+
+	return model;
     }
 
     @RequestMapping(value = "mdpo", method = RequestMethod.POST)
-    public ModelAndView postMdpo(
+    public ModelAndView postMdpo(HttpServletRequest request,
 	    @RequestParam(value = CHAMP_EMAIL) final String Email) {
 	Map<String, String> erreursMap = new HashMap<String, String>();
 	boolean erreur = true;
@@ -83,6 +96,14 @@ public class MdpoController {
 	} else
 	    model = new ModelAndView(
 		    "compte_utilisateur/mot_de_passe_oublie/confirmation_mail_mdpo");
+
+	String user_id = Util.getCookieValue(request, "user");
+
+	if (user_id != null) {
+	    model.addObject("connected", true);
+	} else {
+	    model.addObject("connected", false);
+	}
 
 	return model;
     }

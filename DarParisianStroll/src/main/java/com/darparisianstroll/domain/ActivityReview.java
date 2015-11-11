@@ -14,7 +14,7 @@ public class ActivityReview {
 
     @Id
     @GeneratedValue
-    @Column(name = "id_review")
+    @Column(name = "rev_act_id")
     private int id_review;
 
     @Column(name = "activity", nullable = false)
@@ -67,6 +67,22 @@ public class ActivityReview {
 
     public void setNote(Note note) {
 	this.note = note;
+    }
+
+    public void setNote(int note) {
+	if (note == 0)
+	    this.note = Note.zero;
+	if (note == 1)
+	    this.note = Note.un;
+	if (note == 2)
+	    this.note = Note.deux;
+	if (note == 3)
+	    this.note = Note.trois;
+	if (note == 4)
+	    this.note = Note.quatre;
+	if (note == 5)
+	    this.note = Note.cinq;
+
     }
 
 }

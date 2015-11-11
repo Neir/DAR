@@ -1,8 +1,12 @@
 package com.darparisianstroll.util;
 
+import java.util.List;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.darparisianstroll.domain.RouteAct;
 
 public class Util {
 
@@ -58,5 +62,21 @@ public class Util {
 		}
 	    }
 	}
+    }
+
+    public static double compteCout(List<RouteAct> raList) {
+	double coutCpt = 0;
+	for (RouteAct ra : raList) {
+	    coutCpt += ra.getPrix();
+	}
+	return coutCpt;
+    }
+
+    public static int compteDuree(List<RouteAct> raList) {
+	int dureeCpt = 0;
+	for (RouteAct ra : raList) {
+	    dureeCpt += ra.getDuree();
+	}
+	return dureeCpt;
     }
 }

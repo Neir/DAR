@@ -19,7 +19,7 @@ public class Activity {
     @Column(name = "address", nullable = false)
     private String address;
 
-    @Column(name = "zip_code", nullable = false)
+    @Column(name = "zipcode", nullable = false)
     private int zip_code;
 
     @Column(name = "lat", nullable = true)

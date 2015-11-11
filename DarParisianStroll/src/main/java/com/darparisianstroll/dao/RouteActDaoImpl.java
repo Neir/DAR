@@ -77,6 +77,14 @@ public class RouteActDaoImpl extends AbstractDao<Integer, RouteAct> implements
 
     @SuppressWarnings("unchecked")
     @Override
+    public List<RouteAct> findRouteAct(Activity a) {
+	Criteria c = createEntityCriteria();
+	c.add(Restrictions.eq("activity", a.getId_activity()));
+	return c.list();
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
     public List<RouteAct> getByRoute(Route route) {
 	Criteria c = createEntityCriteria();
 	c.add(Restrictions.eq("route", route.getRoute_id()));

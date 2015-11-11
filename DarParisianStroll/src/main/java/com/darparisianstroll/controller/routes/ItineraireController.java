@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -66,13 +67,50 @@ public class ItineraireController {
     private int itineraire;
 
     @RequestMapping(value = "itineraire", method = RequestMethod.GET)
-    public ModelAndView getItineraire() {
+    public ModelAndView getItineraire(HttpServletRequest request,
+	    @RequestParam("id") int id, Model model) {
+	Route route = routeService.findById(id);
+
+	model.addAttribute("author", userService.findById(route.getUser()));
+	model.addAttribute("route", route);
+
+	ArrayList<Activity> activites = new ArrayList<Activity>();
+
+	List<RouteAct> act = routeActService.getByRoute(route);
+
+	for (int i = 1; i <= act.size(); i++) {
+	    activites.add(activityService
+		    .findById(act.get(i - 1).getActivity()));
+	}
+
+	String user_id = Util.getCookieValue(request, "user");
+
+	if (user_id != null) {
+	    model.addAttribute("connected", true);
+	} else {
+	    model.addAttribute("connected", false);
+	}
+
+	model.addAttribute("activityTable", activites);
+	model.addAttribute("prix", Util.compteCout(act));
+	model.addAttribute("duree", Util.compteDuree(act));
+
 	return new ModelAndView("routes/itineraire");
     }
 
     @RequestMapping(value = "itineraire", method = RequestMethod.POST)
-    public ModelAndView postItineraire() {
-	return new ModelAndView("routes/itineraire");
+    public ModelAndView postItineraire(HttpServletRequest request) {
+	String user_id = Util.getCookieValue(request, "user");
+
+	ModelAndView model = new ModelAndView("routes/itineraire");
+
+	if (user_id != null) {
+	    model.addObject("connected", true);
+	} else {
+	    model.addObject("connected", false);
+	}
+
+	return model;
     }
 
     @RequestMapping(value = "create_itineraire", method = RequestMethod.GET)
@@ -93,9 +131,13 @@ public class ItineraireController {
 
 	    if (!listeActivites.isEmpty())
 		model.addObject("listeActivites", listeActivites);
+
+	    model.addObject("connected", true);
 	} else {
 	    model = new ModelAndView(
 		    "compte_utilisateur/connexion_inscription/connexion_inscription");
+
+	    model.addObject("connected", false);
 	}
 
 	return model;
@@ -285,6 +327,8 @@ public class ItineraireController {
 	    model.addObject("erreursMap", erreursMap);
 	}
 
+	model.addObject("connected", true);
+
 	return model;
     }
 
@@ -299,8 +343,10 @@ public class ItineraireController {
 	    user = userService.findById(Integer.parseInt(user_id));
 	} else {
 	    // redirection vers la page de connexion
-	    return new ModelAndView(
+	    ModelAndView model = new ModelAndView(
 		    "compte_utilisateur/connexion_inscription/connexion_inscription");
+	    model.addObject("connected", false);
+	    return model;
 	}
 
 	ModelAndView model = new ModelAndView(
@@ -343,6 +389,8 @@ public class ItineraireController {
 	    model.addObject("erreur", true);
 	    model.addObject("erreursMap", erreursMap);
 	}
+
+	model.addObject("connected", true);
 
 	return model;
     }
@@ -528,6 +576,8 @@ public class ItineraireController {
 	    model.addObject("erreursMap", erreursMap);
 	}
 
+	model.addObject("connected", true);
+
 	return model;
     }
 
@@ -544,6 +594,8 @@ public class ItineraireController {
 
 	// supprimer itineraire
 	routeService.deleteRoute(route);
-	return new ModelAndView("routes/liste_itineraires");
+	ModelAndView model = new ModelAndView("routes/liste_itineraires");
+	model.addObject("connected", true);
+	return model;
     }
 }

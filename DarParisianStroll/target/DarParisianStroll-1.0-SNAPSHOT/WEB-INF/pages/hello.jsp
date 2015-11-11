@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <title>Maps Test</title>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&language=fr"></script>
-    <script src="<c:url value="/resources/js/functions.js" />"></script>
+    <script src="<c:url value="/resources/js/functions2.js" />"></script>
     <style type="text/css">
       	html { height: 100% }
 		body { height: 100%; margin: 0px; padding: 0px }

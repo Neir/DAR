@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringEscapeUtils;
@@ -33,7 +34,8 @@ public class NewMdpoController {
     UserService userService;
 
     @RequestMapping(value = "new_mdpo", method = RequestMethod.GET)
-    public ModelAndView getNewMdpo(HttpServletResponse response,
+    public ModelAndView getNewMdpo(HttpServletRequest request,
+	    HttpServletResponse response,
 	    @RequestParam(value = "a") final String CodeMail) {
 	String emailCookie = null;
 
@@ -48,12 +50,21 @@ public class NewMdpoController {
 
 	ModelAndView model = new ModelAndView(
 		"compte_utilisateur/mot_de_passe_oublie/new_mdpo");
+
+	String user_id = Util.getCookieValue(request, "user");
+
+	if (user_id != null) {
+	    model.addObject("connected", true);
+	} else {
+	    model.addObject("connected", false);
+	}
+
 	model.addObject("emailU", emailCookie);
 	return model;
     }
 
     @RequestMapping(value = "new_mdpo", method = RequestMethod.POST)
-    public ModelAndView postNewMdpo(
+    public ModelAndView postNewMdpo(HttpServletRequest request,
 	    @RequestParam(value = CHAMP_MDP) final String MotDePasse,
 	    @RequestParam(value = CONF_MDP) final String ConfMotDePasse,
 	    @CookieValue("email") String emailCookie) {
@@ -90,6 +101,14 @@ public class NewMdpoController {
 	} else {
 	    model = new ModelAndView(
 		    "compte_utilisateur/mot_de_passe_oublie/confirmation_mdpo");
+	}
+
+	String user_id = Util.getCookieValue(request, "user");
+
+	if (user_id != null) {
+	    model.addObject("connected", true);
+	} else {
+	    model.addObject("connected", false);
 	}
 
 	return model;

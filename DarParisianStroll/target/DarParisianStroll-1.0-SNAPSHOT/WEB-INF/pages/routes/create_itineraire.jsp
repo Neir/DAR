@@ -3,8 +3,11 @@
 <html lang="fr">
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
-		<!-- Bootstrap -->
-    	<link rel="stylesheet" href="<c:url value="/resources/bootstrap/css/bootstrap.css"/>" media="screen"/>
+		<jsp:include page="../import.jsp"></jsp:include>
+    	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+    	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     	<link rel="stylesheet" href="<c:url value="/resources/select2-3.5.4/select2.css"/>" media="screen"/>
 		<link rel="stylesheet" href="<c:url value="/resources/css/routes/create_itineraire.css"/>" media="screen"/>
 		<script src="<c:url value="/resources/js/jquery-1.11.3.js" />"></script>
@@ -29,6 +32,11 @@
     	</style>
 	</head>
 	<body style="background-image:url(<c:url value="/resources/images/paris.jpg" />)">
+		<jsp:include page="../header.jsp">
+			<jsp:param name="page_active" value="create_itineraire" />
+			<jsp:param name="connected" value="${connected}" />
+		</jsp:include>
+	
 		<div class="container">
       		<form name="Myform" action="create_itineraire" method="post" onsubmit="return verifForm('leg','Myform');" style="margin:0 auto">
 				<fieldset>

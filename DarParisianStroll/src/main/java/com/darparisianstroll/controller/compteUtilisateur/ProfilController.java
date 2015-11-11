@@ -68,8 +68,12 @@ public class ProfilController {
 	    user = userService.findById(Integer.parseInt(user_id));
 	} else {
 	    // redirection vers la page de connexion
-	    return new ModelAndView(
+	    ModelAndView model = new ModelAndView(
 		    "compte_utilisateur/connexion_inscription/connexion_inscription");
+
+	    model.addObject("connected", false);
+
+	    return model;
 	}
 
 	if (user == null) {
@@ -110,6 +114,8 @@ public class ProfilController {
 
 	ModelAndView model = new ModelAndView(
 		"compte_utilisateur/profil/profil");
+
+	model.addObject("connected", true);
 	model.addObject("identifiant", identifiant);
 	model.addObject("email", email);
 	if (!routesItineraires.isEmpty())
@@ -155,6 +161,8 @@ public class ProfilController {
 	    model.addObject("erreur", erreur);
 	    model.addObject("erreursMap", erreursMap);
 	}
+
+	model.addObject("connected", true);
 
 	// redirection vers la page
 	return model;

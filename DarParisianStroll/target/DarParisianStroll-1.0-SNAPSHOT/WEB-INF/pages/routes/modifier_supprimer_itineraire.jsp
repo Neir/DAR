@@ -3,8 +3,11 @@
 <html lang="fr">
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
-		<!-- Bootstrap -->
-    	<link rel="stylesheet" href="<c:url value="/resources/bootstrap/css/bootstrap.css"/>" media="screen"/>
+		<jsp:include page="../import.jsp"></jsp:include>
+    	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+    	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link rel="stylesheet" href="<c:url value="/resources/css/routes/modifier_supprimer_itineraire.css"/>" media="screen"/>
 		<script src="<c:url value="/resources/js/routes/modifier_supprimer_itineraire.js" />"></script>
 		<!-- Faire fonctionner les balises structurantes de HTML5 -->
@@ -26,6 +29,11 @@
     	</style>
 	</head>
 	<body style="background-image:url(<c:url value="/resources/images/paris.jpg" />)">
+		<jsp:include page="../header.jsp">
+			<jsp:param name="page_active" value="modifier_supprimer_itineraire" />
+			<jsp:param name="connected" value="${connected}" />
+		</jsp:include>
+		
 		<div class="container">
       		<form name="Myform" action="modifier_supprimer_itineraire" method="post" style="margin:0 auto; width:400px;" onsubmit="return modifierForm();">
 				<fieldset>
