@@ -58,3 +58,32 @@ function hideMsg() {
 	var element = document.getElementById("theForm");
 	element.style.visibility = "hidden";
 }
+
+function func() {
+	event.preventDefault(x);
+	console.log(x);
+	var id = x;
+	var select1 = $('#select1').val();
+	var textarea = $('#textarea').val();
+	var xhr = new XMLHttpRequest();
+	var url = 'http://localhost:8080/DarParisianStroll/activite?id='
+			+ id + '&select1=' + select1 + '&textarea=' + textarea;
+
+	xhr.open('post', url, false);
+
+	xhr.onreadystatechange = function() {
+		// Ready state 4 means the request is done
+		if (xhr.readyState === 4) {
+			if (xhr.status === 200) {
+				if (xhr.responseText == "true") {
+					// email existant dans la base
+					text = document.createTextNode("Commentaire envoyé");
+					hideMsg();
+				}
+			}
+		}
+	}
+
+	xhr.send(null);
+	return true;;
+}

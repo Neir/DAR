@@ -51,7 +51,7 @@ public class RouteActDaoImpl extends AbstractDao<Integer, RouteAct> implements R
 		Criteria c = createEntityCriteria();
 		c.add(Restrictions.eq("activity", a.getId_activity()));
 		List<RouteAct> routeAct = (List<RouteAct>) c.list();
-		
+
 		Disjunction d = Restrictions.disjunction();
 		for (RouteAct ra : routeAct) {
 			d.add(Restrictions.eq("route_id", ra.getRoute()));
@@ -63,6 +63,22 @@ public class RouteActDaoImpl extends AbstractDao<Integer, RouteAct> implements R
 			lr.addAll((List<Route>) c2.list());
 		}
 		return lr;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<RouteAct> findRouteAct(Activity a) {
+		Criteria c = createEntityCriteria();
+		c.add(Restrictions.eq("activity", a.getId_activity()));
+		return (List<RouteAct>) c.list();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<RouteAct> findRouteAct(Route r) {
+		Criteria c = createEntityCriteria();
+		c.add(Restrictions.eq("route_id", r.getRoute_id()));
+		return (List<RouteAct>) c.list();
 	}
 
 }

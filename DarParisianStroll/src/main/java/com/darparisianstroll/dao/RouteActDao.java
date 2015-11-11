@@ -9,11 +9,15 @@ import com.darparisianstroll.domain.RouteAct;
 public interface RouteActDao {
 
 	RouteAct findById(int ra_id);
-	
+
 	void saveRouteAct(RouteAct ra);
 
 	List<Activity> findAllActivitiesByRoute(Route r);
 
 	List<Route> findAllRoutesByActivities(Activity a);
+
+	List<RouteAct> findRouteAct(Activity a);
+
+	List<RouteAct> findRouteAct(Route r);
 
 }

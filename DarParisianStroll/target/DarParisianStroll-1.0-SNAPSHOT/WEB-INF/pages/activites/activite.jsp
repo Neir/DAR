@@ -75,12 +75,12 @@
 										<div class="row">
 											<label
 												class="control-label col-xs-8 col-sm-8 col-md-8 col-lg-8 control-label"
-												for="name">Coût moyen : </label>10&euro;
+												for="name">Coût moyen : </label>${averageCost}&euro;
 										</div>
 										<div class="row">
 											<label
 												class="control-label col-xs-8 col-sm-8 col-md-8 col-lg-8 control-label"
-												for="name">Durée moyenne : </label> 1h
+												for="name">Durée moyenne : </label>${averageDuration}
 										</div>
 									</div>
 								</div>
@@ -103,7 +103,16 @@
 										<c:when test="${fn:length(routeList) gt 3}">
 											<p>
 												<c:forEach begin="0" end="2" varStatus="loop">
-												${routeList[loop.index].name}<br>
+												${routeList[loop.index].name} 
+												<c:forEach begin="1" end="${reviewList[loop.index]}"
+														varStatus="loop">
+														<span>&#9733;</span>
+													</c:forEach>
+													<c:forEach begin="${reviewList[loop.index]}" end="4"
+														varStatus="loop">
+														<span>&#9734;</span>
+													</c:forEach>
+													<br>
 												</c:forEach>
 											</p>
 										</c:when>
@@ -144,11 +153,12 @@
 										</c:otherwise>
 									</c:choose>
 									<c:choose>
-										<c:when test="${empty user}">
+										<c:when test="${not empty user}">
 											<a id="addComment" onClick="showMsg();">Ajouter un
 												commentaire</a>
 											<div id="theForm" style="visibility: hidden;">
-												<form>
+												<form accept-charset="utf-8" action="activite" method="post"
+													onsubmit="return func('${param.id}')">
 													<fieldset class="form-group">
 														<label for="exampleSelect1">Note</label> <select
 															class="form-control" id="select1">
@@ -163,9 +173,9 @@
 														<label for="exampleTextarea"></label>
 														<textarea class="form-control" id="textarea" rows="3">Entrez votre commentaire ...</textarea>
 													</fieldset>
-													<button type="submit" formmethod="post"
-														class="btn btn-primary">Envoyer</button>
+													<button type="submit" id="submit" class="btn btn-primary">Envoyer</button>
 												</form>
+
 											</div>
 										</c:when>
 										<c:otherwise>Pour ajouter un
@@ -180,7 +190,6 @@
 					</div>
 
 					<div class="col-md-6">
-
 						<div class="container-fluid">
 							<label>Plan :</label>
 							<div id="map-canvas">

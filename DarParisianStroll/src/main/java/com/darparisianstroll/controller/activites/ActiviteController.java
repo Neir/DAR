@@ -1,5 +1,8 @@
 package com.darparisianstroll.controller.activites;
 
+import java.io.IOException;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +22,7 @@ import com.darparisianstroll.domain.Activity;
 import com.darparisianstroll.domain.ActivityReview;
 import com.darparisianstroll.domain.Category;
 import com.darparisianstroll.domain.Route;
+import com.darparisianstroll.domain.RouteAct;
 import com.darparisianstroll.domain.RouteReview;
 import com.darparisianstroll.domain.User;
 import com.darparisianstroll.domain.enums.Note;
@@ -53,13 +57,11 @@ public class ActiviteController {
 
 	private final static String CHAMP_NOTE = "select1";
 	private final static String CHAMP_TEXT = "textarea";
-	private Activity a;
 
 	@RequestMapping(value = "activite", method = RequestMethod.GET)
 	public ModelAndView getActivite(HttpServletRequest request, HttpServletResponse response,
 			@RequestParam("id") Integer id) {
 		Activity act = actService.findById(id);
-		a = act;
 		Category cat = categoryService.findById(act.getCategory());
 		List<ActivityReview> actReviews = actReviewService.findActivityReviewsFromActivity(act);
 		List<Route> routeList = routeActService.findAllRoutesByActivities(act);
@@ -72,6 +74,12 @@ public class ActiviteController {
 			user = userService.findById(Integer.parseInt(user_id));
 		}
 
+		float prix = averageCost(act);
+		float duree = averageDuration(act);
+
+		DecimalFormat df = new DecimalFormat("##.##");
+		df.setRoundingMode(RoundingMode.DOWN);
+
 		ModelAndView mov = new ModelAndView("activites/activite");
 		mov.addObject("activity", act);
 		mov.addObject("routeList", routeList);
@@ -80,26 +88,37 @@ public class ActiviteController {
 		mov.addObject("category", cat);
 		mov.addObject("activityReviews", actReviews);
 		mov.addObject("user", user);
+		mov.addObject("averageCost", df.format(prix));
+		mov.addObject("averageDuration", durationToString(Math.round(duree)));
 		return mov;
 	}
 
 	@RequestMapping(value = "activite", method = RequestMethod.POST)
-	public ModelAndView postActivite(HttpServletRequest request, @RequestParam(value = CHAMP_NOTE) final Integer note,
-			@RequestParam(value = CHAMP_TEXT) final String text) {
+	public ModelAndView postActivite(HttpServletRequest request, HttpServletResponse response,
+			@RequestParam(value = CHAMP_NOTE) final Integer note, @RequestParam(value = CHAMP_TEXT) final String text,
+			@RequestParam(value = "id") String id) {
+
+		Activity act = actService.findById(Integer.parseInt(id));
 
 		final String ftext = StringEscapeUtils.escapeHtml4(text);
 
 		String user_id = Util.getCookieValue(request, "user");
 
 		ActivityReview aw = new ActivityReview();
-		aw.setActivity(a.getId_activity());
+		aw.setActivity(act.getId_activity());
 		aw.setDescription(ftext);
 		aw.setNote(note);
 		aw.setUser(Integer.parseInt(user_id));
 		aw.setUser(1);
 		actReviewService.saveReview(aw);
 
-		return new ModelAndView("activites/activite");
+		try {
+			response.getWriter().write("true");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	private List<Integer> averageRoutesRate(List<Route> list) {
@@ -157,11 +176,38 @@ public class ActiviteController {
 	}
 
 	private float averageCost(Activity a) {
-		return 0;
+		List<RouteAct> lra = routeActService.findRouteAct(a);
+		float cpt = 0;
+		for (RouteAct ra : lra) {
+			cpt += ra.getPrix();
+		}
+		if (!lra.isEmpty()) {
+			cpt /= lra.size();
+		}
+		return cpt;
 	}
 
 	private float averageDuration(Activity a) {
-		return 0;
+		List<RouteAct> lra = routeActService.findRouteAct(a);
+		float cpt = 0;
+		for (RouteAct ra : lra) {
+			cpt += ra.getDuree();
+		}
+		if (!lra.isEmpty()) {
+			cpt /= lra.size();
+		}
+		return cpt;
+	}
+
+	private String durationToString(int duration) {
+		int h = duration / 60;
+		int min = duration % 60;
+		String res = "";
+		if (h > 0) {
+			res += h + "h";
+		}
+		res += min + "min";
+		return res;
 	}
 
 }

@@ -15,5 +15,9 @@ public interface RouteActService {
 	List<Activity> findAllActivitiesByRoute(Route r);
 
 	List<Route> findAllRoutesByActivities(Activity a);
+	
+	List<RouteAct> findRouteAct(Activity a);
+	
+	List<RouteAct> findRouteAct(Route r);
 
 }
