@@ -131,6 +131,31 @@ public class ActiviteController {
 	return this.getActivite(request, response, activite);
     }
 
+    @RequestMapping(value = "activite_form", method = RequestMethod.GET)
+    public ModelAndView formActivite(HttpServletRequest request,
+	    HttpServletResponse response,
+	    @RequestParam(value = CHAMP_NOTE) final Integer note,
+	    @RequestParam(value = CHAMP_TEXT) final String text) {
+	final String ftext = StringEscapeUtils.escapeHtml4(text);
+
+	String user_id = Util.getCookieValue(request, "user");
+
+	ActivityReview aw = new ActivityReview();
+	aw.setActivity(activite);
+	aw.setDescription(ftext);
+	aw.setNote(note);
+	aw.setUser(Integer.parseInt(user_id));
+	actReviewService.saveReview(aw);
+
+	try {
+	    response.getWriter().write("true");
+	} catch (IOException e) {
+	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+	}
+	return null;
+    }
+
     private List<Integer> averageRoutesRate(List<Route> list) {
 	ArrayList<Integer> res = new ArrayList<>();
 	List<RouteReview> ll;

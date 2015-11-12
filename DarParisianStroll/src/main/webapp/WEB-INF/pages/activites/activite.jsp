@@ -43,7 +43,6 @@
 				<label>${activity.name}</label>
 			</div>
 			<div class="panel-body">
-				<form class="form-vertical" accept-charset="utf-8" action="activite" method="post" onsubmit="return func('${param.id}')">
 					<div class="column">
 						<div class="col-md-6">
 							<fieldset>
@@ -156,6 +155,7 @@
 											<a id="addComment" onClick="showMsg();">Ajouter un
 												commentaire</a>
 											<div id="theForm" style="visibility: hidden;">
+												<form action="activite" method="post">
 													<fieldset class="form-group">
 														<label for="exampleSelect1">Note</label> <select
 															class="form-control" id="select1" name="select1">
@@ -170,7 +170,11 @@
 														<label for="exampleTextarea"></label>
 														<textarea class="form-control" id="textarea" name="textarea" rows="3">Entrez votre commentaire ...</textarea>
 													</fieldset>
-													<button type="submit" id="submit" class="btn btn-primary">Envoyer</button>
+													
+													<fieldset class="form-group">
+														<button type="submit" id="submit" class="btn btn-primary">Envoyer</button>
+													</fieldset>
+												</form>
 											</div>
 										</c:when>
 										<c:otherwise>Pour ajouter un
@@ -192,8 +196,6 @@
 							</div>
 						</div>
 					</div>
-
-				</form>
 			</div>
 		</div>
 	</div>

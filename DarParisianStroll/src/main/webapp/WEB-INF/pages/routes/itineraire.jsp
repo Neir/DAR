@@ -57,9 +57,14 @@ body {
 								<div class="form-group row">
 									Créé par <a href="profil?id=${author.user_id}">${author.username}</a>
 								</div>
-								
+
 								<c:if test="${route.user == author.user_id}">
-									<div id="lien"><a href="modifier_supprimer_itineraire?itineraire=${route.route_id}"><span style="color:blue;">modifier ou supprimer l'itineraire</a></span></div>
+									<div id="lien">
+										<a
+											href="modifier_supprimer_itineraire?itineraire=${route.route_id}"><span
+											style="color: blue;">modifier ou supprimer
+												l'itineraire</a></span>
+									</div>
 									</br>
 								</c:if>
 
@@ -88,33 +93,50 @@ body {
 										des activités :</label>
 
 									<script type="text/javascript">
-										window.onload = function(){
-		                                        
-		                                   console.log("1");
-		                                   var destinations = [];
-		                                   <c:forEach items="${activityTable}" var="activity">
-		                                     destinations.push(${activity.address});
-		                                   </c:forEach>
-		
-		                                   console.log("2");
-		                                        
-		                                   var wp = [];
-		                                   Array.forEach(destinations, function(dest) {
-		                                      var end = geocode(dest);
-		                                      wp.push({
-		                                          location : geocode(dest),
-		                                          stopover : false
-		                                      })
-		                                      console.log(end);
-		                                   });
-		
-		                                  console.log(1);
-		                                  var start = new google.maps.Place(destinations[0]);
-		                                  console.log(2);
-		                                  var end = new google.maps.Place(destinations[destinations.length - 1]);
-		                                  console.log(end);
-		                                  calculate(start, end, wp);
-		                              };
+									window.onload = function(){
+                                        
+                                        console.log("1");
+                                        var destinations = [];
+                                       
+                                          destinations.push("Avenue des Minimes"+" Paris");
+                                       
+                                          destinations.push("61 place des Vosges"+" Paris");
+                                       
+     
+                                        console.log("2");
+                                             
+                                        var wp = [];
+										   var tabResults = [];
+										   
+                                        Array.forEach(destinations, function(dest) {
+                                            geocoder.geocode({
+                                                 'address' : dest
+                                             }, function(results, status) {
+                                                 if (status == google.maps.GeocoderStatus.OK) {
+														tabResults.push(results[0]);
+                                                     var marker = new google.maps.Marker({
+                                                         map : map,
+                                                         position : results[0].geometry.location
+                                                     });
+                                                     wp.push({
+                                                         location : results[0].geometry.location,
+                                                         stopover : false
+                                                     });
+                                                 } else {
+                                                     alert("Geocode was not successful for the following reason: "
+                                                             + status);
+                                                 }
+                                             });
+                                           console.log(end);
+                                        });
+     
+                                        console.log(1);
+                                        var start = tabResults[0];
+                                        console.log(2);
+                                        var end = tabResults[tabResults.length - 1];
+                                        console.log(end);
+                                        calculate(start, end, wp);
+                                   };
                                     </script>
 
 									<c:forEach items="${activityTable}" var="activity"

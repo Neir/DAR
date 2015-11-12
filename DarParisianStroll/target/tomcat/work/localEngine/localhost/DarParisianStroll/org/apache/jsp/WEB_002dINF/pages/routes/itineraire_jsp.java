@@ -13,7 +13,6 @@ public final class itineraire_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fc_005fif_0026_005ftest;
-  private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvarStatus_005fvar_005fitems;
 
   private javax.el.ExpressionFactory _el_expressionfactory;
@@ -26,7 +25,6 @@ public final class itineraire_jsp extends org.apache.jasper.runtime.HttpJspBase
   public void _jspInit() {
     _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005fc_005fif_0026_005ftest = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvarStatus_005fvar_005fitems = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _el_expressionfactory = _jspxFactory.getJspApplicationContext(getServletConfig().getServletContext()).getExpressionFactory();
     _jsp_annotationprocessor = (org.apache.AnnotationProcessor) getServletConfig().getServletContext().getAttribute(org.apache.AnnotationProcessor.class.getName());
@@ -35,7 +33,6 @@ public final class itineraire_jsp extends org.apache.jasper.runtime.HttpJspBase
   public void _jspDestroy() {
     _005fjspx_005ftagPool_005fc_005furl_0026_005fvalue_005fnobody.release();
     _005fjspx_005ftagPool_005fc_005fif_0026_005ftest.release();
-    _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.release();
     _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvarStatus_005fvar_005fitems.release();
   }
 
@@ -113,7 +110,7 @@ public final class itineraire_jsp extends org.apache.jasper.runtime.HttpJspBase
         return;
       out.write(")\">\r\n");
       out.write("\t");
-      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "../header.jsp" + (("../header.jsp").indexOf('?')>0? '&': '?') + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode("page_active", request.getCharacterEncoding())+ "=" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode("itineraire", request.getCharacterEncoding()), out, false);
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "../header.jsp" + (("../header.jsp").indexOf('?')>0? '&': '?') + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode("page_active", request.getCharacterEncoding())+ "=" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode("itineraire", request.getCharacterEncoding()) + "&" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode("connected", request.getCharacterEncoding())+ "=" + org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${connected}", java.lang.String.class, (PageContext)_jspx_page_context, null, false), request.getCharacterEncoding()), out, false);
       out.write("\r\n");
       out.write("\r\n");
       out.write("\t<div id=\"container\" class=\"container\">\r\n");
@@ -138,7 +135,7 @@ public final class itineraire_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${author.username}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
       out.write("</a>\r\n");
       out.write("\t\t\t\t\t\t\t\t</div>\r\n");
-      out.write("\t\t\t\t\t\t\t\t\r\n");
+      out.write("\r\n");
       out.write("\t\t\t\t\t\t\t\t");
       if (_jspx_meth_c_005fif_005f0(_jspx_page_context))
         return;
@@ -175,38 +172,54 @@ public final class itineraire_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t\t\t\t\t\t\tdes activités :</label>\r\n");
       out.write("\r\n");
       out.write("\t\t\t\t\t\t\t\t\t<script type=\"text/javascript\">\r\n");
-      out.write("\t\t\t\t\t\t\t\t\t\twindow.onload = function(){\r\n");
-      out.write("\t\t                                        \r\n");
-      out.write("\t\t                                   console.log(\"1\");\r\n");
-      out.write("\t\t                                   var destinations = [];\r\n");
-      out.write("\t\t                                   ");
-      if (_jspx_meth_c_005fforEach_005f0(_jspx_page_context))
-        return;
-      out.write("\r\n");
-      out.write("\t\t\r\n");
-      out.write("\t\t                                   console.log(\"2\");\r\n");
-      out.write("\t\t                                        \r\n");
-      out.write("\t\t                                   var wp = [];\r\n");
-      out.write("\t\t                                   Array.forEach(destinations, function(dest) {\r\n");
-      out.write("\t\t                                      var end = geocode(dest);\r\n");
-      out.write("\t\t                                      wp.push({\r\n");
-      out.write("\t\t                                          location : geocode(dest),\r\n");
-      out.write("\t\t                                          stopover : false\r\n");
-      out.write("\t\t                                      })\r\n");
-      out.write("\t\t                                      console.log(end);\r\n");
-      out.write("\t\t                                   });\r\n");
-      out.write("\t\t\r\n");
-      out.write("\t\t                                  console.log(1);\r\n");
-      out.write("\t\t                                  var start = new google.maps.Place(destinations[0]);\r\n");
-      out.write("\t\t                                  console.log(2);\r\n");
-      out.write("\t\t                                  var end = new google.maps.Place(destinations[destinations.length - 1]);\r\n");
-      out.write("\t\t                                  console.log(end);\r\n");
-      out.write("\t\t                                  calculate(start, end, wp);\r\n");
-      out.write("\t\t                              };\r\n");
+      out.write("\t\t\t\t\t\t\t\t\twindow.onload = function(){\r\n");
+      out.write("                                        \r\n");
+      out.write("                                        console.log(\"1\");\r\n");
+      out.write("                                        var destinations = [];\r\n");
+      out.write("                                       \r\n");
+      out.write("                                          destinations.push(\"Avenue des Minimes\"+\" Paris\");\r\n");
+      out.write("                                       \r\n");
+      out.write("                                          destinations.push(\"61 place des Vosges\"+\" Paris\");\r\n");
+      out.write("                                       \r\n");
+      out.write("     \r\n");
+      out.write("                                        console.log(\"2\");\r\n");
+      out.write("                                             \r\n");
+      out.write("                                        var wp = [];\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t   var tabResults = [];\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t   \r\n");
+      out.write("                                        Array.forEach(destinations, function(dest) {\r\n");
+      out.write("                                            geocoder.geocode({\r\n");
+      out.write("                                                 'address' : dest\r\n");
+      out.write("                                             }, function(results, status) {\r\n");
+      out.write("                                                 if (status == google.maps.GeocoderStatus.OK) {\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t\t\t\t\t\ttabResults.push(results[0]);\r\n");
+      out.write("                                                     var marker = new google.maps.Marker({\r\n");
+      out.write("                                                         map : map,\r\n");
+      out.write("                                                         position : results[0].geometry.location\r\n");
+      out.write("                                                     });\r\n");
+      out.write("                                                     wp.push({\r\n");
+      out.write("                                                         location : results[0].geometry.location,\r\n");
+      out.write("                                                         stopover : false\r\n");
+      out.write("                                                     });\r\n");
+      out.write("                                                 } else {\r\n");
+      out.write("                                                     alert(\"Geocode was not successful for the following reason: \"\r\n");
+      out.write("                                                             + status);\r\n");
+      out.write("                                                 }\r\n");
+      out.write("                                             });\r\n");
+      out.write("                                           console.log(end);\r\n");
+      out.write("                                        });\r\n");
+      out.write("     \r\n");
+      out.write("                                        console.log(1);\r\n");
+      out.write("                                        var start = tabResults[0];\r\n");
+      out.write("                                        console.log(2);\r\n");
+      out.write("                                        var end = tabResults[tabResults.length - 1];\r\n");
+      out.write("                                        console.log(end);\r\n");
+      out.write("                                        calculate(start, end, wp);\r\n");
+      out.write("                                   };\r\n");
       out.write("                                    </script>\r\n");
       out.write("\r\n");
       out.write("\t\t\t\t\t\t\t\t\t");
-      if (_jspx_meth_c_005fforEach_005f1(_jspx_page_context))
+      if (_jspx_meth_c_005fforEach_005f0(_jspx_page_context))
         return;
       out.write("\r\n");
       out.write("\t\t\t\t\t\t\t\t</div>\r\n");
@@ -308,15 +321,20 @@ public final class itineraire_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_005fif_005f0 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _005fjspx_005ftagPool_005fc_005fif_0026_005ftest.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
     _jspx_th_c_005fif_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005fif_005f0.setParent(null);
-    // /WEB-INF/pages/routes/itineraire.jsp(60,8) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/pages/routes/itineraire.jsp(61,8) name = test type = boolean reqTime = true required = true fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fif_005f0.setTest(((java.lang.Boolean) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${route.user == author.user_id}", java.lang.Boolean.class, (PageContext)_jspx_page_context, null, false)).booleanValue());
     int _jspx_eval_c_005fif_005f0 = _jspx_th_c_005fif_005f0.doStartTag();
     if (_jspx_eval_c_005fif_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\r\n");
-        out.write("\t\t\t\t\t\t\t\t\t<div id=\"lien\"><a href=\"modifier_supprimer_itineraire?itineraire=");
+        out.write("\t\t\t\t\t\t\t\t\t<div id=\"lien\">\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t<a\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\thref=\"modifier_supprimer_itineraire?itineraire=");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${route.route_id}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-        out.write("\"><span style=\"color:blue;\">modifier ou supprimer l'itineraire</a></span></div>\r\n");
+        out.write("\"><span\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\tstyle=\"color: blue;\">modifier ou supprimer\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t\t\t\tl'itineraire</a></span>\r\n");
+        out.write("\t\t\t\t\t\t\t\t\t</div>\r\n");
         out.write("\t\t\t\t\t\t\t\t\t</br>\r\n");
         out.write("\t\t\t\t\t\t\t\t");
         int evalDoAfterBody = _jspx_th_c_005fif_005f0.doAfterBody();
@@ -337,23 +355,29 @@ public final class itineraire_jsp extends org.apache.jasper.runtime.HttpJspBase
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  c:forEach
-    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvarStatus_005fvar_005fitems.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_005fforEach_005f0.setPageContext(_jspx_page_context);
     _jspx_th_c_005fforEach_005f0.setParent(null);
-    // /WEB-INF/pages/routes/itineraire.jsp(94,37) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
-    _jspx_th_c_005fforEach_005f0.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/pages/routes/itineraire.jsp(94,37) '${activityTable}'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${activityTable}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
-    // /WEB-INF/pages/routes/itineraire.jsp(94,37) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    // /WEB-INF/pages/routes/itineraire.jsp(142,9) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
+    _jspx_th_c_005fforEach_005f0.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/pages/routes/itineraire.jsp(142,9) '${activityTable}'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${activityTable}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
+    // /WEB-INF/pages/routes/itineraire.jsp(142,9) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
     _jspx_th_c_005fforEach_005f0.setVar("activity");
+    // /WEB-INF/pages/routes/itineraire.jsp(142,9) name = varStatus type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
+    _jspx_th_c_005fforEach_005f0.setVarStatus("status");
     int[] _jspx_push_body_count_c_005fforEach_005f0 = new int[] { 0 };
     try {
       int _jspx_eval_c_005fforEach_005f0 = _jspx_th_c_005fforEach_005f0.doStartTag();
       if (_jspx_eval_c_005fforEach_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
           out.write("\r\n");
-          out.write("\t\t                                     destinations.push(");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${activity.address}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-          out.write(");\r\n");
-          out.write("\t\t                                   ");
+          out.write("\t\t\t\t\t\t\t\t\t\t<a href=\"activite?id=");
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${activity.id_activity}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write('"');
+          out.write('>');
+          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${activity.name}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
+          out.write("</a>&nbsp;&nbsp;\r\n");
+          out.write("\t\t\t\t\t\t\t\t\t\t\r\n");
+          out.write("\t\t\t\t\t\t\t\t\t");
           int evalDoAfterBody = _jspx_th_c_005fforEach_005f0.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
             break;
@@ -368,54 +392,7 @@ public final class itineraire_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_th_c_005fforEach_005f0.doCatch(_jspx_exception);
     } finally {
       _jspx_th_c_005fforEach_005f0.doFinally();
-      _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvar_005fitems.reuse(_jspx_th_c_005fforEach_005f0);
-    }
-    return false;
-  }
-
-  private boolean _jspx_meth_c_005fforEach_005f1(PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  c:forEach
-    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_005fforEach_005f1 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvarStatus_005fvar_005fitems.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
-    _jspx_th_c_005fforEach_005f1.setPageContext(_jspx_page_context);
-    _jspx_th_c_005fforEach_005f1.setParent(null);
-    // /WEB-INF/pages/routes/itineraire.jsp(119,9) name = items type = javax.el.ValueExpression reqTime = true required = false fragment = false deferredValue = true expectedTypeName = java.lang.Object deferredMethod = false methodSignature = null
-    _jspx_th_c_005fforEach_005f1.setItems(new org.apache.jasper.el.JspValueExpression("/WEB-INF/pages/routes/itineraire.jsp(119,9) '${activityTable}'",_el_expressionfactory.createValueExpression(_jspx_page_context.getELContext(),"${activityTable}",java.lang.Object.class)).getValue(_jspx_page_context.getELContext()));
-    // /WEB-INF/pages/routes/itineraire.jsp(119,9) name = var type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005fforEach_005f1.setVar("activity");
-    // /WEB-INF/pages/routes/itineraire.jsp(119,9) name = varStatus type = java.lang.String reqTime = false required = false fragment = false deferredValue = false expectedTypeName = null deferredMethod = false methodSignature = null
-    _jspx_th_c_005fforEach_005f1.setVarStatus("status");
-    int[] _jspx_push_body_count_c_005fforEach_005f1 = new int[] { 0 };
-    try {
-      int _jspx_eval_c_005fforEach_005f1 = _jspx_th_c_005fforEach_005f1.doStartTag();
-      if (_jspx_eval_c_005fforEach_005f1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-        do {
-          out.write("\r\n");
-          out.write("\t\t\t\t\t\t\t\t\t\t<a href=\"activite?id=");
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${activity.id_activity}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-          out.write('"');
-          out.write('>');
-          out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.proprietaryEvaluate("${activity.name}", java.lang.String.class, (PageContext)_jspx_page_context, null, false));
-          out.write("</a>&nbsp;&nbsp;\r\n");
-          out.write("\t\t\t\t\t\t\t\t\t\t\r\n");
-          out.write("\t\t\t\t\t\t\t\t\t");
-          int evalDoAfterBody = _jspx_th_c_005fforEach_005f1.doAfterBody();
-          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-            break;
-        } while (true);
-      }
-      if (_jspx_th_c_005fforEach_005f1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-        return true;
-      }
-    } catch (Throwable _jspx_exception) {
-      while (_jspx_push_body_count_c_005fforEach_005f1[0]-- > 0)
-        out = _jspx_page_context.popBody();
-      _jspx_th_c_005fforEach_005f1.doCatch(_jspx_exception);
-    } finally {
-      _jspx_th_c_005fforEach_005f1.doFinally();
-      _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvarStatus_005fvar_005fitems.reuse(_jspx_th_c_005fforEach_005f1);
+      _005fjspx_005ftagPool_005fc_005fforEach_0026_005fvarStatus_005fvar_005fitems.reuse(_jspx_th_c_005fforEach_005f0);
     }
     return false;
   }

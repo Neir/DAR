@@ -4,13 +4,10 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 		<jsp:include page="../import.jsp"></jsp:include>
-    	<meta http-equiv="content-type" content="text/html; charset=utf-8">
-    	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     	<link rel="stylesheet" href="<c:url value="/resources/select2-3.5.4/select2.css"/>" media="screen"/>
 		<link rel="stylesheet" href="<c:url value="/resources/css/routes/create_itineraire.css"/>" media="screen"/>
-		<script src="<c:url value="/resources/js/jquery-1.11.3.js" />"></script>
 		<script src="<c:url value="/resources/select2-3.5.4/select2.min.js" />"></script>
 		<script src="<c:url value="/resources/js/routes/create_itineraire.js" />"></script>
 		<!-- Faire fonctionner les balises structurantes de HTML5 -->

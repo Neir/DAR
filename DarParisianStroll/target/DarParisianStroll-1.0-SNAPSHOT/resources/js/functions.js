@@ -3,6 +3,7 @@ var panel;
 var directionsDisplay;
 var firstPoint;
 var destinations;
+var geocoder = new google.maps.Geocoder();
 
 function initialize() {
 	firstPoint = new google.maps.LatLng(48.858565, 2.347198);
@@ -142,4 +143,22 @@ function successCallback(position) {
 		strokeWeight : 5
 	});
 	newLine.setMap(map);
+}
+
+function codeAddress(address) {
+    geocoder.geocode({
+        'address' : address
+    }, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            var marker = new google.maps.Marker({
+                map : map,
+                position : results[0].geometry.location
+            });
+            
+            return results[0].geometry.location;
+        } else {
+            alert("Geocode was not successful for the following reason: "
+                    + status);
+        }
+    });
 }

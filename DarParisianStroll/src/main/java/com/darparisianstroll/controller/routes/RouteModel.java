@@ -12,103 +12,106 @@ import com.darparisianstroll.service.RouteActService;
 import com.darparisianstroll.service.UserService;
 
 public class RouteModel {
-	private int id;
-	private String nom;
-	private User auteur;
-	private String description;
-	private ArrayList<Activity> activites;
-	private double cout;
-	private int duree;
-	
-	@Autowired
-	UserService userService;
-	@Autowired
-	RouteActService routeActService;
-	
-	public RouteModel(Route route) {
-		this.id = route.getRoute_id();
-		this.nom = route.getName();
-		this.auteur = userService.findById(id);
-		this.description = route.getDescription();
-		this.activites = (ArrayList<Activity>) routeActService.findAllActivitiesByRoute(route);
-		
-		ArrayList<RouteAct> raList = (ArrayList<RouteAct>) routeActService.getByRoute(route);
-		
-		this.cout = compteCout(raList);
-		this.duree = compteDuree(raList);
-	}
+    private int id;
+    private String nom;
+    private User auteur;
+    private String description;
+    private ArrayList<Activity> activites;
+    private double cout;
+    private int duree;
 
-	private double compteCout(ArrayList<RouteAct> raList) {
-		double coutCpt = 0;
-		for(RouteAct ra : raList) {
-			coutCpt += ra.getPrix();
-		}
-		return coutCpt;
-	}
-	
-	private int compteDuree(ArrayList<RouteAct> raList) {
-		int dureeCpt = 0;
-		for(RouteAct ra : raList) {
-			dureeCpt += ra.getDuree();
-		}
-		return dureeCpt;
-	}
+    @Autowired
+    UserService userService;
+    @Autowired
+    RouteActService routeActService;
 
-	public int getId() {
-		return id;
-	}
+    public RouteModel(Route route, User user) {
+	this.id = route.getRoute_id();
+	this.nom = route.getName();
+	System.out.println("before");
+	this.auteur = user;
+	System.out.println("after");
+	this.description = route.getDescription();
+	this.activites = (ArrayList<Activity>) routeActService
+		.findAllActivitiesByRoute(route);
 
-	public void setId(int id) {
-		this.id = id;
-	}
+	ArrayList<RouteAct> raList = (ArrayList<RouteAct>) routeActService
+		.getByRoute(route);
 
-	public String getNom() {
-		return nom;
-	}
+	this.cout = compteCout(raList);
+	this.duree = compteDuree(raList);
+    }
 
-	public void setNom(String nom) {
-		this.nom = nom;
+    private double compteCout(ArrayList<RouteAct> raList) {
+	double coutCpt = 0;
+	for (RouteAct ra : raList) {
+	    coutCpt += ra.getPrix();
 	}
+	return coutCpt;
+    }
 
-	public User getAuteur() {
-		return auteur;
+    private int compteDuree(ArrayList<RouteAct> raList) {
+	int dureeCpt = 0;
+	for (RouteAct ra : raList) {
+	    dureeCpt += ra.getDuree();
 	}
+	return dureeCpt;
+    }
 
-	public void setAuteur(User auteur) {
-		this.auteur = auteur;
-	}
+    public int getId() {
+	return id;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public void setId(int id) {
+	this.id = id;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public String getNom() {
+	return nom;
+    }
 
-	public ArrayList<Activity> getActivites() {
-		return activites;
-	}
+    public void setNom(String nom) {
+	this.nom = nom;
+    }
 
-	public void setActivites(ArrayList<Activity> activites) {
-		this.activites = activites;
-	}
+    public User getAuteur() {
+	return auteur;
+    }
 
-	public double getCout() {
-		return cout;
-	}
+    public void setAuteur(User auteur) {
+	this.auteur = auteur;
+    }
 
-	public void setCout(double cout) {
-		this.cout = cout;
-	}
+    public String getDescription() {
+	return description;
+    }
 
-	public int getDuree() {
-		return duree;
-	}
+    public void setDescription(String description) {
+	this.description = description;
+    }
 
-	public void setDuree(int duree) {
-		this.duree = duree;
-	}
-	
-	
+    public ArrayList<Activity> getActivites() {
+	return activites;
+    }
+
+    public void setActivites(ArrayList<Activity> activites) {
+	this.activites = activites;
+    }
+
+    public double getCout() {
+	return cout;
+    }
+
+    public void setCout(double cout) {
+	this.cout = cout;
+    }
+
+    public int getDuree() {
+	return duree;
+    }
+
+    public void setDuree(int duree) {
+	this.duree = duree;
+    }
+
 }
