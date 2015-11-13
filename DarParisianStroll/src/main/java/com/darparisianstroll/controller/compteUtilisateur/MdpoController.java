@@ -80,7 +80,7 @@ public class MdpoController {
 				"Parisian Stroll: Reinitialisation mot de passe",
 				"Bonjour,\n\nPour reinitialiser votre mot de passe"
 					+ " veuillez suivre ce lien:\n"
-					+ "http://localhost:8080/DarParisianStroll/new_mdpo?a="
+					+ "http://darparisianstroll.elasticbeanstalk.com/new_mdpo?a="
 					+ codeMail + "\n\nCordialement");
 	    }
 	}

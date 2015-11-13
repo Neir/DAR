@@ -87,7 +87,8 @@ public class NewMdpoController {
 	} else {
 	    erreur = false;
 	    User user = userService.findByEmail(emailCookie);
-	    user.setPassword(Util.MD5(motDePasse));
+	    user.setPassword(Util.MD5("ajdikchetdysuncklplq869785SHFhjv"
+		    + motDePasse + "dysuncklpl"));
 	    userService.updateUser(user);
 	}
 

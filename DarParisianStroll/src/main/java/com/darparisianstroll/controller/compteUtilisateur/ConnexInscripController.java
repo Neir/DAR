@@ -105,7 +105,8 @@ public class ConnexInscripController {
 		user = new User();
 		user.setUsername(username);
 		user.setMail(email);
-		user.setPassword(Util.MD5(motDePasse));
+		user.setPassword(Util.MD5("ajdikchetdysuncklplq869785SHFhjv"
+			+ motDePasse + "dysuncklpl"));
 		user.setState(State.attente);
 
 		userService.saveUser(user);
@@ -124,7 +125,7 @@ public class ConnexInscripController {
 				"Parisian Stroll: Validation inscription",
 				"Bonjour,\n\nPour valider votre inscription"
 					+ " veuillez suivre ce lien:\n"
-					+ "http://localhost:8080/DarParisianStroll/validation_inscription?a="
+					+ "http://darparisianstroll.elasticbeanstalk.com/validation_inscription?a="
 					+ codeUser + "\n\nCordialement");
 	    }
 
@@ -170,7 +171,10 @@ public class ConnexInscripController {
 	    erreur = false;
 
 	    // verification dans la base de donnee
-	    if (!userService.isRegistred(username, Util.MD5(motDePasse))) {
+	    if (!userService.isRegistred(
+		    username,
+		    Util.MD5("ajdikchetdysuncklplq869785SHFhjv" + motDePasse
+			    + "dysuncklpl"))) {
 		erreur = true;
 		erreursMap.put("connexionERR",
 			"Identifiant ou mot de passe incorrect");

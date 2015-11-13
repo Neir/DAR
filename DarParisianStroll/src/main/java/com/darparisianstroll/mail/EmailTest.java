@@ -4,12 +4,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class EmailTest {
-    /*
-     * public static void main(String args[]) {
-     * EmailTest.sendEmail("mohamed.af@hotmail.fr",
-     * "Parisian Stroll: Validation inscription",
-     * "Bonjour,\n\nPour valider votre inscription"); }
-     */
 
     @SuppressWarnings("resource")
     public static void sendEmail(String toAddr, String subject, String body) {
