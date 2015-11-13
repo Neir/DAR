@@ -72,7 +72,7 @@
 						<select id="act1" name="act1" class="form-control select2-allow-clear select2-offscreen" tabindex="-1">
 							<option> </option>
 							<c:forEach items="${listeActivites}" var="act">
-				  		 		<option value="<c:out value="${act}"/>"><c:out value="${act}"/>/option>
+				  		 		<option value="<c:out value="${act}"/>"><c:out value="${act}"/></option>
 				  			</c:forEach>
     					</select>
 		    		</div>

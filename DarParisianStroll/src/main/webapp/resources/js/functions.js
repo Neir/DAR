@@ -3,7 +3,6 @@ var panel;
 var directionsDisplay;
 var firstPoint;
 var destinations;
-var geocoder = new google.maps.Geocoder();
 
 function initialize() {
 	firstPoint = new google.maps.LatLng(48.858565, 2.347198);
@@ -21,8 +20,7 @@ function initialize() {
 
 	var map = new google.maps.Map(document.getElementById("map-canvas"),
 			mapOptions);
-	//marker.setMap(map);
-
+	
 	directionsDisplay = new google.maps.DirectionsRenderer({
 		map : map
 	});
@@ -31,13 +29,48 @@ function initialize() {
 
 	// Instantiate an info window to hold step text.
 	var stepDisplay = new google.maps.InfoWindow;
-}
 
+}
 google.maps.event.addDomListener(window, 'load', initialize);
 
+function codeAddresses(addresses) {
+	var latlng = [];
+	for (var x = 0; x < addresses.length; x++) {
+		$.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address='
+				+ addresses[x] + '&sensor=false', null, function(data) {
+			var p = data.results[0].geometry.location
+			var platlng = new google.maps.LatLng(p.lat, p.lng);
+			latlng.push(platlng);
+			new google.maps.Marker({
+				position : platlng,
+				map : map
+			});
+
+			updateMap(latlng);
+		});
+	}
+}
+
+function updateMap(positions) {
+	var wp = [];
+
+	for (var i = 0; i < positions.length; i++) {
+		wp.push({
+			location : positions[i],
+			stopover : false
+		});
+	}
+
+	console.log(1);
+	var start = positions[0];
+	console.log(2);
+	var end = positions[positions.length - 1]
+	console.log(end);
+	calculate(start, end, wp);
+}
+
 function calculate(origin, destination, waypts) {
-	//origin      = document.getElementById('origin').value; // Le point départ
-	//destination = document.getElementById('destination').value; // Le point d'arrivé
+
 	if (origin && destination) {
 		var request = {
 			origin : origin,
@@ -143,22 +176,4 @@ function successCallback(position) {
 		strokeWeight : 5
 	});
 	newLine.setMap(map);
-}
-
-function codeAddress(address) {
-    geocoder.geocode({
-        'address' : address
-    }, function(results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-            var marker = new google.maps.Marker({
-                map : map,
-                position : results[0].geometry.location
-            });
-            
-            return results[0].geometry.location;
-        } else {
-            alert("Geocode was not successful for the following reason: "
-                    + status);
-        }
-    });
 }

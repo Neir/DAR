@@ -45,7 +45,7 @@
 						<div class="col-md-6">
 							<fieldset>
 
-								<div class="form-group input-group">
+								<div class="form-group input-group" style="width:565px;">
 					    			<span class="input-group-addon">
 				              			<span class="glyphicon">Activité 1</span>
 				              		</span>
@@ -57,7 +57,7 @@
 			    					</select>
 					    		</div>
 					    		
-					    		<div class="form-group input-group">
+					    		<div class="form-group input-group" style="width:565px;">
 					    			<span class="input-group-addon">
 				              			<span class="glyphicon">Activité 2</span>
 				              		</span>

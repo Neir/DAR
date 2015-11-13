@@ -88,50 +88,24 @@ body {
 										des activités :</label>
 
 									<script type="text/javascript">
-									window.onload = function(){
-                                        
-                                        console.log("1");
-                                        var destinations = [];
-                                       
-                                          destinations.push("Avenue des Minimes"+" Paris");
-                                       
-                                          destinations.push("61 place des Vosges"+" Paris");
-                                       
-     
-                                        console.log("2");
-                                             
-                                        var wp = [];
-										   var tabResults = [];
-										   
-                                        Array.forEach(destinations, function(dest) {
-                                            geocoder.geocode({
-                                                 'address' : dest
-                                             }, function(results, status) {
-                                                 if (status == google.maps.GeocoderStatus.OK) {
-														tabResults.push(results[0]);
-                                                     var marker = new google.maps.Marker({
-                                                         map : map,
-                                                         position : results[0].geometry.location
-                                                     });
-                                                     wp.push({
-                                                         location : results[0].geometry.location,
-                                                         stopover : false
-                                                     });
-                                                 } else {
-                                                     alert("Geocode was not successful for the following reason: "
-                                                             + status);
-                                                 }
-                                             });
-                                           console.log(end);
-                                        });
-     
-                                        console.log(1);
-                                        var start = tabResults[0];
-                                        console.log(2);
-                                        var end = tabResults[tabResults.length - 1];
-                                        console.log(end);
-                                        calculate(start, end, wp);
-                                   };
+                                        window.onload = function() {
+
+//                                             console.log("1");
+                                            var destinations = [];
+                                            <c:forEach items="${activityTable}" var="activity">
+                                            destinations
+                                                    .push("${activity.address}"
+                                                            + " "
+                                                            + "${activity.zip_code}"
+                                                            + " Paris");
+                                            </c:forEach>
+
+//                                             console.log("2");
+
+                                            codeAddresses(destinations);
+
+//                                             console.log("3");
+                                        };
                                     </script>
 
 									<c:forEach items="${activityTable}" var="activity"
