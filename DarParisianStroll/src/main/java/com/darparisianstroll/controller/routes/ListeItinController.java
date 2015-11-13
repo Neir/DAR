@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -63,13 +64,16 @@ public class ListeItinController {
 	Activity activ1 = null, activ2 = null, activ3 = null;
 
 	if (act1 != null && !act1.isEmpty()) {
-	    activ1 = actService.findById(Integer.parseInt(act1));
+	    activ1 = actService.findById(Integer.parseInt(StringEscapeUtils
+		    .escapeHtml4(act1)));
 	}
 	if (act2 != null && !act2.isEmpty()) {
-	    activ2 = actService.findById(Integer.parseInt(act2));
+	    activ2 = actService.findById(Integer.parseInt(StringEscapeUtils
+		    .escapeHtml4(act2)));
 	}
 	if (act3 != null && !act3.isEmpty()) {
-	    activ3 = actService.findById(Integer.parseInt(act3));
+	    activ3 = actService.findById(Integer.parseInt(StringEscapeUtils
+		    .escapeHtml4(act3)));
 	}
 
 	ModelAndView model = new ModelAndView("routes/liste_itineraires");

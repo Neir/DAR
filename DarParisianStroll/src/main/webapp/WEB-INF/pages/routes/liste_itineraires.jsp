@@ -33,7 +33,7 @@
 			<jsp:param name="connected" value="${connected}" />
 		</jsp:include>
 
-		<div id="container" class="container">
+		<div id="container" class="container" style="width:600px;">
 
 		<div class="panel panel-default">
 			<div class="panel-heading">
@@ -52,7 +52,7 @@
 									<select id="act1" name="act1" class="form-control select2-allow-clear select2-offscreen" tabindex="-1">
 										<option> </option>
 										<c:forEach items="${activities}" var="act">
-							  		 		<option value="${act.id_activity}">${act.name}</option>
+							  		 		<option value="<c:out value="${act.id_activity}"/>"><c:out value="${act.name}"/></option>
 							  			</c:forEach>
 			    					</select>
 					    		</div>
@@ -64,19 +64,19 @@
 									<select id="act2" name="act2" class="form-control select2-allow-clear select2-offscreen" tabindex="-1">
 										<option> </option>
 										<c:forEach items="${activities}" var="act">
-							  		 		<option value="${act.id_activity}">${act.name}</option>
+							  		 		<option value="<c:out value="${act.id_activity}"/>"><c:out value="${act.name}"/></option>
 							  			</c:forEach>
 			    					</select>
 					    		</div>
 					    		
-					    		<div class="form-group input-group">
+					    		<div class="form-group input-group" style="width:565px;">
 					    			<span class="input-group-addon">
 				              			<span class="glyphicon">Activité 3</span>
 				              		</span>
 									<select id="act3" name="act3" class="form-control select2-allow-clear select2-offscreen" tabindex="-1">
 										<option> </option>
 										<c:forEach items="${activities}" var="act">
-							  		 		<option value="${act.id_activity}">${act.name}</option>
+							  		 		<option value="<c:out value="${act.id_activity}"/>"><c:out value="${act.name}"/></option>
 							  			</c:forEach>
 			    					</select>
 					    		</div>
@@ -89,26 +89,24 @@
 								
 								<c:if test="${routes != null}">
 								<div class="row">
-									<div class="col-md-6">
+									<div class="col-md-6" style="width:auto;">
 			
 										<table id="groups"
-											class="table table-condensed table-striped table-hover responsive" width="500px;">
+											class="table table-condensed table-striped table-hover responsive" style="width:520px;">
 											<thead>
 												<tr>
-													<th class="col-md-1"></th>
 													<th><label>Nom</label></th>
 													<th><label>Description</label></th>
-													<th class="col-md-1"></th>
 												</tr>
 											</thead>
 											<tbody>
 												<c:forEach items="${routes}" var="rt" varStatus="status">
 													<tr id="route-${rt.route_id}">
 														<td style='display: none;'><input type="hidden"
-															value="${rt.route_id}" /></td>
+															value="<c:out value="${rt.route_id}"/>" /></td>
 			
-														<td><a href="itineraire?id=${rt.route_id}">${rt.name}</a></td>
-														<td>${rt.description}</td>
+														<td><a href="itineraire?id=<c:out value="${rt.route_id}"/>"><c:out value="${rt.name}"/></a></td>
+														<td><c:out value="${rt.description}"/></td>
 														<td></td>
 													</tr>
 												</c:forEach>

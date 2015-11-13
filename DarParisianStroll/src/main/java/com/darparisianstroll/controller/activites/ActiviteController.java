@@ -100,7 +100,7 @@ public class ActiviteController {
 	mov.addObject("activityReviews", actReviews);
 	mov.addObject("user", user);
 	mov.addObject("averageCost", df.format(prix));
-	mov.addObject("averageDuration", durationToString(Math.round(duree)));
+	mov.addObject("averageDuration", Math.round(duree) + "h");
 
 	return mov;
     }
@@ -125,6 +125,12 @@ public class ActiviteController {
 	    response.getWriter().write("true");
 	} catch (IOException e) {
 	    // TODO Auto-generated catch block
+	    e.printStackTrace();
+	}
+
+	try {
+	    response.sendRedirect("activite?id=" + activite);
+	} catch (IOException e) {
 	    e.printStackTrace();
 	}
 

@@ -55,7 +55,7 @@ body {
 							<fieldset>
 
 								<div class="form-group row">
-									Créé par <a href="profil?id=${author.user_id}">${author.username}</a>
+									Créé par ${author.username}
 								</div>
 
 								<c:if test="${route.user == author.user_id}">
@@ -67,11 +67,6 @@ body {
 									</div>
 									</br>
 								</c:if>
-
-								<div class="form-group row">
-									<label class="col-md-3 control-label" for="name">Note
-										(à supprimer): </label> *****
-								</div>
 
 								<div class="form-group row">
 									<label class="col-md-3 control-label" for="name">Description

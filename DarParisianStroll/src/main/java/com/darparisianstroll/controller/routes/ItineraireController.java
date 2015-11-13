@@ -1,11 +1,13 @@
 package com.darparisianstroll.controller.routes;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -144,7 +146,7 @@ public class ItineraireController {
     }
 
     @RequestMapping(value = "create_itineraire", method = RequestMethod.POST)
-    public ModelAndView postCreateItineraire(
+    public ModelAndView postCreateItineraire(HttpServletResponse response,
 	    @RequestParam(value = CHAMP_NAME) final String Name,
 	    @RequestParam(value = CHAMP_DESCR) final String Description,
 	    @RequestParam(value = CHAMP_ACT1) final String act1,
@@ -271,7 +273,7 @@ public class ItineraireController {
 	if (act.isEmpty())
 	    erreursMap.put("erreur", "Tous les champs doivent être renseignés");
 
-	ModelAndView model;
+	ModelAndView model = new ModelAndView("routes/create_itineraire");
 
 	if (erreursMap.isEmpty()) {
 	    erreur = false;
@@ -316,12 +318,13 @@ public class ItineraireController {
 		routeActService.saveRouteAct(ra);
 	    }
 
-	    model = new ModelAndView("routes/itineraire?id="
-		    + route.getRoute_id());
+	    try {
+		response.sendRedirect("liste_itineraires");
+	    } catch (IOException e) {
+		e.printStackTrace();
+	    }
 
 	} else {
-	    model = new ModelAndView("routes/create_itineraire");
-
 	    // ajouter l'erreur et rediriger vers la page
 	    model.addObject("erreur", erreur);
 	    model.addObject("erreursMap", erreursMap);
