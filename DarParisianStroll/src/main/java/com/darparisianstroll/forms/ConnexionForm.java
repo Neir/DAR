@@ -3,8 +3,21 @@ package com.darparisianstroll.forms;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Classe de verification du formulaire de connexion
+ *
+ */
 public final class ConnexionForm {
 
+    /**
+     * Methode verifiant le formulaire
+     * 
+     * @param username
+     *            contenu champ username
+     * @param motDePasse
+     *            contenu champ motDePasse
+     * @return Map d'erreurs
+     */
     public static Map<String, String> verifForm(String username,
 	    String motDePasse) {
 	String CHAMP_USERNAME = "identifiant2";
@@ -36,6 +49,13 @@ public final class ConnexionForm {
 	return erreurs;
     }
 
+    /**
+     * Validation du username
+     * 
+     * @param username
+     *            contenu du champ username
+     * @throws Exception
+     */
     @SuppressWarnings("null")
     private static void validationUsername(String username) throws Exception {
 	if (username == null && username.equals(""))
@@ -46,6 +66,13 @@ public final class ConnexionForm {
 	}
     }
 
+    /**
+     * Validation du motDePasse
+     * 
+     * @param motDePasse
+     *            contenu du champ motDePasse
+     * @throws Exception
+     */
     private static void validationMotsDePasse(String motDePasse)
 	    throws Exception {
 	if (motDePasse != null && !motDePasse.equals("")) {

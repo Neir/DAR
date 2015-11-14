@@ -9,7 +9,7 @@ var eiffelSelect, montMartreSelect, arcDeTriompheSelect;
 var defaultCenterPosition = new google.maps.LatLng(48.87, 2.347198);
 
 var eiffelPosition = new google.maps.LatLng(48.858093, 2.294694);
-var montMartrePosition = new google.maps.LatLng(48.887691, 2.340607);
+var montMartrePosition = new google.maps.LatLng(48.843329, 2.360959);
 var arcDeTriomphePosition = new google.maps.LatLng(48.873756, 2.294946);
 var fochPoincarePosition = new google.maps.LatLng(48.87250602041687,
 		2.284727096557617);
@@ -46,8 +46,8 @@ function initialize() {
 	};
 	var stringEiffel = '<div id="content">' + '<div id="siteNotice">'
 			+ '</div>'
-			+ '<h1 id="firstHeading" class="firstHeading">Eiffel Tower</h1>'
-			+ '<div id="bodyContent">' + '<p><b>Tarif: ....</b>, 4.7 stars</p>'
+			+ '<h1 id="firstHeading" class="firstHeading">Tour Eiffel</h1>'
+			+ '<div id="bodyContent">' + '<p>4.7 stars</p>'
 			+ '</div>' + '</div>';
 	var infoEiffel = new google.maps.InfoWindow({
 		content : stringEiffel
@@ -69,13 +69,13 @@ function initialize() {
 
 	// Mont Martre
 	montMartreIcon = {
-		url : 'resources/images/sacreCoeur.png',
+		url : 'resources/images/jdp.png',
 		scaledSize : new google.maps.Size(50, 50)
 	};
 	var stringMontMartre = '<div id="content">' + '<div id="siteNotice">'
 			+ '</div>'
-			+ '<h1 id="firstHeading" class="firstHeading">Sacre Coeur</h1>'
-			+ '<div id="bodyContent">' + '<p><b>Tarif: ....</b>, 5 stars</p>'
+			+ '<h1 id="firstHeading" class="firstHeading">Jardin des plantes</h1>'
+			+ '<div id="bodyContent">' + '<p>5 stars</p>'
 			+ '</div>' + '</div>';
 	var infoMontMartre = new google.maps.InfoWindow({
 		content : stringMontMartre
@@ -102,7 +102,7 @@ function initialize() {
 	var stringArcDeTriomphe = '<div id="content">' + '<div id="siteNotice">'
 			+ '</div>'
 			+ '<h1 id="firstHeading" class="firstHeading">Arc De Triomphe</h1>'
-			+ '<div id="bodyContent">' + '<p><b>Tarif: ....</b>, 4.8 stars</p>'
+			+ '<div id="bodyContent">' + '<p>4.8 stars</p>'
 			+ '</div>' + '</div>';
 	var infoArcDeTriomphe = new google.maps.InfoWindow({
 		content : stringArcDeTriomphe

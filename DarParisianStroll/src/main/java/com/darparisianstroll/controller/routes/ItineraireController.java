@@ -29,6 +29,10 @@ import com.darparisianstroll.service.RouteService;
 import com.darparisianstroll.service.UserService;
 import com.darparisianstroll.util.Util;
 
+/**
+ * Controller des pages d'itineraire
+ *
+ */
 @Controller
 public class ItineraireController {
     public static final String CHAMP_NAME = "name";
@@ -68,6 +72,17 @@ public class ItineraireController {
     private User user = null;
     private int itineraire;
 
+    /**
+     * Controlleur methode Get de la page d'un itineraire
+     * 
+     * @param request
+     *            contient les informations concernant la requete HTTP
+     * @param id
+     *            identifiant d'un itineraire
+     * @param model
+     *            page d'un itineraire
+     * @return page d'un itineraire
+     */
     @RequestMapping(value = "itineraire", method = RequestMethod.GET)
     public ModelAndView getItineraire(HttpServletRequest request,
 	    @RequestParam("id") int id, Model model) {
@@ -94,12 +109,19 @@ public class ItineraireController {
 	}
 
 	model.addAttribute("activityTable", activites);
-	model.addAttribute("prix", Util.compteCout(act));
-	model.addAttribute("duree", Util.compteDuree(act));
+	model.addAttribute("prix", compteCout(act));
+	model.addAttribute("duree", compteDuree(act));
 
 	return new ModelAndView("routes/itineraire");
     }
 
+    /**
+     * Controlleur methode Get de la page d'un itineraire
+     * 
+     * @param request
+     *            contient les informations concernant la requete HTTP
+     * @return page d'un itineraire
+     */
     @RequestMapping(value = "itineraire", method = RequestMethod.POST)
     public ModelAndView postItineraire(HttpServletRequest request) {
 	String user_id = Util.getCookieValue(request, "user");
@@ -115,6 +137,13 @@ public class ItineraireController {
 	return model;
     }
 
+    /**
+     * Controlleur methode Post de la page de creation d'un itineraire
+     * 
+     * @param request
+     *            contient les informations concernant la requete HTTP
+     * @return page de creation d'un itineraire
+     */
     @RequestMapping(value = "create_itineraire", method = RequestMethod.GET)
     public ModelAndView getCreateItineraire(HttpServletRequest request) {
 	String user_id = Util.getCookieValue(request, "user");
@@ -145,6 +174,53 @@ public class ItineraireController {
 	return model;
     }
 
+    /**
+     * Controlleur methode Post de la page de creation d'un itineraire
+     * 
+     * @param response
+     *            contient les informations concernant la reponse HTTP
+     * @param Name
+     *            titre itineraire
+     * @param Description
+     *            description itineraire
+     * @param act1
+     *            activite 1
+     * @param act2
+     *            activite 2
+     * @param act3
+     *            activite 3
+     * @param act4
+     *            activite 4
+     * @param act5
+     *            activite 5
+     * @param act6
+     *            activite 6
+     * @param duree1
+     *            duree activite 1
+     * @param duree2
+     *            duree activite 2
+     * @param duree3
+     *            duree activite 3
+     * @param duree4
+     *            duree activite 4
+     * @param duree5
+     *            duree activite 5
+     * @param duree6
+     *            duree activite 6
+     * @param prix1
+     *            prix activite 1
+     * @param prix2
+     *            prix activite 2
+     * @param prix3
+     *            prix activite 3
+     * @param prix4
+     *            prix activite 4
+     * @param prix5
+     *            prix activite 5
+     * @param prix6
+     *            prix activite 6
+     * @return page liste itineraire ou create itineraire si erreur
+     */
     @RequestMapping(value = "create_itineraire", method = RequestMethod.POST)
     public ModelAndView postCreateItineraire(HttpServletResponse response,
 	    @RequestParam(value = CHAMP_NAME) final String Name,
@@ -335,6 +411,16 @@ public class ItineraireController {
 	return model;
     }
 
+    /**
+     * Controlleur methode Get de la page de modification/suppression d'un
+     * itineraire
+     * 
+     * @param request
+     *            contient les informations concernant la requete HTTP
+     * @param Itineraire
+     *            id itineraire
+     * @return page de modification/suppression d'un itineraire
+     */
     @RequestMapping(value = "modifier_supprimer_itineraire", method = RequestMethod.GET)
     public ModelAndView getModifierItineraire(HttpServletRequest request,
 	    @RequestParam(value = CHAMP_ID_ITINERAIRE) final String Itineraire) {
@@ -398,6 +484,52 @@ public class ItineraireController {
 	return model;
     }
 
+    /**
+     * Controlleur methode Post de la page de modification/suppression d'un
+     * itineraire permettant de le modifier
+     * 
+     * @param Name
+     *            titre itineraire
+     * @param Description
+     *            description itineraire
+     * @param act1
+     *            activite 1
+     * @param act2
+     *            activite 2
+     * @param act3
+     *            activite 3
+     * @param act4
+     *            activite 4
+     * @param act5
+     *            activite 5
+     * @param act6
+     *            activite 6
+     * @param duree1
+     *            duree activite 1
+     * @param duree2
+     *            duree activite 2
+     * @param duree3
+     *            duree activite 3
+     * @param duree4
+     *            duree activite 4
+     * @param duree5
+     *            duree activite 5
+     * @param duree6
+     *            duree activite 6
+     * @param prix1
+     *            prix activite 1
+     * @param prix2
+     *            prix activite 2
+     * @param prix3
+     *            prix activite 3
+     * @param prix4
+     *            prix activite 4
+     * @param prix5
+     *            prix activite 5
+     * @param prix6
+     *            prix activite 6
+     * @return page de modification/suppression d'un itineraire
+     */
     @RequestMapping(value = "modifier_supprimer_itineraire", method = RequestMethod.POST)
     public ModelAndView POSTModifierItineraire(
 	    @RequestParam(value = CHAMP_NAME) final String Name,
@@ -584,6 +716,12 @@ public class ItineraireController {
 	return model;
     }
 
+    /**
+     * Controlleur methode Post de la page de modification/suppression d'un
+     * itineraire permettant de le supprimer
+     * 
+     * @return page liste itineraire
+     */
     @RequestMapping(value = "supprimer_itineraire", method = RequestMethod.GET)
     public ModelAndView POSTSupprimerItineraire() {
 	// supprimer les activites de l'itineraire dans route_act
@@ -600,5 +738,35 @@ public class ItineraireController {
 	ModelAndView model = new ModelAndView("routes/liste_itineraires");
 	model.addObject("connected", true);
 	return model;
+    }
+
+    /**
+     * Methode calculant le cout total dans un itineraire
+     * 
+     * @param raList
+     *            liste d'activites d'un itineraire
+     * @return cout total dans un itineraire
+     */
+    private static double compteCout(List<RouteAct> raList) {
+	double coutCpt = 0;
+	for (RouteAct ra : raList) {
+	    coutCpt += ra.getPrix();
+	}
+	return coutCpt;
+    }
+
+    /**
+     * Methode calculant la duree totale dans un itineraire
+     * 
+     * @param raList
+     *            liste d'activites d'un itineraire
+     * @return duree totale dans un itineraire
+     */
+    private static int compteDuree(List<RouteAct> raList) {
+	int dureeCpt = 0;
+	for (RouteAct ra : raList) {
+	    dureeCpt += ra.getDuree();
+	}
+	return dureeCpt;
     }
 }

@@ -1,0 +1,11 @@
+com.darparisianstroll.controller
+com.darparisianstroll.controller.activites
+com.darparisianstroll.controller.compteUtilisateur
+com.darparisianstroll.controller.routes
+com.darparisianstroll.dao
+com.darparisianstroll.domain
+com.darparisianstroll.domain.enums
+com.darparisianstroll.forms
+com.darparisianstroll.mail
+com.darparisianstroll.service
+com.darparisianstroll.util

@@ -25,6 +25,10 @@ import com.darparisianstroll.mail.EmailTest;
 import com.darparisianstroll.service.UserService;
 import com.darparisianstroll.util.Util;
 
+/**
+ * Controller des pages d'authentification
+ *
+ */
 @Controller
 public class ConnexInscripController {
     public static final String CHAMP_USERNAME_INSCR = "identifiant1";
@@ -40,18 +44,37 @@ public class ConnexInscripController {
     @Autowired
     UserService userService;
 
+    /**
+     * Controlleur methode Get de la page de connexion/inscription
+     * 
+     * @return page de connexion/inscription
+     */
     @RequestMapping(value = "connexion_inscription", method = RequestMethod.GET)
     public ModelAndView getConnexInscr() {
 	return new ModelAndView(
 		"compte_utilisateur/connexion_inscription/connexion_inscription");
     }
 
+    /**
+     * Controlleur méthode Post de la page de connexion/inscription
+     * 
+     * @return page de connexion/inscription
+     */
     @RequestMapping(value = "connexion_inscription", method = RequestMethod.POST)
     public ModelAndView postConnexInscr() {
 	return new ModelAndView(
 		"compte_utilisateur/connexion_inscription/connexion_inscription");
     }
 
+    /**
+     * Controlleur methode Get de la deconnexion
+     * 
+     * @param request
+     *            contient les informations concernant la requete HTTP
+     * @param response
+     *            contient les informations concernant la reponse HTTP
+     * @return page connexion/inscription
+     */
     @RequestMapping(value = "deconnexion", method = RequestMethod.GET)
     public ModelAndView getDeconnexInscr(HttpServletRequest request,
 	    HttpServletResponse response) {
@@ -71,6 +94,20 @@ public class ConnexInscripController {
 	return model;
     }
 
+    /**
+     * Controlleur methode Post de la page d'inscription
+     * 
+     * @param Username
+     *            username de l'utilisateur
+     * @param Email
+     *            email de l'utilisateur
+     * @param MotDePasse
+     *            mot de passe de l'utilisateur
+     * @param ConfMDP
+     *            confirmation de mot de passe de l'utilisateur
+     * @return page de confirmation mail ou page connexion/inscription si
+     *         probleme
+     */
     @RequestMapping(value = "inscription", method = RequestMethod.POST)
     public ModelAndView postInscrip(
 	    @RequestParam(value = CHAMP_USERNAME_INSCR) final String Username,
@@ -152,6 +189,17 @@ public class ConnexInscripController {
 	return model;
     }
 
+    /**
+     * Controlleur methode Post de la page de connexion
+     * 
+     * @param response
+     *            contient les informations concernant la reponse HTTP
+     * @param Username
+     *            username de l'utilisateur
+     * @param MotDePasse
+     *            mot de passe de l'utilisateur
+     * @return la page connexion/inscription
+     */
     @RequestMapping(value = "connexion", method = RequestMethod.POST)
     public ModelAndView postConnex(HttpServletResponse response,
 	    @RequestParam(value = CHAMP_USERNAME_CONNEX) final String Username,
@@ -202,6 +250,16 @@ public class ConnexInscripController {
 	return model;
     }
 
+    /**
+     * Controlleur methode Get de la requete Ajax permettant de verifier si un
+     * utilisateur existe
+     * 
+     * @param response
+     *            contient les informations concernant la reponse HTTP
+     * @param Email
+     *            email de l'utilisateur
+     * @return null
+     */
     @RequestMapping(value = "verif_inscription", method = RequestMethod.GET)
     public ModelAndView getVerifInscr(HttpServletResponse response,
 	    @RequestParam(value = CHAMP_EMAIL) final String Email) {
@@ -223,6 +281,15 @@ public class ConnexInscripController {
 	return null;
     }
 
+    /**
+     * Controlleur methode Get de la page de validation d'inscription
+     * 
+     * @param request
+     *            contient les informations concernant la requete HTTP
+     * @param CodeUser
+     *            cle de l'utilisateur
+     * @return page de confirmation de l'inscription
+     */
     @RequestMapping(value = "validation_inscription", method = RequestMethod.GET)
     public ModelAndView getValidInscrip(HttpServletRequest request,
 	    @RequestParam(value = "a") final String CodeUser) {

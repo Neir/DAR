@@ -4,11 +4,32 @@ import java.util.List;
 
 import com.darparisianstroll.domain.Category;
 
+/**
+ * DAO d'une category
+ * 
+ */
 public interface CategoryDao {
 
-	Category findById(int category_id);
+    /**
+     * retourne une categorie par son id
+     * 
+     * @param category_id
+     *            id de la categorie
+     * @return categorie
+     */
+    Category findById(int category_id);
 
-	List<Category> findAllCategories();
+    /**
+     * retourne la liste des categories dans la base
+     * 
+     * @return liste des categories dans la base
+     */
+    List<Category> findAllCategories();
 
-	List<Category> findAllVisibleCategories();
+    /**
+     * retourne la liste des categories visibles dans la base
+     * 
+     * @return liste des categories visibles dans la base
+     */
+    List<Category> findAllVisibleCategories();
 }

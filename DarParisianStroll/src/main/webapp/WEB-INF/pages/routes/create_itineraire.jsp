@@ -49,7 +49,7 @@
 				  	  	</div>
 					</c:if>
 					
-		    		<div class="form-group input-group">
+		    		<div class="form-group input-group" style="width:600px;">
 		    			<span class="input-group-addon">
 	              			<span class="glyphicon glyphicon-asterisk"></span>
 	              		</span>
@@ -65,7 +65,7 @@
 		    		
 		    		</br><span style="color:white;">Activité 1 <span class="requis">*</span></span></br>
 					
-					<div class="form-group input-group">
+					<div class="form-group input-group" style="width:600px;">
 		    			<span class="input-group-addon">
 	              			<span class="glyphicon glyphicon-asterisk"></span>
 	              		</span>
@@ -76,13 +76,13 @@
 				  			</c:forEach>
     					</select>
 		    		</div>
-		    		<div class="form-group input-group">
+		    		<div class="form-group input-group" style="width:600px;">
 		    			<span class="input-group-addon">
 	              			<span class="glyphicon glyphicon-asterisk"></span>
 	              		</span>
 		      			<input type="text" class="form-control"  id="duree1" name="duree1" placeholder="Durée en nombre d'heures (ex: 2)">
 		    		</div>
-		    		<div class="form-group input-group">
+		    		<div class="form-group input-group" style="width:600px;">
 		    			<span class="input-group-addon">
 	              			<span class="glyphicon glyphicon-asterisk"></span>
 	              		</span>
@@ -91,7 +91,7 @@
 		    		
 		    		</br><span style="color:white;">Activité 2</span></br>
 		    		
-		    		<div class="form-group input-group">
+		    		<div class="form-group input-group" style="width:600px;">
 		    			<span class="input-group-addon">
 	              			<span class="glyphicon glyphicon-asterisk"></span>
 	              		</span>
@@ -102,13 +102,13 @@
 				  			</c:forEach>
     					</select>
 		    		</div>
-		    		<div class="form-group input-group">
+		    		<div class="form-group input-group" style="width:600px;">
 		    			<span class="input-group-addon">
 	              			<span class="glyphicon glyphicon-asterisk"></span>
 	              		</span>
 		      			<input type="text" class="form-control"  id="duree2" name="duree2" placeholder="Durée en nombre d'heures (ex: 2)">
 		    		</div>
-		    		<div class="form-group input-group">
+		    		<div class="form-group input-group" style="width:600px;">
 		    			<span class="input-group-addon">
 	              			<span class="glyphicon glyphicon-asterisk"></span>
 	              		</span>
@@ -117,7 +117,7 @@
 		    		
 		    		</br><span style="color:white;">Activité 3</span></br>
 		    		
-		    		<div class="form-group input-group">
+		    		<div class="form-group input-group" style="width:600px;">
 		    			<span class="input-group-addon">
 	              			<span class="glyphicon glyphicon-asterisk"></span>
 	              		</span>
@@ -128,13 +128,13 @@
 				  			</c:forEach>
     					</select>
 		    		</div>
-		    		<div class="form-group input-group">
+		    		<div class="form-group input-group" style="width:600px;">
 		    			<span class="input-group-addon">
 	              			<span class="glyphicon glyphicon-asterisk"></span>
 	              		</span>
 		      			<input type="text" class="form-control"  id="duree3" name="duree3" placeholder="Durée en nombre d'heures (ex: 2)">
 		    		</div>
-		    		<div class="form-group input-group">
+		    		<div class="form-group input-group" style="width:600px;">
 		    			<span class="input-group-addon">
 	              			<span class="glyphicon glyphicon-asterisk"></span>
 	              		</span>
@@ -143,7 +143,7 @@
 		    		
 		    		</br><span style="color:white;">Activité 4</span></br>
 		    		
-		    		<div class="form-group input-group">
+		    		<div class="form-group input-group" style="width:600px;">
 		    			<span class="input-group-addon">
 	              			<span class="glyphicon glyphicon-asterisk"></span>
 	              		</span>
@@ -154,13 +154,13 @@
 				  			</c:forEach>
     					</select>
 		    		</div>
-		    		<div class="form-group input-group">
+		    		<div class="form-group input-group" style="width:600px;">
 		    			<span class="input-group-addon">
 	              			<span class="glyphicon glyphicon-asterisk"></span>
 	              		</span>
 		      			<input type="text" class="form-control"  id="duree4" name="duree4" placeholder="Durée en nombre d'heures (ex: 2)">
 		    		</div>
-		    		<div class="form-group input-group">
+		    		<div class="form-group input-group" style="width:600px;">
 		    			<span class="input-group-addon">
 	              			<span class="glyphicon glyphicon-asterisk"></span>
 	              		</span>
@@ -169,7 +169,7 @@
 		    		
 		    		</br><span style="color:white;">Activité 5</span></br>
 		    		
-		    		<div class="form-group input-group">
+		    		<div class="form-group input-group" style="width:600px;">
 		    			<span class="input-group-addon">
 	              			<span class="glyphicon glyphicon-asterisk"></span>
 	              		</span>
@@ -180,13 +180,13 @@
 				  			</c:forEach>
     					</select>
 		    		</div>
-		    		<div class="form-group input-group">
+		    		<div class="form-group input-group" style="width:600px;">
 		    			<span class="input-group-addon">
 	              			<span class="glyphicon glyphicon-asterisk"></span>
 	              		</span>
 		      			<input type="text" class="form-control"  id="duree5" name="duree5" placeholder="Durée en nombre d'heures (ex: 2)">
 		    		</div>
-		    		<div class="form-group input-group">
+		    		<div class="form-group input-group" style="width:600px;">
 		    			<span class="input-group-addon">
 	              			<span class="glyphicon glyphicon-asterisk"></span>
 	              		</span>
@@ -195,7 +195,7 @@
 		    		
 		    		</br><span style="color:white;">Activité 6</span></br>
 		    		
-		    		<div class="form-group input-group">
+		    		<div class="form-group input-group" style="width:600px;">
 		    			<span class="input-group-addon">
 	              			<span class="glyphicon glyphicon-asterisk"></span>
 	              		</span>
@@ -206,13 +206,13 @@
 				  			</c:forEach>
     					</select>
 		    		</div>
-		    		<div class="form-group input-group">
+		    		<div class="form-group input-group" style="width:600px;">
 		    			<span class="input-group-addon">
 	              			<span class="glyphicon glyphicon-asterisk"></span>
 	              		</span>
 		      			<input type="text" class="form-control"  id="duree6" name="duree6" placeholder="Durée en nombre d'heures (ex: 2)">
 		    		</div>
-		    		<div class="form-group input-group">
+		    		<div class="form-group input-group" style="width:600px;">
 		    			<span class="input-group-addon">
 	              			<span class="glyphicon glyphicon-asterisk"></span>
 	              		</span>

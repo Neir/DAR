@@ -3,8 +3,21 @@ package com.darparisianstroll.forms;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Classe de verification du formulaire d'ajout du nouveau mot de passe
+ *
+ */
 public class NewMDPOForm {
 
+    /**
+     * Methode verifiant le formulaire
+     * 
+     * @param motDePasse
+     *            contenu champ motDePasse
+     * @param confMDP
+     *            contenu champ confMDP
+     * @return Map d'erreurs
+     */
     public static Map<String, String> verifForm(String motDePasse,
 	    String confMDP) {
 	String CHAMP_MDP = "motDePasse";
@@ -24,6 +37,15 @@ public class NewMDPOForm {
 	return erreurs;
     }
 
+    /**
+     * validation du motDePasse
+     * 
+     * @param motDePasse
+     *            champ motDePasse
+     * @param confMotDePasse
+     *            champ confMotDePasse
+     * @throws Exception
+     */
     private static void validationMotsDePasse(String motDePasse,
 	    String confMotDePasse) throws Exception {
 	if (motDePasse != null && !motDePasse.equals("")

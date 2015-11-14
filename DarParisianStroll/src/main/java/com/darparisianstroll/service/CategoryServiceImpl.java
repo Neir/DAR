@@ -11,24 +11,24 @@ import com.darparisianstroll.domain.Category;
 
 @Service("categoryService")
 @Transactional
-public class CategoryServiceImpl implements CategoryService{
-	
-	@Autowired
-	private CategoryDao dao;
+public class CategoryServiceImpl implements CategoryService {
 
-	@Override
-	public Category findById(int category_id) {
-		return dao.findById(category_id);
-	}
+    @Autowired
+    private CategoryDao dao;
 
-	@Override
-	public List<Category> findAllCategories() {
-		return dao.findAllCategories();
-	}
+    @Override
+    public Category findById(int category_id) {
+	return dao.findById(category_id);
+    }
 
-	@Override
-	public List<Category> findAllVisibleCategories() {
-		return dao.findAllVisibleCategories();
-	}
+    @Override
+    public List<Category> findAllCategories() {
+	return dao.findAllCategories();
+    }
+
+    @Override
+    public List<Category> findAllVisibleCategories() {
+	return dao.findAllVisibleCategories();
+    }
 
 }

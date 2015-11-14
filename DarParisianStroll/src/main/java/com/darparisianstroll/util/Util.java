@@ -1,13 +1,13 @@
 package com.darparisianstroll.util;
 
-import java.util.List;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.darparisianstroll.domain.RouteAct;
-
+/**
+ * Classe contenant des méthodes statiques utilises dans l'application
+ *
+ */
 public class Util {
 
     /**
@@ -36,6 +36,12 @@ public class Util {
     /**
      * Methode utilitaire gerant la récupération de la valeur d'un cookie donne
      * depuis la requête HTTP.
+     * 
+     * @param request
+     *            contient les informations concernant la requete HTTP
+     * @param nom
+     *            nom du cookie
+     * @return cookie du nom 'nom' ou null si non retrouve
      */
     public static String getCookieValue(HttpServletRequest request, String nom) {
 	Cookie[] cookies = request.getCookies();
@@ -49,6 +55,16 @@ public class Util {
 	return null;
     }
 
+    /**
+     * Methode supprimant un cookie donne depuis la requête HTTP.
+     * 
+     * @param request
+     *            contient les informations concernant la requete HTTP
+     * @param response
+     *            contient les informations concernant la reponse HTTP
+     * @param nom
+     *            nom du cookie
+     */
     public static void deleteCookie(HttpServletRequest request,
 	    HttpServletResponse response, String nom) {
 	Cookie[] cookies = request.getCookies();
@@ -62,21 +78,5 @@ public class Util {
 		}
 	    }
 	}
-    }
-
-    public static double compteCout(List<RouteAct> raList) {
-	double coutCpt = 0;
-	for (RouteAct ra : raList) {
-	    coutCpt += ra.getPrix();
-	}
-	return coutCpt;
-    }
-
-    public static int compteDuree(List<RouteAct> raList) {
-	int dureeCpt = 0;
-	for (RouteAct ra : raList) {
-	    dureeCpt += ra.getDuree();
-	}
-	return dureeCpt;
     }
 }

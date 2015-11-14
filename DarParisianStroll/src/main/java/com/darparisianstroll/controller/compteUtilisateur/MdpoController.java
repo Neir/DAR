@@ -19,6 +19,10 @@ import com.darparisianstroll.mail.EmailTest;
 import com.darparisianstroll.service.UserService;
 import com.darparisianstroll.util.Util;
 
+/**
+ * Controller de la page mot de passe oublie
+ *
+ */
 @Controller
 public class MdpoController {
     public static final String CHAMP_EMAIL = "email";
@@ -29,6 +33,13 @@ public class MdpoController {
     @Autowired
     UserService userService;
 
+    /**
+     * Controlleur methode Get de la page de mot de passe oublie
+     * 
+     * @param request
+     *            contient les informations concernant la requete HTTP
+     * @return la page de mot de passe oublie
+     */
     @RequestMapping(value = "mdpo", method = RequestMethod.GET)
     public ModelAndView getMdpo(HttpServletRequest request) {
 	String user_id = Util.getCookieValue(request, "user");
@@ -45,6 +56,15 @@ public class MdpoController {
 	return model;
     }
 
+    /**
+     * Controlleur methode Post de la page de mot de passe oublie
+     * 
+     * @param request
+     *            contient les informations concernant la requete HTTP
+     * @param Email
+     *            email de l'utilisateur
+     * @return page de confirmation
+     */
     @RequestMapping(value = "mdpo", method = RequestMethod.POST)
     public ModelAndView postMdpo(HttpServletRequest request,
 	    @RequestParam(value = CHAMP_EMAIL) final String Email) {

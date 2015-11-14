@@ -14,23 +14,23 @@ import com.darparisianstroll.domain.ActivityReview;
 @Transactional
 public class ActivityReviewServiceImpl implements ActivityReviewService {
 
-	@Autowired
-	private ActivityReviewDao dao;
+    @Autowired
+    private ActivityReviewDao dao;
 
-	@Override
-	public ActivityReview findById(int review_id) {
-		return dao.findById(review_id);
-	}
+    @Override
+    public ActivityReview findById(int review_id) {
+	return dao.findById(review_id);
+    }
 
-	@Override
-	public List<ActivityReview> findActivityReviewsFromActivity(Activity act) {
-		return dao.findActivityReviewsFromActivity(act);
-	}
+    @Override
+    public List<ActivityReview> findActivityReviewsFromActivity(Activity act) {
+	return dao.findActivityReviewsFromActivity(act);
+    }
 
-	@Override
-	public void saveReview(ActivityReview review) {
-		dao.saveReview(review);
+    @Override
+    public void saveReview(ActivityReview review) {
+	dao.saveReview(review);
 
-	}
+    }
 
 }

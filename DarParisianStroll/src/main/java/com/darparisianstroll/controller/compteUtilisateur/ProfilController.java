@@ -29,6 +29,10 @@ import com.darparisianstroll.service.RouteService;
 import com.darparisianstroll.service.UserService;
 import com.darparisianstroll.util.Util;
 
+/**
+ * Controller de la page de profil
+ *
+ */
 @Controller
 public class ProfilController {
     public static final String CHAMP_USERNAME = "identifiant";
@@ -49,6 +53,15 @@ public class ProfilController {
     @Autowired
     RouteReviewService routeReviewService;
 
+    /**
+     * Controlleur methode Get de la page de profil
+     * 
+     * @param request
+     *            contient les informations concernant la requete HTTP
+     * @param response
+     *            contient les informations concernant la reponse HTTP
+     * @return page profil
+     */
     @RequestMapping(value = "profil", method = RequestMethod.GET)
     public ModelAndView getProfil(HttpServletRequest request,
 	    HttpServletResponse response) {
@@ -132,6 +145,21 @@ public class ProfilController {
 	return model;
     }
 
+    /**
+     * Controlleur methode Get de la page de profil
+     * 
+     * @param request
+     *            contient les informations concernant la requete HTTP
+     * @param response
+     *            contient les informations concernant la reponse HTTP
+     * @param Username
+     *            username de l'utilisateur
+     * @param Email
+     *            email de l'utilisateur
+     * @param emailCookie
+     *            cookie contenant le mail de l'utilisateur
+     * @return page profil
+     */
     @RequestMapping(value = "profil", method = RequestMethod.POST)
     public ModelAndView postProfil(HttpServletRequest request,
 	    HttpServletResponse response,

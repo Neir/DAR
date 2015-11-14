@@ -4,12 +4,33 @@ import java.util.List;
 
 import com.darparisianstroll.domain.Category;
 
+/**
+ * Service de la table cetegory
+ *
+ */
 public interface CategoryService {
 
-	Category findById(int category_id);
+    /**
+     * Appel a la methode findById du DAO
+     * 
+     * @param category_id
+     *            id de la category
+     * @return retourne category
+     */
+    Category findById(int category_id);
 
-	List<Category> findAllCategories();
+    /**
+     * Appel a la methode findAllCategories du DAO
+     * 
+     * @return liste category
+     */
+    List<Category> findAllCategories();
 
-	List<Category> findAllVisibleCategories();
+    /**
+     * Appel a la methode findAllVisibleCategories du DAO
+     * 
+     * @return liste category
+     */
+    List<Category> findAllVisibleCategories();
 
 }

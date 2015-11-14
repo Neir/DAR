@@ -3,7 +3,21 @@ package com.darparisianstroll.forms;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Classe de verification du formulaire de creation d'un itineraire
+ *
+ */
 public class CreateItineraireForm {
+
+    /**
+     * Methode verifiant le formulaire
+     * 
+     * @param name
+     *            contenu champ username
+     * @param description
+     *            contenu champ description
+     * @return Map d'erreurs
+     */
     public static Map<String, String> verifForm(String name, String description) {
 	String CHAMP_NAME = "name";
 	String CHAMP_DESCR = "description";
@@ -35,6 +49,13 @@ public class CreateItineraireForm {
 	return erreurs;
     }
 
+    /**
+     * validation du champ
+     * 
+     * @param champs
+     *            champ
+     * @throws Exception
+     */
     @SuppressWarnings("null")
     private static void validationChamps(String champs) throws Exception {
 	if (champs == null || champs.equals(""))
@@ -45,6 +66,13 @@ public class CreateItineraireForm {
 	}
     }
 
+    /**
+     * validation de la description
+     * 
+     * @param description
+     *            champ description
+     * @throws Exception
+     */
     private static void validationDescription(String description)
 	    throws Exception {
 	if (description == null || description.equals(""))

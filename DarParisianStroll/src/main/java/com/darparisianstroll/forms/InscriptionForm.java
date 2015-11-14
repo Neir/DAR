@@ -3,8 +3,25 @@ package com.darparisianstroll.forms;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Classe de verification du formulaire d'inscription
+ *
+ */
 public class InscriptionForm {
 
+    /**
+     * Methode verifiant le formulaire
+     * 
+     * @param username
+     *            contenu champ username
+     * @param email
+     *            contenu champ email
+     * @param motDePasse
+     *            contenu champ motDePasse
+     * @param confMDP
+     *            contenu champ confMDP
+     * @return Map d'erreurs
+     */
     public static Map<String, String> verifForm(String username, String email,
 	    String motDePasse, String confMDP) {
 	String CHAMP_USERNAME = "identifiant1";
@@ -48,6 +65,13 @@ public class InscriptionForm {
 	return erreurs;
     }
 
+    /**
+     * validation du username
+     * 
+     * @param username
+     *            champ username
+     * @throws Exception
+     */
     @SuppressWarnings("null")
     private static void validationUsername(String username) throws Exception {
 	if (username == null && username.equals(""))
@@ -58,6 +82,13 @@ public class InscriptionForm {
 	}
     }
 
+    /**
+     * validation de l'email
+     * 
+     * @param email
+     *            champ email
+     * @throws Exception
+     */
     private static void validationEmail(String email) throws Exception {
 	String mailRegex = "^[a-zA-Z0-9\\.\\-\\_]+@[a-zA-Z0-9\\-\\_]+\\.[a-zA-Z]{2,4}$";
 
@@ -73,6 +104,15 @@ public class InscriptionForm {
 	}
     }
 
+    /**
+     * validation du motDePasse
+     * 
+     * @param motDePasse
+     *            champ motDePasse
+     * @param confMotDePasse
+     *            champ confMotDePasse
+     * @throws Exception
+     */
     private static void validationMotsDePasse(String motDePasse,
 	    String confMotDePasse) throws Exception {
 	if (motDePasse != null && !motDePasse.equals("")

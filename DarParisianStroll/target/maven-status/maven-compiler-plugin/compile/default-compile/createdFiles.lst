@@ -38,7 +38,6 @@ com/darparisianstroll/domain/Route.class
 com/darparisianstroll/domain/ActivityReview.class
 com/darparisianstroll/dao/UserDao.class
 com/darparisianstroll/service/RouteActService.class
-com/darparisianstroll/controller/routes/RouteModel.class
 com/darparisianstroll/controller/compteUtilisateur/NewMdpoController.class
 com/darparisianstroll/dao/RouteDaoImpl.class
 com/darparisianstroll/domain/enums/Note.class

@@ -20,6 +20,10 @@ import com.darparisianstroll.service.RouteActService;
 import com.darparisianstroll.service.UserService;
 import com.darparisianstroll.util.Util;
 
+/**
+ * Controller de la page liste itineraires
+ * 
+ */
 @Controller
 public class ListeItinController {
     public static final String CHAMP_ACT1 = "act1";
@@ -33,6 +37,13 @@ public class ListeItinController {
     @Autowired
     RouteActService routeActService;
 
+    /**
+     * Controlleur methode Get de la page liste itineraires
+     * 
+     * @param request
+     *            contient les informations concernant la requete HTTP
+     * @return page liste itineraires
+     */
     @RequestMapping(value = "liste_itineraires", method = RequestMethod.GET)
     public ModelAndView getListeItin(HttpServletRequest request) {
 	ModelAndView model = new ModelAndView("routes/liste_itineraires");
@@ -52,6 +63,19 @@ public class ListeItinController {
 	return model;
     }
 
+    /**
+     * Controlleur methode Post de la page liste itineraires
+     * 
+     * @param request
+     *            contient les informations concernant la requete HTTP
+     * @param act1
+     *            activite 1
+     * @param act2
+     *            activite 2
+     * @param act3
+     *            activite 3
+     * @return page liste itineraires
+     */
     @RequestMapping(value = "liste_itineraires", method = RequestMethod.POST)
     public ModelAndView postListeItin(HttpServletRequest request,
 	    @RequestParam(value = CHAMP_ACT1) final String act1,

@@ -3,7 +3,21 @@ package com.darparisianstroll.forms;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Classe de verification du formulaire de profil
+ *
+ */
 public class ProfilForm {
+
+    /**
+     * Methode verifiant le formulaire
+     * 
+     * @param username
+     *            contenu champ username
+     * @param email
+     *            contenu champ email
+     * @return Map d'erreurs
+     */
     public static Map<String, String> verifForm(String username, String email) {
 	String CHAMP_USERNAME = "identifiant";
 	String CHAMP_EMAIL = "email";
@@ -35,6 +49,13 @@ public class ProfilForm {
 	return erreurs;
     }
 
+    /**
+     * Validation du username
+     * 
+     * @param username
+     *            champ username
+     * @throws Exception
+     */
     @SuppressWarnings("null")
     private static void validationUsername(String username) throws Exception {
 	if (username == null || username.equals(""))
@@ -45,6 +66,13 @@ public class ProfilForm {
 	}
     }
 
+    /**
+     * Validation de l'email
+     * 
+     * @param email
+     *            champ email
+     * @throws Exception
+     */
     private static void validationEmail(String email) throws Exception {
 	String mailRegex = "^[a-zA-Z0-9\\.\\-\\_]+@[a-zA-Z0-9\\-\\_]+\\.[a-zA-Z]{2,4}$";
 

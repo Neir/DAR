@@ -3,8 +3,19 @@ package com.darparisianstroll.forms;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Classe de verification du formulaire de mot de passe oublie
+ *
+ */
 public class MDPOForm {
 
+    /**
+     * Methode verifiant le formulaire
+     * 
+     * @param email
+     *            contenu champ email
+     * @return Map d'erreurs
+     */
     public static Map<String, String> verifForm(String email) {
 	String CHAMP_EMAIL = "email";
 	String ERR_CHAMPS = "Le champs email doit être renseigné";
@@ -23,6 +34,13 @@ public class MDPOForm {
 	return erreurs;
     }
 
+    /**
+     * verification email
+     * 
+     * @param email
+     *            champ email
+     * @throws Exception
+     */
     private static void validationEmail(String email) throws Exception {
 	String mailRegex = "^[a-zA-Z0-9\\.\\-\\_]+@[a-zA-Z0-9\\-\\_]+\\.[a-zA-Z]{2,4}$";
 

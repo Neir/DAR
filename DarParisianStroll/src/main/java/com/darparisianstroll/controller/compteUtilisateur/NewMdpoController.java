@@ -22,6 +22,10 @@ import com.darparisianstroll.forms.NewMDPOForm;
 import com.darparisianstroll.service.UserService;
 import com.darparisianstroll.util.Util;
 
+/**
+ * Controller de la page de creation d'un nouveau mot de passe
+ *
+ */
 @Controller
 public class NewMdpoController {
     public static final String CHAMP_MDP = "motDePasse";
@@ -33,6 +37,17 @@ public class NewMdpoController {
     @Autowired
     UserService userService;
 
+    /**
+     * Controlleur methode Get de la page de creation d'un nouveau mot de passe
+     * 
+     * @param request
+     *            contient les informations concernant la requete HTTP
+     * @param response
+     *            contient les informations concernant la reponse HTTP
+     * @param CodeMail
+     *            cle utilisateur
+     * @return page de creation d'un nouveau mot de passe
+     */
     @RequestMapping(value = "new_mdpo", method = RequestMethod.GET)
     public ModelAndView getNewMdpo(HttpServletRequest request,
 	    HttpServletResponse response,
@@ -63,6 +78,19 @@ public class NewMdpoController {
 	return model;
     }
 
+    /**
+     * Controlleur methode Post de la page de creation d'un nouveau mot de passe
+     * 
+     * @param request
+     *            contient les informations concernant la requete HTTP
+     * @param MotDePasse
+     *            mot de passe de l'utilisateur
+     * @param ConfMotDePasse
+     *            confirmation de mot de passe de l'utilisateur
+     * @param emailCookie
+     *            cookie contenant l'email
+     * @return page de confirmation
+     */
     @RequestMapping(value = "new_mdpo", method = RequestMethod.POST)
     public ModelAndView postNewMdpo(HttpServletRequest request,
 	    @RequestParam(value = CHAMP_MDP) final String MotDePasse,

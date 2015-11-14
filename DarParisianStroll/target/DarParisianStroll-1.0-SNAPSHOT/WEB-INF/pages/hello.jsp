@@ -4,7 +4,7 @@
 <head>
 <jsp:include page="import.jsp"></jsp:include>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<title>Parisian Stroll</title>
+<title>Dar Parisian Stroll</title>
 <script type="text/javascript"
 	src="http://maps.google.com/maps/api/js?sensor=true&language=fr"></script>
 <script src="<c:url value="/resources/js/hello.js" />"></script>
@@ -60,9 +60,9 @@ section {
 					src="resources/images/parisianStrollTitle.png"
 					width="75%" height="100%" />
 			</div>
-			<div class="panel-body">
+			<div class="panel-body" style="background-color: rgba(0, 0, 0, 0.1);">
 								<div id="resume">
-									<p>Bienvenue sur <u>ParisiaStroll.com</u> ! La référence des sorties à Paris. <u><a href="connexion_inscription">Inscrivez-vous</a></u> et proposez votre propre itinéraire.</p>
+									<p>Bienvenue sur <u>DarParisiaStroll.com</u> ! La référence des sorties à Paris. <u><a href="connexion_inscription">Inscrivez-vous</a></u> et proposez votre propre itinéraire.</p>
 								</div>
 				<form class="form-vertical">
 					<div class="column">
@@ -70,11 +70,11 @@ section {
 
 							<label id="titleActivity">
 						<span style="color: black;">
-								Activités populaire à Paris</span>
+								Activités populaires à Paris</span>
 					</label>
 							<a href="activite?id=1653" class="btn btn-lg btn-block btn-primary" id="eiffel">Tour Eiffel</a>
 							<a href="activite?id=1650" class="btn btn-lg btn-block btn-primary" id="arcDeTriomphe">Arc de Triomphe</a>
-							<button type="submit" class="btn btn-lg btn-block btn-primary"id="montMartre">Sacré Coeur</button>
+							<a href="activite?id=1799" class="btn btn-lg btn-block btn-primary"id="montMartre">Jardin des plantes</a>
 						</div>
 
 						<div class="col-md-9">

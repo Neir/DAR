@@ -61,7 +61,7 @@ public final class hello_jsp extends org.apache.jasper.runtime.HttpJspBase
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "import.jsp", out, false);
       out.write("\r\n");
       out.write("<meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\">\r\n");
-      out.write("<title>Parisian Stroll</title>\r\n");
+      out.write("<title>Dar Parisian Stroll</title>\r\n");
       out.write("<script type=\"text/javascript\"\r\n");
       out.write("\tsrc=\"http://maps.google.com/maps/api/js?sensor=true&language=fr\"></script>\r\n");
       out.write("<script src=\"");
@@ -125,9 +125,9 @@ public final class hello_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t\t\t\t\tsrc=\"resources/images/parisianStrollTitle.png\"\r\n");
       out.write("\t\t\t\t\twidth=\"75%\" height=\"100%\" />\r\n");
       out.write("\t\t\t</div>\r\n");
-      out.write("\t\t\t<div class=\"panel-body\">\r\n");
+      out.write("\t\t\t<div class=\"panel-body\" style=\"background-color: rgba(0, 0, 0, 0.1);\">\r\n");
       out.write("\t\t\t\t\t\t\t\t<div id=\"resume\">\r\n");
-      out.write("\t\t\t\t\t\t\t\t\t<p>Bienvenue sur <u>ParisiaStroll.com</u> ! La référence des sorties à Paris. <u><a href=\"connexion_inscription\">Inscrivez-vous</a></u> et proposez votre propre itinéraire.</p>\r\n");
+      out.write("\t\t\t\t\t\t\t\t\t<p>Bienvenue sur <u>DarParisiaStroll.com</u> ! La référence des sorties à Paris. <u><a href=\"connexion_inscription\">Inscrivez-vous</a></u> et proposez votre propre itinéraire.</p>\r\n");
       out.write("\t\t\t\t\t\t\t\t</div>\r\n");
       out.write("\t\t\t\t<form class=\"form-vertical\">\r\n");
       out.write("\t\t\t\t\t<div class=\"column\">\r\n");
@@ -135,11 +135,11 @@ public final class hello_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\t\t\t\t\t\t\t<label id=\"titleActivity\">\r\n");
       out.write("\t\t\t\t\t\t<span style=\"color: black;\">\r\n");
-      out.write("\t\t\t\t\t\t\t\tActivités populaire à Paris</span>\r\n");
+      out.write("\t\t\t\t\t\t\t\tActivités populaires à Paris</span>\r\n");
       out.write("\t\t\t\t\t</label>\r\n");
       out.write("\t\t\t\t\t\t\t<a href=\"activite?id=1653\" class=\"btn btn-lg btn-block btn-primary\" id=\"eiffel\">Tour Eiffel</a>\r\n");
       out.write("\t\t\t\t\t\t\t<a href=\"activite?id=1650\" class=\"btn btn-lg btn-block btn-primary\" id=\"arcDeTriomphe\">Arc de Triomphe</a>\r\n");
-      out.write("\t\t\t\t\t\t\t<button type=\"submit\" class=\"btn btn-lg btn-block btn-primary\"id=\"montMartre\">Sacré Coeur</button>\r\n");
+      out.write("\t\t\t\t\t\t\t<a href=\"activite?id=1799\" class=\"btn btn-lg btn-block btn-primary\"id=\"montMartre\">Jardin des plantes</a>\r\n");
       out.write("\t\t\t\t\t\t</div>\r\n");
       out.write("\r\n");
       out.write("\t\t\t\t\t\t<div class=\"col-md-9\">\r\n");

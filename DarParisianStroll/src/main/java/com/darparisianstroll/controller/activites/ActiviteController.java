@@ -33,6 +33,10 @@ import com.darparisianstroll.service.RouteReviewService;
 import com.darparisianstroll.service.UserService;
 import com.darparisianstroll.util.Util;
 
+/**
+ * Controller de la page representant une activite
+ *
+ */
 @Controller
 public class ActiviteController {
 
@@ -59,6 +63,17 @@ public class ActiviteController {
     private final static String CHAMP_NOTE = "select1";
     private final static String CHAMP_TEXT = "textarea";
 
+    /**
+     * Controlleur methode Get de la page representant une activite
+     * 
+     * @param request
+     *            contient les informations concernant la requete HTTP
+     * @param response
+     *            contient les informations concernant la reponse HTTP
+     * @param id
+     *            identifiant de l'activite
+     * @return page representant une activite
+     */
     @RequestMapping(value = "activite", method = RequestMethod.GET)
     public ModelAndView getActivite(HttpServletRequest request,
 	    HttpServletResponse response, @RequestParam("id") Integer id) {
@@ -105,6 +120,19 @@ public class ActiviteController {
 	return mov;
     }
 
+    /**
+     * Controlleur methode Post de la page representant une activite
+     * 
+     * @param request
+     *            contient les informations concernant la requete HTTP
+     * @param response
+     *            contient les informations concernant la reponse HTTP
+     * @param note
+     *            note donnee par l'utilisateur a l'activite
+     * @param text
+     *            commentaire donnee par l'utilisateur a l'activite
+     * @return page representant une activite
+     */
     @RequestMapping(value = "activite", method = RequestMethod.POST)
     public ModelAndView postActivite(HttpServletRequest request,
 	    HttpServletResponse response,
@@ -137,6 +165,19 @@ public class ActiviteController {
 	return this.getActivite(request, response, activite);
     }
 
+    /**
+     * Controlleur methode Get de la page representant une activite
+     * 
+     * @param request
+     *            contient les informations concernant la requete HTTP
+     * @param response
+     *            contient les informations concernant la reponse HTTP
+     * @param note
+     *            note donnee par l'utilisateur a l'activite
+     * @param text
+     *            commentaire donnee par l'utilisateur a l'activite
+     * @return page representant une activite
+     */
     @RequestMapping(value = "activite_form", method = RequestMethod.GET)
     public ModelAndView formActivite(HttpServletRequest request,
 	    HttpServletResponse response,
@@ -162,6 +203,13 @@ public class ActiviteController {
 	return null;
     }
 
+    /**
+     * Methode calculant la note moyenne pour chaque itineraire
+     * 
+     * @param list
+     *            : liste d'itineraries
+     * @return liste des moyennes de notes des itineraires
+     */
     private List<Integer> averageRoutesRate(List<Route> list) {
 	ArrayList<Integer> res = new ArrayList<>();
 	List<RouteReview> ll;
@@ -192,6 +240,13 @@ public class ActiviteController {
 	return res;
     }
 
+    /**
+     * Methode calculant la note moyenne d'une activite
+     * 
+     * @param a
+     *            activite
+     * @return note moyenne
+     */
     private int averageActivityRate(Activity a) {
 	float res = 0;
 	List<ActivityReview> ll = actReviewService
@@ -217,6 +272,13 @@ public class ActiviteController {
 	return Math.round(res);
     }
 
+    /**
+     * Methode calculant le prix moyen d'une activite
+     * 
+     * @param a
+     *            activite
+     * @return prix moyen
+     */
     private float averageCost(Activity a) {
 	List<RouteAct> lra = routeActService.findRouteAct(a);
 	float cpt = 0;
@@ -229,6 +291,13 @@ public class ActiviteController {
 	return cpt;
     }
 
+    /**
+     * Methode calculant la duree moyenne d'une activite
+     * 
+     * @param a
+     *            activite
+     * @return duree moyenne
+     */
     private float averageDuration(Activity a) {
 	List<RouteAct> lra = routeActService.findRouteAct(a);
 	float cpt = 0;
@@ -240,16 +309,4 @@ public class ActiviteController {
 	}
 	return cpt;
     }
-
-    private String durationToString(int duration) {
-	int h = duration / 60;
-	int min = duration % 60;
-	String res = "";
-	if (h > 0) {
-	    res += h + "h";
-	}
-	res += min + "min";
-	return res;
-    }
-
 }
